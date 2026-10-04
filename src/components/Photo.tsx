@@ -9,13 +9,11 @@ type Props = {
   priority?: boolean;
 };
 
-const widths = [480, 800, 1200, 1800, 2400];
-
 export function Photo({ name, alt, className, sizes = "100vw", priority }: Props) {
   return (
     <img
-      src={photoUrl(name, 1200)}
-      srcSet={widths.map((w) => `${photoUrl(name, w)} ${w}w`).join(", ")}
+      src={photoUrl(name, 1600)}
+      srcSet={`${photoUrl(name, 800)} 800w, ${photoUrl(name, 1600)} 1600w`}
       sizes={sizes}
       alt={alt}
       className={className}

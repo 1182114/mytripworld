@@ -8,7 +8,17 @@
       "permanent": true
     },
     {
+      "source": "/classic-cap-hpeszv/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/creative-course-session",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/creative-course-session/",
       "destination": "/",
       "permanent": true
     },
@@ -18,12 +28,17 @@
       "permanent": true
     },
     {
+      "source": "/face-serum-gxrcld/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/group-fitness-class",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/handmade-vase-slowpy",
+      "source": "/group-fitness-class/",
       "destination": "/",
       "permanent": true
     },
@@ -33,7 +48,27 @@
       "permanent": true
     },
     {
+      "source": "/hand-soap-giguos/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/handmade-vase-slowpy",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/handmade-vase-slowpy/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/individual-coaching-session",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/individual-coaching-session/",
       "destination": "/",
       "permanent": true
     },
@@ -43,7 +78,17 @@
       "permanent": true
     },
     {
+      "source": "/intro-language-tutoring-session/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/set-of-plates-cxlzwx",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/set-of-plates-cxlzwx/",
       "destination": "/",
       "permanent": true
     },
@@ -53,12 +98,27 @@
       "permanent": true
     },
     {
+      "source": "/sunglasses-iubjnq/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/wooden-chair-mopukh",
       "destination": "/",
       "permanent": true
     },
     {
+      "source": "/wooden-chair-mopukh/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/wool-sweater-lortoo",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wool-sweater-lortoo/",
       "destination": "/",
       "permanent": true
     }
@@ -89,7 +149,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://vercel.live; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com; font-src 'self'; connect-src 'self' https://vitals.vercel-insights.com; frame-src https://vercel.live; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://vercel.live; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://vitals.vercel-insights.com; frame-src https://vercel.live; frame-ancestors 'self'; base-uri 'self'; form-action 'self'"
         }
       ]
     },

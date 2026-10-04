@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps<"/tour-packages/[sl
     title: `${pkg.title} — ${pkg.places}`,
     description: pkg.summary,
     alternates: { canonical: `/tour-packages/${pkg.slug}/` },
-    openGraph: { title: `${pkg.title} — ${pkg.places}`, description: pkg.summary, images: [photoUrl(pkg.cover, 1200)] },
+    openGraph: { title: `${pkg.title} — ${pkg.places}`, description: pkg.summary, images: [photoUrl(pkg.cover)] },
   };
 }
 
@@ -41,7 +41,7 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
       name: pkg.title,
       description: pkg.summary,
       url,
-      image: photoUrl(pkg.cover, 1200),
+      image: `${site.url}${photoUrl(pkg.cover)}`,
       touristType: ["Group", "Individual", "Corporate"],
       provider: { "@type": "TravelAgency", name: site.name, url: site.url },
       ...(pkg.price && {

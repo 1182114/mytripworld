@@ -69,9 +69,6 @@ const jsonLd = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} antialiased`}>
-      <head>
-        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="" />
-      </head>
       <body className="flex min-h-screen flex-col">
         <a href="#main" className="skip-link">
           Skip to content
