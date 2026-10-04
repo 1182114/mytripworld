@@ -15,9 +15,13 @@ npm run build   # writes the finished static site to ./out
 - Phone, WhatsApp, email, addresses, menu: `src/lib/site.ts`
 - Photos: `src/lib/images.ts`
 
-## Deploying (Cloudflare Pages, free)
+## Deploying
 
-Build command `npm run build`, output directory `out`. Then point the `mytripworld.net` DNS at Cloudflare Pages; keep the MX (email) records on Hostinger.
+**Vercel:** import the GitHub repo, Framework Preset **Next.js**, leave build settings at their defaults. `vercel.json` adds security headers and redirects from the old site's demo URLs.
+
+**Cloudflare Pages (alternative):** build command `npm run build`, output directory `out`; `public/_headers` and `public/_redirects` do the same job there.
+
+Either way, point the `mytripworld.net` DNS at the host and keep the MX (email) records on Hostinger.
 
 ## Before going live
 
