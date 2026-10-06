@@ -10,6 +10,8 @@ export type TourPackage = {
   price?: string;
   wasPrice?: string;
   badge?: string;
+  seoTitle: string;
+  seoDescription: string;
   cover: PhotoKey;
   gallery: PhotoKey[];
   summary: string;
@@ -21,6 +23,9 @@ export type TourPackage = {
 export const packages: TourPackage[] = [
   {
     slug: "one-trip-5-countries",
+    seoTitle: "5-Country South-East Asia Tour Package — 13N/14D",
+    seoDescription:
+      "Singapore, Malaysia, Thailand, Vietnam and Cambodia in 13 nights / 14 days. Offer price ₹99,999 with 4 international flights, stay, transfers and sightseeing.",
     kind: "tour",
     title: "One Trip, Five Countries",
     kicker: "Most popular · Best seller",
@@ -49,6 +54,9 @@ export const packages: TourPackage[] = [
   },
   {
     slug: "one-trip-3-countries",
+    seoTitle: "Singapore Malaysia Thailand Tour Package — 7N/8D",
+    seoDescription:
+      "Singapore, Malaysia and Phuket tour package from India: 7 nights / 8 days at ₹89,999 with 3 international flights, stay, airport transfers and sightseeing.",
     kind: "tour",
     title: "One Trip, Three Countries",
     kicker: "A week, three stamps",
@@ -74,6 +82,9 @@ export const packages: TourPackage[] = [
   },
   {
     slug: "australia-new-zealand",
+    seoTitle: "Australia New Zealand Tour Package from India",
+    seoDescription:
+      "Australia and New Zealand tour package from India: 11 nights / 12 days at ₹3,49,999 with 2 international flights, all meals, transfers and cruising.",
     kind: "tour",
     title: "Australia & New Zealand",
     kicker: "The grand southern journey",
@@ -100,6 +111,9 @@ export const packages: TourPackage[] = [
   },
   {
     slug: "explore-vietnam",
+    seoTitle: "Vietnam Tour Package from India",
+    seoDescription:
+      "Vietnam tour package from India covering Ho Chi Minh City and Phu Quoc, tailor-made with flights, stay, transfers and sightseeing. Price on request.",
     kind: "tour",
     title: "Explore Vietnam",
     kicker: "City energy, island calm",
@@ -121,6 +135,9 @@ export const packages: TourPackage[] = [
   },
   {
     slug: "norwegian-cruise",
+    seoTitle: "Norwegian Cruise Line Holidays from India",
+    seoDescription:
+      "Norwegian Cruise Line cruise holidays from India with cabin, flights and port transfers arranged by My Trip World as one package. Price on request.",
     kind: "cruise",
     title: "Norwegian Cruise Line Holidays",
     kicker: "Cruise holidays",
@@ -129,12 +146,12 @@ export const packages: TourPackage[] = [
     cover: "cruiseShip",
     gallery: ["cruisePort", "maldives", "resort", "beach"],
     summary:
-      "Unpack once and wake up somewhere new every morning. We book the cabin, flights, visas and shore excursions as one package.",
+      "Unpack once and wake up somewhere new every morning. We book the cabin, flights and shore excursions as one package.",
     includes: [
       "Cabin of your choice",
       "Meals and entertainment on board",
       "Flights and port transfers arranged",
-      "Visa and shore-excursion assistance",
+      "Shore excursions planned for you",
     ],
     highlights: [
       { place: "On board", text: "Restaurants, shows, pools and activities for every age." },

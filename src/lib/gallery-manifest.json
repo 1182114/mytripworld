@@ -1,0 +1,42 @@
+{
+  "traveller-01": {
+    "width": 1000,
+    "height": 750
+  },
+  "traveller-02": {
+    "width": 1000,
+    "height": 1333
+  },
+  "traveller-03": {
+    "width": 1000,
+    "height": 1333
+  },
+  "traveller-04": {
+    "width": 1000,
+    "height": 750
+  },
+  "traveller-05": {
+    "width": 1000,
+    "height": 1333
+  },
+  "traveller-06": {
+    "width": 1000,
+    "height": 750
+  },
+  "traveller-07": {
+    "width": 1000,
+    "height": 750
+  },
+  "traveller-08": {
+    "width": 1000,
+    "height": 1333
+  },
+  "traveller-09": {
+    "width": 1000,
+    "height": 750
+  },
+  "traveller-10": {
+    "width": 1000,
+    "height": 1333
+  }
+}

@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { MailIcon, PhoneIcon, PinIcon, WhatsAppIcon } from "@/components/icons";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { site, whatsappLink } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Call, WhatsApp or email My Trip World to plan your international tour or cruise. Offices in Gurugram and Narwana, Haryana.",
-  alternates: { canonical: "/contact/" },
-};
+export const metadata: Metadata = pageMeta({
+  title: "Contact Us — Call, WhatsApp or Email",
+  description:
+    "Call +91 97280-24440, WhatsApp or email My Trip World to plan your international tour or cruise. Offices in Gurugram and Narwana, Haryana.",
+  path: "/contact/",
+  image: "/photos/wing.jpg",
+});
 
 export default function ContactPage() {
   const cards = [
@@ -26,9 +29,10 @@ export default function ContactPage() {
         intro="Reach out any time — we usually reply the same day."
         photo="wing"
         alt="An aircraft wing above the clouds"
+        crumbs={[{ name: "Contact", href: "/contact/" }]}
       />
 
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
             <div className="grid gap-4">

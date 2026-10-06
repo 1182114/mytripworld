@@ -23,6 +23,12 @@ npm run build   # writes the finished static site to ./out
 
 Either way, point the `mytripworld.net` DNS at the host and keep the MX (email) records on Hostinger.
 
+## SEO and content data
+
+- FAQs: `src/lib/faq.ts` · USPs: `src/lib/usps.ts` · Departure-city pages: `src/lib/cities.ts`
+- `/llms.txt`, `sitemap.xml` and `robots.txt` are generated from that data at build time.
+- After adding photos to `public/`, run `node scripts/optimize-images.mjs` to create the WebP copies.
+
 ## Before going live
 
 - Client to confirm package highlights, prices and the draft Privacy Policy / Terms text.

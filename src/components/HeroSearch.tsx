@@ -54,7 +54,7 @@ function Field({
       type="button"
       onClick={onClick}
       aria-expanded={active}
-      className={`flex w-full items-center gap-3 rounded-xl px-3.5 py-2.5 text-left transition-colors md:py-2 ${
+      className={`flex w-full min-w-0 items-center gap-2.5 rounded-xl px-3 py-2.5 text-left transition-colors md:py-2 ${
         active ? "bg-sand-deep" : "hover:bg-sand"
       } ${divider ? "md:relative md:before:absolute md:before:-left-0.5 md:before:top-1/4 md:before:h-1/2 md:before:w-px md:before:bg-ink/15" : ""}`}
     >
@@ -132,7 +132,7 @@ export function HeroSearch() {
     "absolute left-0 right-0 top-full z-30 mt-2 rounded-2xl bg-white p-3.5 shadow-[0_20px_45px_-20px_rgba(28,39,82,0.45)] ring-1 ring-ink/10";
 
   return (
-    <div ref={rootRef} className="relative z-20 mt-7 max-w-[50rem]">
+    <div ref={rootRef} className="relative z-20 mt-7">
       <div className="flex gap-1 rounded-t-xl bg-ink-soft p-1 pb-0 sm:inline-flex" role="tablist" aria-label="Tour type">
         {tourTypes.map((t) => {
           const active = type === t.id;
@@ -143,11 +143,11 @@ export function HeroSearch() {
               role="tab"
               aria-selected={active}
               onClick={() => setType(t.id)}
-              className={`flex flex-1 items-center justify-center gap-2 rounded-t-lg px-2 py-2 text-[0.8125rem] font-semibold transition-colors sm:flex-none sm:px-5 ${
+              className={`flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-t-lg px-1 py-2 text-[0.78rem] font-semibold transition-colors min-[380px]:gap-2 min-[380px]:px-2 min-[380px]:text-[0.8125rem] sm:flex-none sm:px-5 ${
                 active ? "bg-white text-ink" : "text-white/80 hover:text-white"
               }`}
             >
-              <t.icon className="h-3.5 w-3.5" />
+              <t.icon className="hidden h-3.5 w-3.5 min-[360px]:block" />
               {t.id.replace(" Tour", "")}
               <span className="hidden sm:inline">Tour</span>
             </button>
@@ -159,12 +159,12 @@ export function HeroSearch() {
         onSubmit={onSubmit}
         role="search"
         aria-label="Find a tour package"
-        className="relative grid gap-0.5 rounded-2xl rounded-tl-none bg-white p-1.5 shadow-[0_12px_32px_-16px_rgba(28,39,82,0.35)] ring-1 ring-ink/10 md:grid-cols-[1.35fr_0.9fr_1fr_auto] md:items-center md:gap-1"
+        className="relative grid gap-0.5 rounded-2xl rounded-tl-none bg-white p-1.5 shadow-[0_12px_32px_-16px_rgba(28,39,82,0.35)] ring-1 ring-ink/10 md:grid-cols-[minmax(0,1.35fr)_minmax(0,0.9fr)_minmax(0,0.9fr)_auto] md:items-center md:gap-1"
       >
         <Field icon={<PinIcon className="h-[1.15rem] w-[1.15rem]" />} label="Destination" value={q} placeholder="Where do you want to go?" active={panel === "where"} onClick={() => toggle("where")} />
         <Field icon={<CalendarIcon className="h-[1.15rem] w-[1.15rem]" />} label="Travel Date" value={month} placeholder="Select month" active={panel === "when"} onClick={() => toggle("when")} divider />
         <Field icon={<UsersIcon className="h-[1.15rem] w-[1.15rem]" />} label="Travellers" value={travellers} placeholder="Add guests" active={panel === "who"} onClick={() => toggle("who")} divider />
-        <button type="submit" className="btn btn-gold mt-1 !rounded-xl !px-6 !py-3 !text-[0.9375rem] !shadow-none md:mt-0 md:h-[3.25rem]">
+        <button type="submit" className="btn btn-gold mt-1 !rounded-xl !px-5 !py-3 !text-[0.9375rem] !shadow-none md:mt-0 md:h-[3.25rem]">
           <SearchIcon className="h-4 w-4" />
           Explore Trips
         </button>

@@ -35,8 +35,11 @@ export function Header() {
     >
       <div className="container-x flex h-[4.25rem] items-center justify-between gap-6 md:h-[4.75rem]">
         <Link href="/" className="shrink-0" onClick={() => setOpen(false)} aria-label="My Trip World — home">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="My Trip World — A Perfect Holiday Maker's" width={800} height={213} className="h-10 w-auto md:h-12" />
+          <picture className="contents">
+            <source type="image/webp" srcSet="/logo.webp" />
+            { }
+            <img src="/logo.png" alt="My Trip World — A Perfect Holiday Maker's" width={800} height={213} fetchPriority="high" className="h-10 w-auto md:h-12" />
+          </picture>
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Main">

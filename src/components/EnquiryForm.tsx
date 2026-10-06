@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { packages } from "@/lib/packages";
 import { site, whatsappLink } from "@/lib/site";
@@ -91,7 +92,7 @@ export function EnquiryForm({ defaultTrip = "" }: { defaultTrip?: string }) {
       </div>
       <p className="mt-4 text-xs leading-relaxed text-muted">
         Your details are used only to respond to this enquiry. See our{" "}
-        <a href="/privacy-policy/" className="underline underline-offset-4">privacy policy</a>.
+        <Link href="/privacy-policy/" className="underline underline-offset-4">privacy policy</Link>.
       </p>
     </form>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { CtaBand } from "@/components/CtaBand";
 import { CheckIcon } from "@/components/icons";
 import { PageHero } from "@/components/PageHero";
@@ -6,17 +7,18 @@ import { Photo } from "@/components/Photo";
 import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 
-export const metadata: Metadata = {
-  title: "About Us",
+export const metadata: Metadata = pageMeta({
+  title: "About Us — Travel Company in Gurugram, Haryana",
   description:
-    "My Trip World has spent 12+ years planning international tours for travellers from India and India tours for visitors from abroad — group, individual and corporate.",
-  alternates: { canonical: "/about-us/" },
-};
+    "My Trip World has planned group, individual and corporate tours for 12+ years, from offices in Gurugram and Narwana, Haryana.",
+  path: "/about-us/",
+  image: "/photos/planning.jpg",
+});
 
 const styles = [
   { title: "Group tours", text: "Fixed departures with a tour manager, like-minded company and every detail pre-arranged." },
   { title: "Individual tours", text: "Private holidays for couples and families, shaped around your dates, pace and budget." },
-  { title: "Corporate tours", text: "Incentive trips, offsites and conferences abroad, managed from visas to gala dinners." },
+  { title: "Corporate tours", text: "Incentive trips, offsites and conferences abroad, managed from flights to gala dinners." },
 ];
 
 const points = [
@@ -36,9 +38,10 @@ export default function AboutPage() {
         intro="A division of S.C.R Infotech Pvt. Ltd., My Trip World plans international holidays for travellers from India and India tours for visitors from abroad."
         photo="planning"
         alt="A map, camera and notebook laid out while planning a trip"
+        crumbs={[{ name: "About Us", href: "/about-us/" }]}
       />
 
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-24">
         <div className="container-x grid gap-14 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <SectionHeading eyebrow="Our story" title="Holidays planned by people who have been there" />
@@ -75,7 +78,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-sand-deep py-20 md:py-28">
+      <section className="bg-sand-deep py-16 md:py-24">
         <div className="container-x">
           <Reveal>
             <SectionHeading eyebrow="How you can travel" title="Three ways to see the world with us" center />

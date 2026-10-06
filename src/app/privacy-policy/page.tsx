@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Privacy Policy",
-  alternates: { canonical: "/privacy-policy/" },
-};
+  description: "How My Trip World collects and uses the details you share when you send a travel enquiry.",
+  path: "/privacy-policy/",
+});
 
 // DRAFT: placeholder wording for layout purposes. The client (or their
 // lawyer) must review and approve this text before the site goes live.
 export default function Page() {
   return (
     <>
-      <PageHero eyebrow="Legal" title="Privacy Policy" />
+      <PageHero eyebrow="Legal" title="Privacy Policy" crumbs={[{ name: "Privacy Policy", href: "/privacy-policy/" }]} />
       <section className="py-16 md:py-24">
         <div className="container-x max-w-3xl space-y-8 text-base leading-relaxed text-muted">
           <div>

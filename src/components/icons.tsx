@@ -114,3 +114,24 @@ export const QuoteIcon = ({ className }: P) => (
     <path d="M0 24V14.4C0 6.4 4.3 1.3 12 0l1.3 3.3C9.3 4.6 7.3 7.3 7 10.7h6V24H0Zm18 0V14.4C18 6.4 22.3 1.3 30 0l1.3 3.3c-4 1.3-6 4-6.3 7.4h6V24H18Z" />
   </svg>
 );
+export const HomeIcon = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
+    <path d="M4 11.5 12 5l8 6.5M6 10v9h12v-9M10 19v-5h4v5" />
+  </svg>
+);
+export const ChevronIcon = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
+    <path d="m9 6 6 6-6 6" />
+  </svg>
+);
+export const BedIcon = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
+    <path d="M3 18v-7a2 2 0 0 1 2-2h9a4 4 0 0 1 4 4v5M3 15h18v3M7 9V7h5v2M3 18v1.5M21 18v1.5" />
+  </svg>
+);
+export const CameraIcon = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
+    <path d="M4 8h3l1.5-2h7L17 8h3v11H4V8Z" />
+    <circle cx="12" cy="13" r="3.2" />
+  </svg>
+);

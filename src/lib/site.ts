@@ -5,6 +5,8 @@ export const site = {
   parent: "A division of S.C.R Infotech Pvt. Ltd.",
   description:
     "My Trip World plans international tour packages and cruise holidays for travellers from India, and India tours for visitors from abroad — group, individual and corporate, with flights, stays, transfers and sightseeing in one price.",
+  metaDescription:
+    "International tour packages from India by My Trip World: group, individual and corporate tours with flights, stay, free airport transfers and sightseeing.",
   phoneDisplay: "+91 97280-24440",
   phoneHref: "tel:+919728024440",
   phoneAlt: "Also on 97280-24441 to 24448",
@@ -17,6 +19,8 @@ export const site = {
   },
   // Public rating on Justdial, checked 4 Oct 2026. Update when it changes.
   justdialRating: { score: "4.4", count: 11 },
+  founded: "2014",
+  areaServed: ["Delhi NCR", "Gurugram", "Mumbai", "Bengaluru", "Kolkata", "Chennai", "Hyderabad", "Pune", "Ahmedabad", "Haryana", "India"],
   offices: [
     {
       city: "Gurugram",

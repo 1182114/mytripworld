@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { CtaBand } from "@/components/CtaBand";
 import { EnquiryForm } from "@/components/EnquiryForm";
@@ -9,17 +10,18 @@ import { Reveal } from "@/components/Reveal";
 import { SectionHeading } from "@/components/SectionHeading";
 import { cruises } from "@/lib/packages";
 
-export const metadata: Metadata = {
-  title: "Cruise Holidays",
+export const metadata: Metadata = pageMeta({
+  title: "Cruise Holidays from India — Norwegian Cruise Line",
   description:
-    "Cruise holidays from India with My Trip World: Norwegian Cruise Line sailings with cabin, flights, visas and shore excursions arranged as one package.",
-  alternates: { canonical: "/cruise-holidays/" },
-};
+    "Cruise holidays from India with My Trip World: Norwegian Cruise Line sailings with cabin, flights and shore excursions arranged as one package.",
+  path: "/cruise-holidays/",
+  image: "/photos/cruisePort.jpg",
+});
 
 const reasons = [
   { title: "One booking, many destinations", text: "See several countries without repacking a single bag." },
   { title: "Everything on board", text: "Dining, shows, pools and kids' activities are part of the fare." },
-  { title: "We handle the paperwork", text: "Flights to the port, visas and transfers are arranged with your cabin." },
+  { title: "One team, one booking", text: "Flights to the port and transfers are arranged with your cabin." },
 ];
 
 export default function CruisePage() {
@@ -32,9 +34,10 @@ export default function CruisePage() {
         intro="Ocean holidays for families, couples and groups — planned end to end by our cruise specialists."
         photo="cruisePort"
         alt="Cruise ships docked at a turquoise island port"
+        crumbs={[{ name: "Cruise Holidays", href: "/cruise-holidays/" }]}
       />
 
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-24">
         <div className="container-x grid gap-14 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <Photo name="cruiseShip" alt="A cruise ship anchored off a white-sand beach" sizes="(min-width: 1024px) 45vw, 100vw" className="aspect-[4/3] w-full rounded-[2rem] object-cover" />
@@ -61,7 +64,7 @@ export default function CruisePage() {
         </div>
       </section>
 
-      <section className="bg-ink py-20 text-white md:py-28">
+      <section className="bg-ink py-16 text-white md:py-24">
         <div className="container-x">
           <Reveal>
             <SectionHeading eyebrow="Why cruise" title="A holiday that travels with you" center light />
@@ -80,7 +83,7 @@ export default function CruisePage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28">
+      <section className="py-16 md:py-24">
         <div className="container-x grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <SectionHeading eyebrow="Sail with us" title="Ask for current sailings and cabin prices">

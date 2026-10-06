@@ -1,0 +1,13 @@
+{
+  "name": "mytripworld-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Content admin (Sanity Studio) for mytripworld.net",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": { "node": ">=22.12" }
+}
