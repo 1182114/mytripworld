@@ -62,12 +62,17 @@ export function PackageCarousel({ packages, chip }: { packages: Package[]; chip?
     };
   }, [step, update]);
 
-  const pause = (value: boolean) => () => (paused.current = value);
+  const hold = useCallback(() => {
+    paused.current = true;
+  }, []);
+  const release = useCallback(() => {
+    paused.current = false;
+  }, []);
   const arrow =
     "flex h-12 w-12 items-center justify-center rounded-full border border-ink/15 bg-white text-ink shadow-[0_10px_25px_-15px_rgba(28,39,82,0.6)] transition-all hover:-translate-y-0.5 hover:border-ink hover:bg-ink hover:text-white disabled:pointer-events-none disabled:opacity-35";
 
   return (
-    <div onMouseEnter={pause(true)} onMouseLeave={pause(false)} onFocusCapture={pause(true)} onBlurCapture={pause(false)} onTouchStart={pause(true)}>
+    <div onMouseEnter={hold} onMouseLeave={release} onFocusCapture={hold} onBlurCapture={release} onTouchStart={hold}>
       <div
         ref={track}
         role="region"
