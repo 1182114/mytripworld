@@ -10,56 +10,49 @@ import { PackageCard } from "@/components/PackageCard";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { UspStrip } from "@/components/UspStrip";
-import { cities, cityFaqs, getCity } from "@/lib/cities";
-import { packages } from "@/lib/packages";
+import { cityFaqs, getContent } from "@/lib/content";
+import { imgUrl } from "@/lib/img";
 import { pageMeta } from "@/lib/seo";
-import { site } from "@/lib/site";
+import { siteUrl } from "@/lib/site";
 
 export const dynamicParams = false;
 
-export function generateStaticParams() {
-  return cities.map((c) => ({ city: c.slug }));
+export async function generateStaticParams() {
+  const { cities } = await getContent();
+  return cities.filter((c) => c.hasPage).map((c) => ({ city: c.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps<"/[city]">): Promise<Metadata> {
   const { city: slug } = await params;
-  const city = getCity(slug);
+  const { cities, settings, home } = await getContent();
+  const city = cities.find((c) => c.slug === slug);
   if (!city) return {};
-  return pageMeta({
-    title: `International Tour Packages from ${city.name}`,
-    description: `International tour packages from ${city.name}: Singapore, Thailand, Vietnam, Australia and more. Flights from ${city.code}, stay, transfers and sightseeing in one price.`,
-    path: `/${city.slug}/`,
-    image: "/photos/wingSunset.jpg",
-  });
+  return pageMeta({ title: city.seoTitle, description: city.seoDescription, path: `/${city.slug}/`, image: home.ctaImage && imgUrl(home.ctaImage), siteName: settings.name });
 }
 
 export default async function CityPage({ params }: PageProps<"/[city]">) {
   const { city: slug } = await params;
-  const city = getCity(slug);
+  const content = await getContent();
+  const { cities, packages, settings, home } = content;
+  const city = cities.find((c) => c.slug === slug && c.hasPage);
   if (!city) notFound();
 
-  const faqs = cityFaqs(city);
-  const url = `${site.url}/${city.slug}/`;
+  const faqs = cityFaqs(city, content);
+  const url = `${siteUrl}/${city.slug}/`;
   const serviceLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     name: `International tour packages from ${city.name}`,
     serviceType: "International tour packages",
     url,
-    provider: { "@id": `${site.url}/#organization` },
+    provider: { "@id": `${siteUrl}/#organization` },
     areaServed: { "@type": "City", name: city.name },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Tour packages",
       itemListElement: packages
-        .filter((p) => p.price)
-        .map((p) => ({
-          "@type": "Offer",
-          name: p.seoTitle,
-          url: `${site.url}/tour-packages/${p.slug}/`,
-          price: p.price!.replace(/[^0-9]/g, ""),
-          priceCurrency: "INR",
-        })),
+        .filter((p) => p.price !== undefined)
+        .map((p) => ({ "@type": "Offer", name: p.seoTitle, url: `${siteUrl}/tour-packages/${p.slug}/`, price: String(p.price), priceCurrency: "INR" })),
     },
   };
 
@@ -76,8 +69,8 @@ export default async function CityPage({ params }: PageProps<"/[city]">) {
         eyebrow={`Departing ${city.code}`}
         title={`International Tour Packages from ${city.name}`}
         intro={`Group, family and corporate holidays for travellers from ${city.area} — flights from ${city.airport}, stay, transfers and sightseeing in one price.`}
-        photo="wingSunset"
-        alt={`Aircraft wing above the clouds at sunset — international tours from ${city.name}`}
+        image={home.ctaImage}
+        alt={`International tours from ${city.name}`}
         crumbs={[
           { name: "Departure Cities", href: "/departure-cities/" },
           { name: city.name, href: `/${city.slug}/` },
@@ -105,6 +98,7 @@ export default async function CityPage({ params }: PageProps<"/[city]">) {
                   </li>
                 ))}
               </ul>
+              <p className="mt-5 text-xs text-muted">Routes and flight times are approximate and change by season and airline. The exact flights are confirmed in your quote.</p>
             </Reveal>
 
             <Reveal>
@@ -152,7 +146,7 @@ export default async function CityPage({ params }: PageProps<"/[city]">) {
           </p>
           <div className="mt-8 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
             {packages.map((p) => (
-              <PackageCard key={p.slug} pkg={p} />
+              <PackageCard key={p.slug} pkg={p} chip={settings.uspChip} />
             ))}
           </div>
         </div>
@@ -176,7 +170,11 @@ export default async function CityPage({ params }: PageProps<"/[city]">) {
           <h2 className="font-display text-[2.2rem] leading-tight text-ink">Other departure cities</h2>
           <span className="gold-rule mt-3" />
           <div className="mt-8">
-            <CityLinks current={city.slug} />
+            <CityLinks current={city.slug} scope="featured" />
+            <p className="mt-6 text-[0.95rem] text-ink-soft">
+              We serve travellers from every city in India —{" "}
+              <Link href="/departure-cities/" className="font-bold underline decoration-gold decoration-2 underline-offset-4">see all departure cities</Link>.
+            </p>
           </div>
         </div>
       </section>

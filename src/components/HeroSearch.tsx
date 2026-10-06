@@ -2,19 +2,11 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
-import type { PhotoKey } from "@/lib/images";
-import { packages } from "@/lib/packages";
+import type { Img } from "@/lib/content/types";
 import { BuildingIcon, CalendarIcon, PinIcon, SearchIcon, UserIcon, UsersIcon } from "./icons";
-import { Photo } from "./Photo";
+import { Pic } from "./Pic";
 
-const destinations: { name: string; photo: PhotoKey }[] = [
-  { name: "Singapore", photo: "merlion" },
-  { name: "Malaysia", photo: "petronas" },
-  { name: "Thailand", photo: "thailand" },
-  { name: "Vietnam", photo: "halong" },
-  { name: "Australia", photo: "sydney" },
-  { name: "Cruise", photo: "cruiseShip" },
-];
+export type SearchDestination = { name: string; image: Img; count: number };
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -24,11 +16,6 @@ const tourTypes = [
   { id: "Individual Tour", icon: UserIcon },
   { id: "Corporate Tour", icon: BuildingIcon },
 ];
-
-function countFor(name: string) {
-  const needle = name.toLowerCase();
-  return packages.filter((p) => `${p.title} ${p.places} ${p.kicker}`.toLowerCase().includes(needle)).length;
-}
 
 type Panel = "where" | "when" | "who" | null;
 
@@ -54,14 +41,14 @@ function Field({
       type="button"
       onClick={onClick}
       aria-expanded={active}
-      className={`flex w-full min-w-0 items-center gap-2.5 rounded-xl px-3 py-2.5 text-left transition-colors md:py-2 ${
-        active ? "bg-sand-deep" : "hover:bg-sand"
+      className={`flex w-full min-w-0 items-center gap-3.5 rounded-2xl px-4 py-3 text-left transition-colors md:h-full md:px-5 ${
+        active ? "bg-white/80" : "hover:bg-white/60"
       } ${divider ? "md:relative md:before:absolute md:before:-left-0.5 md:before:top-1/4 md:before:h-1/2 md:before:w-px md:before:bg-ink/15" : ""}`}
     >
       <span className="shrink-0 text-ink-soft">{icon}</span>
       <span className="min-w-0">
-        <span className="block text-xs font-semibold text-muted">{label}</span>
-        <span className={`block truncate text-[0.9375rem] font-semibold leading-snug ${value ? "text-ink" : "text-ink/45"}`}>{value || placeholder}</span>
+        <span className="block text-[0.78rem] font-bold tracking-wide text-ink-soft">{label}</span>
+        <span className={`block truncate text-base font-bold leading-snug ${value ? "text-ink" : "text-ink/60"}`}>{value || placeholder}</span>
       </span>
     </button>
   );
@@ -89,7 +76,7 @@ function Stepper({ label, note, value, min, onChange }: { label: string; note: s
   );
 }
 
-export function HeroSearch() {
+export function HeroSearch({ destinations, popular }: { destinations: SearchDestination[]; popular: string[] }) {
   const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
   const [type, setType] = useState(tourTypes[0].id);
@@ -132,24 +119,21 @@ export function HeroSearch() {
     "absolute left-0 right-0 top-full z-30 mt-2 rounded-2xl bg-white p-3.5 shadow-[0_20px_45px_-20px_rgba(28,39,82,0.45)] ring-1 ring-ink/10";
 
   return (
-    <div ref={rootRef} className="relative z-20 mt-7">
-      <div className="flex gap-1 rounded-t-xl bg-ink-soft p-1 pb-0 sm:inline-flex" role="tablist" aria-label="Tour type">
+    <div ref={rootRef} className="relative z-20">
+      <div className="glass mb-3 inline-flex max-w-full items-center gap-1 !rounded-full p-1" role="radiogroup" aria-label="Type of trip">
         {tourTypes.map((t) => {
           const active = type === t.id;
           return (
             <button
               key={t.id}
               type="button"
-              role="tab"
-              aria-selected={active}
+              role="radio"
+              aria-checked={active}
               onClick={() => setType(t.id)}
-              className={`flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-t-lg px-1 py-2 text-[0.78rem] font-semibold transition-colors min-[380px]:gap-2 min-[380px]:px-2 min-[380px]:text-[0.8125rem] sm:flex-none sm:px-5 ${
-                active ? "bg-white text-ink" : "text-white/80 hover:text-white"
-              }`}
+              className={`flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[0.82rem] font-bold transition-colors sm:px-4 ${active ? "bg-ink-soft text-white" : "text-ink-soft hover:bg-ink/5"}`}
             >
-              <t.icon className="hidden h-3.5 w-3.5 min-[360px]:block" />
+              <t.icon className="h-3.5 w-3.5" />
               {t.id.replace(" Tour", "")}
-              <span className="hidden sm:inline">Tour</span>
             </button>
           );
         })}
@@ -159,13 +143,13 @@ export function HeroSearch() {
         onSubmit={onSubmit}
         role="search"
         aria-label="Find a tour package"
-        className="relative grid gap-0.5 rounded-2xl rounded-tl-none bg-white p-1.5 shadow-[0_12px_32px_-16px_rgba(28,39,82,0.35)] ring-1 ring-ink/10 md:grid-cols-[minmax(0,1.35fr)_minmax(0,0.9fr)_minmax(0,0.9fr)_auto] md:items-center md:gap-1"
+        className="glass relative grid gap-1 !rounded-[1.15rem] p-2 md:h-[4.75rem] md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-stretch md:gap-0"
       >
-        <Field icon={<PinIcon className="h-[1.15rem] w-[1.15rem]" />} label="Destination" value={q} placeholder="Where do you want to go?" active={panel === "where"} onClick={() => toggle("where")} />
-        <Field icon={<CalendarIcon className="h-[1.15rem] w-[1.15rem]" />} label="Travel Date" value={month} placeholder="Select month" active={panel === "when"} onClick={() => toggle("when")} divider />
-        <Field icon={<UsersIcon className="h-[1.15rem] w-[1.15rem]" />} label="Travellers" value={travellers} placeholder="Add guests" active={panel === "who"} onClick={() => toggle("who")} divider />
-        <button type="submit" className="btn btn-gold mt-1 !rounded-xl !px-5 !py-3 !text-[0.9375rem] !shadow-none md:mt-0 md:h-[3.25rem]">
-          <SearchIcon className="h-4 w-4" />
+        <Field icon={<PinIcon className="h-5 w-5" />} label="Destination" value={q} placeholder="Where to?" active={panel === "where"} onClick={() => toggle("where")} />
+        <Field icon={<CalendarIcon className="h-5 w-5" />} label="Travel Date" value={month} placeholder="Select month" active={panel === "when"} onClick={() => toggle("when")} divider />
+        <Field icon={<UsersIcon className="h-5 w-5" />} label="Travellers" value={travellers} placeholder="Add guests" active={panel === "who"} onClick={() => toggle("who")} divider />
+        <button type="submit" className="btn btn-gold mt-1 !rounded-xl !px-8 !py-3.5 !text-base md:mt-0 md:h-full">
+          <SearchIcon className="h-5 w-5" />
           Explore Trips
         </button>
 
@@ -185,7 +169,7 @@ export function HeroSearch() {
             <p className="mb-1 mt-3 px-1 text-xs font-semibold text-muted">Popular destinations</p>
             <ul className="grid grid-cols-2 gap-1">
               {(matches.length ? matches : destinations).map((d) => {
-                const n = countFor(d.name);
+                const n = d.count;
                 return (
                   <li key={d.name}>
                     <button
@@ -196,7 +180,7 @@ export function HeroSearch() {
                       }}
                       className="flex w-full items-center gap-3 rounded-2xl p-2 text-left transition-colors hover:bg-sand-deep"
                     >
-                      <Photo name={d.photo} alt="" sizes="48px" className="h-12 w-12 rounded-xl bg-sand-deep object-cover" />
+                      <Pic img={d.image} alt="" sizes="48px" className="h-12 w-12 rounded-xl bg-sand-deep object-cover" />
                       <span>
                         <span className="block text-sm font-bold text-ink">{d.name}</span>
                         <span className="block text-xs text-muted">
@@ -217,7 +201,7 @@ export function HeroSearch() {
         )}
 
         {panel === "when" && (
-          <div className={`${popover} md:left-[30%] md:right-auto md:w-[20rem]`}>
+          <div className={`${popover} md:left-[36%] md:right-auto md:w-[20rem]`}>
             <p className="mb-2.5 px-1 text-xs font-semibold text-muted">Travel month</p>
             <div className="grid grid-cols-4 gap-2">
               {months.map((m, i) => {
@@ -251,7 +235,7 @@ export function HeroSearch() {
         )}
 
         {panel === "who" && (
-          <div className={`${popover} md:left-auto md:right-36 md:w-[18rem]`}>
+          <div className={`${popover} md:left-auto md:right-48 md:w-[18rem]`}>
             <div className="divide-y divide-ink/10">
               <Stepper label="Adults" note="Age 12+" value={adults} min={1} onChange={setAdults} />
               <Stepper label="Children" note="Age 2–11" value={children} min={0} onChange={setChildren} />
@@ -263,19 +247,21 @@ export function HeroSearch() {
         )}
       </form>
 
-      <p className="mt-3 flex flex-wrap items-center gap-2 text-[0.8125rem]">
-        <span className="font-bold text-ink">Popular:</span>
-        {["Singapore", "Thailand", "Vietnam", "Australia", "Cruise"].map((d) => (
+      {popular.length > 0 && (
+      <p className="mt-3.5 hidden flex-wrap items-center gap-2 text-[0.8rem] sm:flex">
+        <span className="font-bold text-ink [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">Popular:</span>
+        {popular.map((d) => (
           <button
             key={d}
             type="button"
-            onClick={() => router.push(`/tour-packages/?q=${d}`)}
-            className="rounded-full bg-white/85 px-3 py-1 font-semibold text-ink ring-1 ring-ink/10 transition-colors hover:bg-gold"
+            onClick={() => router.push(`/tour-packages/?q=${encodeURIComponent(d)}`)}
+            className="rounded-full bg-white/70 px-3 py-1 font-semibold text-ink ring-1 ring-white/60 backdrop-blur transition-colors hover:bg-gold"
           >
             {d}
           </button>
         ))}
       </p>
+      )}
     </div>
   );
 }

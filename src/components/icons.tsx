@@ -135,3 +135,16 @@ export const CameraIcon = ({ className }: P) => (
     <circle cx="12" cy="13" r="3.2" />
   </svg>
 );
+
+/** Icons that can be picked by name in the admin panel. */
+export const namedIcons = { car: CarIcon, home: HomeIcon, plane: PlaneIcon, users: UsersIcon, shield: ShieldIcon, trophy: TrophyIcon, globe: GlobeIcon } as const;
+export function NamedIcon({ name, className }: { name?: string; className?: string }) {
+  const Icon = namedIcons[(name ?? "") as keyof typeof namedIcons] ?? CheckIcon;
+  return <Icon className={className} />;
+}
+export const TagIcon = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
+    <path d="M4 4h7l9 9-7 7-9-9V4Z" />
+    <circle cx="8.5" cy="8.5" r="1.3" />
+  </svg>
+);

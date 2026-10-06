@@ -2,8 +2,8 @@
 
 import { useSearchParams } from "next/navigation";
 import { useMemo, useState } from "react";
-import { packages } from "@/lib/packages";
-import { whatsappLink } from "@/lib/site";
+import { whatsappLink } from "@/lib/content/link";
+import type { Contact, Package } from "@/lib/content/types";
 import { WhatsAppIcon } from "./icons";
 import { PackageCard } from "./PackageCard";
 
@@ -13,7 +13,7 @@ const filters = [
   { id: "cruise", label: "Cruises" },
 ] as const;
 
-export function PackageExplorer() {
+export function PackageExplorer({ packages, contact, chip }: { packages: Package[]; contact: Contact; chip?: string }) {
   const params = useSearchParams();
   const month = params.get("month") ?? "";
   const travellers = params.get("travellers") ?? "";
@@ -23,15 +23,16 @@ export function PackageExplorer() {
   const results = useMemo(() => {
     const needle = q.trim().toLowerCase();
     return packages.filter((p) => {
-      if (kind !== "all" && p.kind !== kind) return false;
+      if (kind === "cruise" && p.kind !== "cruise") return false;
+      if (kind === "tour" && p.kind === "cruise") return false;
       if (!needle) return true;
-      const haystack = [p.title, p.places, p.kicker, p.summary, ...p.highlights.map((h) => h.place)].join(" ").toLowerCase();
+      const haystack = [p.title, p.placesLabel, p.kicker, p.summary, p.kind, ...p.highlights.map((h) => h.place)].join(" ").toLowerCase();
       return haystack.includes(needle);
     });
-  }, [q, kind]);
+  }, [q, kind, packages]);
 
   const quoteMessage = [
-    "Hello My Trip World, I would like a quote.",
+    `Hello ${contact.name}, I would like a quote.`,
     q && `Destination: ${q}`,
     month && `Travel month: ${month}`,
     travellers && `Travellers: ${travellers}`,
@@ -71,7 +72,7 @@ export function PackageExplorer() {
         <p className="mt-5 text-sm text-muted">
           Planning for{travellers && <strong className="text-ink"> {travellers} traveller(s)</strong>}
           {month && <> in <strong className="text-ink">{month}</strong></>}.{" "}
-          <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener" className="font-bold text-gold-deep underline underline-offset-4">
+          <a href={whatsappLink(contact, quoteMessage)} target="_blank" rel="noopener" className="font-bold text-gold-deep underline underline-offset-4">
             Get a price for these dates
           </a>
         </p>
@@ -80,7 +81,7 @@ export function PackageExplorer() {
       {results.length > 0 ? (
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((pkg) => (
-            <PackageCard key={pkg.slug} pkg={pkg} />
+            <PackageCard key={pkg.slug} pkg={pkg} chip={chip} />
           ))}
         </div>
       ) : (
@@ -89,7 +90,7 @@ export function PackageExplorer() {
           <p className="mx-auto mt-3 max-w-md text-sm text-muted">
             We plan custom trips to almost any destination. Tell us where you want to go and we will build it for you.
           </p>
-          <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener" className="btn btn-gold mt-7">
+          <a href={whatsappLink(contact, quoteMessage)} target="_blank" rel="noopener" className="btn btn-gold mt-7">
             <WhatsAppIcon className="h-4 w-4" />
             Ask for a custom trip
           </a>

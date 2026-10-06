@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/lib/site";
+import { siteUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -9,7 +9,7 @@ const aiCrawlers = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Cla
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }, ...aiCrawlers.map((userAgent) => ({ userAgent, allow: "/" }))],
-    sitemap: `${site.url}/sitemap.xml`,
-    host: site.url,
+    sitemap: `${siteUrl}/sitemap.xml`,
+    host: siteUrl,
   };
 }

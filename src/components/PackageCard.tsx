@@ -1,17 +1,16 @@
 import Link from "next/link";
-import type { TourPackage } from "@/lib/packages";
+import type { Package } from "@/lib/content/types";
 import { ArrowIcon, CalendarIcon, PlaneIcon, StarIcon } from "./icons";
-import { Photo } from "./Photo";
-import { UspChip } from "./UspStrip";
+import { Pic } from "./Pic";
+import { UspChip } from "./UspChip";
 
-export function PackageCard({ pkg }: { pkg: TourPackage }) {
-  const stops = pkg.places.split("·").length;
+export function PackageCard({ pkg, chip }: { pkg: Package; chip?: string }) {
+  const stops = pkg.places.length;
   return (
     <Link href={`/tour-packages/${pkg.slug}/`} className="card card-hover group flex h-full flex-col overflow-hidden">
       <div className="relative aspect-[16/10] overflow-hidden bg-ink-soft">
-        <Photo
-          name={pkg.cover}
-          alt={`${pkg.seoTitle} — ${pkg.places}`}
+        <Pic
+          img={pkg.cover}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           className="h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
         />
@@ -21,12 +20,12 @@ export function PackageCard({ pkg }: { pkg: TourPackage }) {
             ★ {pkg.badge}
           </span>
         )}
-        <UspChip className="absolute bottom-3 left-4" />
+        {chip && <UspChip label={chip} className="absolute bottom-3 left-4" />}
       </div>
 
       <div className="flex flex-1 flex-col p-5 md:p-6">
         <h3 className="font-display text-[1.7rem] leading-[1.1] text-ink">{pkg.title}</h3>
-        <p className="mt-1.5 text-[0.82rem] font-semibold leading-snug text-muted">{pkg.places}</p>
+        <p className="mt-1.5 text-[0.82rem] font-semibold leading-snug text-muted">{pkg.placesLabel}</p>
 
         <ul className="mt-4 space-y-2 text-[0.82rem] text-ink-soft">
           <li className="flex flex-wrap items-center gap-x-5 gap-y-1">
@@ -41,20 +40,22 @@ export function PackageCard({ pkg }: { pkg: TourPackage }) {
               {stops} {stops === 1 ? "destination" : "destinations"}
             </span>
           </li>
-          <li className="flex items-start gap-2">
-            <StarIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold-deep" />
-            <span className="line-clamp-1">{pkg.includes.slice(0, 2).join(", ")}</span>
-          </li>
+          {pkg.includes.length > 0 && (
+            <li className="flex items-start gap-2">
+              <StarIcon className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold-deep" />
+              <span className="line-clamp-1">{pkg.includes.slice(0, 2).join(", ")}</span>
+            </li>
+          )}
         </ul>
 
         <div className="mt-auto flex items-end justify-between gap-3 border-t border-ink/10 pt-4">
           <div className="mt-4">
-            {pkg.price ? (
+            {pkg.priceLabel ? (
               <>
                 <p className="text-[0.72rem] font-semibold text-muted">
-                  Offer price {pkg.wasPrice && <s className="ml-1 font-normal">{pkg.wasPrice}</s>}
+                  Offer price {pkg.wasPriceLabel && <s className="ml-1 font-normal">{pkg.wasPriceLabel}</s>}
                 </p>
-                <p className="text-[1.7rem] font-extrabold leading-tight tracking-tight text-ink-soft">{pkg.price}</p>
+                <p className="text-[1.7rem] font-extrabold leading-tight tracking-tight text-ink-soft">{pkg.priceLabel}</p>
               </>
             ) : (
               <>

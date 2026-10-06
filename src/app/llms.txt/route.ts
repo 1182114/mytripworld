@@ -1,57 +1,56 @@
-import { cities } from "@/lib/cities";
-import { faqs } from "@/lib/faq";
-import { packages } from "@/lib/packages";
-import { site } from "@/lib/site";
-import { usps } from "@/lib/usps";
+import { getContent } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
 
 // Plain-text company summary for AI assistants and answer engines.
-// Built from the same data as the site, so it never drifts out of date.
-export function GET() {
+// Built from the admin-panel content, so it never drifts out of date.
+export async function GET() {
+  const { settings, contact, packages, cities, faqs } = await getContent();
   const lines = [
-    `# ${site.name}`,
+    `# ${settings.name}`,
     "",
-    `> ${site.description}`,
+    `> ${settings.longDescription}`,
     "",
     "## Company",
-    `- Name: ${site.name} (${site.parent})`,
+    `- Name: ${settings.name}${settings.parent ? ` (${settings.parent})` : ""}`,
     "- Type: Travel company — international tour packages from India, cruise holidays, and India tours for visitors from abroad",
-    "- Experience: more than 12 years in the tourism industry",
+    ...(settings.founded ? [`- Established: ${settings.founded}`] : []),
     "- Tour styles: group tours, individual tours, corporate tours",
-    `- Website: ${site.url}`,
+    `- Website: ${siteUrl}`,
     "",
     "## What makes it different",
-    ...usps.map((u) => `- ${u.title}: ${u.text}`),
-    "- One offer price covering international flights, hotel stay, airport transfers and sightseeing",
+    ...settings.usps.map((u) => `- ${u.title}: ${u.text}`),
     "",
     "## Tour packages",
     ...packages.map(
       (p) =>
-        `- [${p.seoTitle}](${site.url}/tour-packages/${p.slug}/): ${p.places.replace(/ · /g, ", ")}${p.duration ? `; ${p.duration}` : ""}; ${p.price ? `offer price ${p.price}` : "price on request"}. Includes: ${p.includes.join("; ")}.`,
+        `- [${p.seoTitle}](${siteUrl}/tour-packages/${p.slug}/): ${p.places.join(", ")}${p.duration ? `; ${p.duration}` : ""}; ${p.priceLabel ? `offer price ${p.priceLabel}${p.priceTerms ? ` (${p.priceTerms})` : ""}` : "price on request"}.${p.includes.length ? ` Includes: ${p.includes.join("; ")}.` : ""}`,
     ),
     "",
-    "Prices are offer prices published by My Trip World and are confirmed in each quote.",
+    `Prices are offer prices published by ${settings.name} and are confirmed in each quote.`,
     "",
-    "## Departure cities served in India",
-    ...cities.map((c) => `- [${c.name}](${site.url}/${c.slug}/) — ${c.airport} (${c.code})`),
+    "## Departure cities",
+    `${settings.name} serves travellers from every city in India. Cities with their own page:`,
+    ...cities.filter((c) => c.hasPage).map((c) => `- [${c.name}](${siteUrl}/${c.slug}/) — ${c.airport} (${c.code})`),
+    ...(cities.some((c) => !c.hasPage) ? [`Also served: ${cities.filter((c) => !c.hasPage).map((c) => c.name).join(", ")}, and any other city in India on request.`] : []),
     "",
     "## India tours for international visitors",
-    `- [India tour packages for visitors from abroad](${site.url}/india-tour-packages/): tailor-made tours planned around the visitor's dates and interests.`,
+    `- [India tour packages for visitors from abroad](${siteUrl}/india-tour-packages/): tailor-made tours planned around the visitor's dates and interests.`,
     "",
     "## Contact",
-    `- Phone / WhatsApp: ${site.phoneDisplay}`,
-    `- Email: ${site.email}`,
-    ...site.offices.map((o) => `- ${o.city} office: ${o.lines.join(", ")}, India`),
+    `- Phone / WhatsApp: ${contact.phone}`,
+    `- Email: ${contact.email}`,
+    ...settings.offices.map((o) => `- ${o.city} office: ${[o.street, o.city, [o.region, o.postalCode].filter(Boolean).join(" ")].filter(Boolean).join(", ")}, India`),
     "",
     "## Frequently asked questions",
     ...faqs.flatMap((f) => [`### ${f.q}`, f.a, ""]),
     "## Key pages",
-    `- [Tour packages](${site.url}/tour-packages/)`,
-    `- [Cruise holidays](${site.url}/cruise-holidays/)`,
-    `- [Departure cities](${site.url}/departure-cities/)`,
-    `- [About](${site.url}/about-us/)`,
-    `- [Contact](${site.url}/contact/)`,
+    `- [Tour packages](${siteUrl}/tour-packages/)`,
+    `- [Cruise holidays](${siteUrl}/cruise-holidays/)`,
+    `- [Departure cities](${siteUrl}/departure-cities/)`,
+    `- [About](${siteUrl}/about-us/)`,
+    `- [Contact](${siteUrl}/contact/)`,
     "",
   ];
   return new Response(lines.join("\n"), { headers: { "Content-Type": "text/plain; charset=utf-8" } });

@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next";
-import { site } from "@/lib/site";
+import { getContent } from "@/lib/content";
 
 export const dynamic = "force-static";
 
-export default function manifest(): MetadataRoute.Manifest {
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  const { settings } = await getContent();
   return {
-    name: site.name,
+    name: settings.name,
     short_name: "MyTripWorld",
-    description: site.description,
+    description: settings.seoDescription,
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

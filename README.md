@@ -11,9 +11,15 @@ npm run build   # writes the finished static site to ./out
 
 ## Editing content
 
-- Packages, prices and reviews: `src/lib/packages.ts`
-- Phone, WhatsApp, email, addresses, menu: `src/lib/site.ts`
-- Photos: `src/lib/images.ts`
+All content — packages, prices, itineraries, photos, reviews, FAQs, city pages,
+contact details — is edited in the admin panel (Sanity Studio) in `studio/`.
+See `studio/README.md` for setup and `studio/CLIENT-GUIDE.md` for the client guide.
+
+The website loads that content at build time (`src/lib/content/`). Environment
+variables are listed in `.env.example`. If content cannot be loaded, or a required
+field is missing, the build fails with a clear message rather than publishing an
+incomplete site. Until the Sanity project exists, `CONTENT_SOURCE=seed` in
+`.env.local` builds from the snapshot in `studio/seed/content.ndjson`.
 
 ## Deploying
 
@@ -23,11 +29,17 @@ npm run build   # writes the finished static site to ./out
 
 Either way, point the `mytripworld.net` DNS at the host and keep the MX (email) records on Hostinger.
 
-## SEO and content data
+## SEO
 
-- FAQs: `src/lib/faq.ts` · USPs: `src/lib/usps.ts` · Departure-city pages: `src/lib/cities.ts`
-- `/llms.txt`, `sitemap.xml` and `robots.txt` are generated from that data at build time.
-- After adding photos to `public/`, run `node scripts/optimize-images.mjs` to create the WebP copies.
+`/llms.txt`, `sitemap.xml`, `robots.txt`, page titles and all schema markup are
+generated from the admin-panel content at build time. After adding photos to
+`public/`, run `node scripts/optimize-images.mjs` to create the WebP copies.
+
+## Enquiries
+
+On Vercel the form posts to `/api/enquiry`, which saves the enquiry in the admin
+panel (needs `SANITY_WRITE_TOKEN`) and can email the team through Resend. On a
+static-only host the form hands the enquiry to WhatsApp instead.
 
 ## Before going live
 

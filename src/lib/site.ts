@@ -1,45 +1,9 @@
-export const site = {
-  name: "My Trip World",
-  tagline: "A Perfect Holiday Maker's",
-  url: "https://mytripworld.net",
-  parent: "A division of S.C.R Infotech Pvt. Ltd.",
-  description:
-    "My Trip World plans international tour packages and cruise holidays for travellers from India, and India tours for visitors from abroad — group, individual and corporate, with flights, stays, transfers and sightseeing in one price.",
-  metaDescription:
-    "International tour packages from India by My Trip World: group, individual and corporate tours with flights, stay, free airport transfers and sightseeing.",
-  phoneDisplay: "+91 97280-24440",
-  phoneHref: "tel:+919728024440",
-  phoneAlt: "Also on 97280-24441 to 24448",
-  whatsapp: "919728024440",
-  email: "info@mytripworld.net",
-  complaintsEmail: "contact@mytripworld.net",
-  social: {
-    facebook: "https://www.facebook.com/itworldonlinecomputereducationacademy/",
-    justdial: "https://www.justdial.com/Jind/My-Trip-World-Near-Dav-School-Hanuman-Nagar/9999P1681-1681-230918113716-R4F8_BZDET",
-  },
-  // Public rating on Justdial, checked 4 Oct 2026. Update when it changes.
-  justdialRating: { score: "4.4", count: 11 },
-  founded: "2014",
-  areaServed: ["Delhi NCR", "Gurugram", "Mumbai", "Bengaluru", "Kolkata", "Chennai", "Hyderabad", "Pune", "Ahmedabad", "Haryana", "India"],
-  offices: [
-    {
-      city: "Gurugram",
-      lines: [
-        "Office No. 101, 1st Floor, Dhanwapur Road",
-        "Near Sector 4/5 Chowk",
-        "Gurugram, Haryana 122001",
-      ],
-    },
-    {
-      city: "Narwana",
-      lines: [
-        "Gali No. 05, Pritam Bagh, Opp. Bus Stand",
-        "Hanuman Nagar, Near DAV School",
-        "Narwana, Haryana 126116",
-      ],
-    },
-  ],
-};
+// The public address of the live website. Everything else about the company
+// (name, phone, offices, packages…) is edited in the admin panel.
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://mytripworld.net").replace(/\/$/, "");
+
+/** Where the admin panel (Sanity Studio) lives. */
+export const adminUrl = process.env.NEXT_PUBLIC_ADMIN_URL || "https://mytripworld.sanity.studio";
 
 export const nav = [
   { href: "/", label: "Home" },
@@ -49,8 +13,3 @@ export const nav = [
   { href: "/gallery/", label: "Gallery" },
   { href: "/contact/", label: "Contact" },
 ];
-
-export function whatsappLink(message?: string) {
-  const text = message ?? "Hello My Trip World, I would like to plan a trip.";
-  return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
-}

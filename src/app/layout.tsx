@@ -2,8 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { JsonLd } from "@/components/JsonLd";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
-import { site } from "@/lib/site";
+import { getContent } from "@/lib/content";
+import { absoluteImg, imgUrl } from "@/lib/img";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 // Cormorant Garamond for main headings; Manrope for body text, navigation,
@@ -21,100 +25,95 @@ const sans = Manrope({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
-  title: {
-    default: "International Tour Packages from India | My Trip World",
-    template: "%s | My Trip World",
-  },
-  description: site.metaDescription,
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    siteName: site.name,
-    title: "International Tour Packages from India | My Trip World",
-    description: site.metaDescription,
-    url: site.url,
-    images: [{ url: "/hero.jpg", width: 1672, height: 941, alt: "A yacht in a turquoise tropical lagoon at golden hour" }],
-  },
-  twitter: { card: "summary_large_image" },
-  robots: { index: true, follow: true },
-  formatDetection: { telephone: true, email: true, address: true },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { settings } = await getContent();
+  const title = `${settings.seoTitle} | ${settings.name}`;
+  const share = settings.shareImage;
+  return {
+    metadataBase: new URL(siteUrl),
+    title: { default: title, template: `%s | ${settings.name}` },
+    description: settings.seoDescription,
+    alternates: { canonical: "/" },
+    openGraph: {
+      type: "website",
+      siteName: settings.name,
+      title,
+      description: settings.seoDescription,
+      url: siteUrl,
+      images: share ? [{ url: imgUrl(share, 1200), width: share.cdn ? undefined : share.width, height: share.cdn ? undefined : share.height, alt: share.alt }] : undefined,
+    },
+    twitter: { card: "summary_large_image" },
+    robots: { index: true, follow: true },
+    formatDetection: { telephone: true, email: true, address: true },
+  };
+}
 
 export const viewport: Viewport = { themeColor: "#2e3d6e" };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": `${site.url}/#organization`,
-      name: site.name,
-      legalName: "S.C.R Infotech Pvt. Ltd.",
-      url: site.url,
-      logo: { "@type": "ImageObject", url: `${site.url}/logo.png`, width: 800, height: 213 },
-      foundingDate: site.founded,
-      email: site.email,
-      sameAs: [site.social.facebook, site.social.justdial],
-      contactPoint: [
-        {
-          "@type": "ContactPoint",
-          telephone: "+91-97280-24440",
-          contactType: "customer service",
-          areaServed: "IN",
-          availableLanguage: ["en", "hi"],
-        },
-      ],
-    },
-    {
-      "@type": "WebSite",
-      "@id": `${site.url}/#website`,
-      url: site.url,
-      name: site.name,
-      publisher: { "@id": `${site.url}/#organization` },
-      inLanguage: "en-IN",
-    },
-    ...site.offices.map((o) => ({
-      "@type": "TravelAgency",
-      "@id": `${site.url}/#office-${o.city.toLowerCase()}`,
-      name: `${site.name} — ${o.city}`,
-      parentOrganization: { "@id": `${site.url}/#organization` },
-      url: site.url,
-      description: site.description,
-      image: `${site.url}/hero.jpg`,
-      logo: `${site.url}/logo.png`,
-      telephone: "+91-97280-24440",
-      email: site.email,
-      priceRange: "₹₹",
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: o.lines.slice(0, 2).join(", "),
-        addressLocality: o.city,
-        addressRegion: "Haryana",
-        postalCode: o.lines[2]?.match(/\d{6}/)?.[0],
-        addressCountry: "IN",
-      },
-      areaServed: site.areaServed.map((name) => ({ "@type": name === "India" ? "Country" : "Place", name })),
-      sameAs: [site.social.facebook, site.social.justdial],
-    })),
-  ],
-};
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const { settings, cities } = await getContent();
+  const served = [...new Set([...cities.map((c) => c.name), ...settings.areaServed])];
+  const sameAs = Object.values(settings.social).filter(Boolean);
+  const logo = absoluteImg(settings.logo, 800);
+  const telephone = settings.phoneHref.replace("tel:", "");
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: settings.name,
+        legalName: settings.legalName,
+        url: siteUrl,
+        logo: { "@type": "ImageObject", url: logo, width: settings.logo.width, height: settings.logo.height },
+        foundingDate: settings.founded ? String(settings.founded) : undefined,
+        email: settings.email,
+        sameAs,
+        contactPoint: [{ "@type": "ContactPoint", telephone, contactType: "customer service", areaServed: "IN", availableLanguage: ["en", "hi"] }],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: settings.name,
+        publisher: { "@id": `${siteUrl}/#organization` },
+        inLanguage: "en-IN",
+      },
+      ...settings.offices.map((o) => ({
+        "@type": "TravelAgency",
+        "@id": `${siteUrl}/#office-${o.city.toLowerCase().replace(/\s+/g, "-")}`,
+        name: `${settings.name} — ${o.city}`,
+        parentOrganization: { "@id": `${siteUrl}/#organization` },
+        url: siteUrl,
+        description: settings.longDescription,
+        image: settings.shareImage ? absoluteImg(settings.shareImage) : undefined,
+        logo,
+        telephone,
+        email: settings.email,
+        priceRange: "₹₹",
+        hasMap: o.mapUrl,
+        address: { "@type": "PostalAddress", streetAddress: o.street, addressLocality: o.city, addressRegion: o.region, postalCode: o.postalCode, addressCountry: "IN" },
+        areaServed: served.map((name) => ({ "@type": name === "India" ? "Country" : "Place", name })),
+        sameAs,
+      })),
+    ],
+  };
+
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} antialiased`}>
       <body className="flex min-h-screen flex-col">
         <a href="#main" className="skip-link">
           Skip to content
         </a>
+        <ScrollProgress />
         <Header />
         <main id="main" className="flex-1">
           {children}
         </main>
         <Footer />
         <WhatsAppFab />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <JsonLd data={jsonLd} />
       </body>
     </html>
   );
