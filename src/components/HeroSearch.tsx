@@ -130,9 +130,9 @@ export function HeroSearch({ destinations, popular }: { destinations: SearchDest
               role="radio"
               aria-checked={active}
               onClick={() => setType(t.id)}
-              className={`flex items-center gap-2 rounded-full px-3.5 py-1.5 text-[0.82rem] font-bold transition-colors sm:px-4 ${active ? "bg-ink-soft text-white" : "text-ink-soft hover:bg-ink/5"}`}
+              className={`flex items-center gap-2 rounded-full px-2.5 py-1.5 text-[0.78rem] font-bold transition-colors min-[360px]:px-3.5 min-[360px]:text-[0.82rem] sm:px-4 ${active ? "bg-ink-soft text-white" : "text-ink-soft hover:bg-ink/5"}`}
             >
-              <t.icon className="h-3.5 w-3.5" />
+              <t.icon className="hidden h-3.5 w-3.5 min-[360px]:block" />
               {t.id.replace(" Tour", "")}
             </button>
           );

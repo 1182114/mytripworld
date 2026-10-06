@@ -78,7 +78,7 @@ export function PackageCarousel({ packages, chip }: { packages: Package[]; chip?
         role="region"
         aria-label="Tour packages"
         tabIndex={0}
-        className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-5 pb-10 pt-2 md:-mx-8 md:px-8"
+        className="no-scrollbar -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-6 overflow-x-auto scroll-smooth px-5 pb-10 pt-2 md:-mx-8 md:scroll-px-8 md:px-8"
       >
         {packages.map((pkg) => (
           <div key={pkg.slug} data-slide className="w-[84%] shrink-0 snap-start sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">

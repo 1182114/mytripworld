@@ -65,7 +65,7 @@ export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contac
             : "We opened WhatsApp with your enquiry written out. Please press Send there so it reaches our team."}
         </p>
         <div className="mt-6 flex flex-col gap-3">
-          <a href={whatsappLink(contact, summary())} target="_blank" rel="noopener" className="btn btn-gold">
+          <a href={whatsappLink(contact, summary())} target="_blank" rel="noopener" className="btn btn-gold !whitespace-normal text-center">
             <WhatsAppIcon className="h-4 w-4" />
             {state === "sent" ? "Also message us on WhatsApp" : "Open WhatsApp again"}
           </a>
@@ -124,8 +124,8 @@ export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contac
         <button type="submit" className="btn btn-gold disabled:opacity-60" disabled={state === "sending"}>
           {state === "sending" ? "Sending…" : "Send enquiry"}
         </button>
-        <a href={whatsappLink(contact, summary())} target="_blank" rel="noopener" className="btn btn-outline">
-          <WhatsAppIcon className="h-4 w-4" />
+        <a href={whatsappLink(contact, summary())} target="_blank" rel="noopener" className="btn btn-outline !whitespace-normal text-center">
+          <WhatsAppIcon className="h-4 w-4 shrink-0" />
           Send on WhatsApp instead
         </a>
       </div>
