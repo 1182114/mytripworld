@@ -250,7 +250,7 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
           <h2 className={`mt-14 ${h2}`}>Travelling from your city</h2>
           <span className="gold-rule mt-3" />
           <div className="mt-8">
-            <CityLinks scope="featured" />
+            <CityLinks compact />
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AnyCityNote, CityLinks } from "@/components/CityLinks";
+import { AlsoServed, AnyCityNote, CityLinks } from "@/components/CityLinks";
 import { CtaBand } from "@/components/CtaBand";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Faq } from "@/components/Faq";
@@ -310,12 +310,13 @@ export default async function Home() {
       <section className="border-y border-ink/10 bg-white py-16 md:py-20">
         <div className="container-x">
           <Reveal>
-            <SectionHeading eyebrow="All over India" title="Tour Packages from Your City">
-              We serve travellers from every city in India. These are our most popular departure cities.
+            <SectionHeading eyebrow="All over India" title="Tour Packages from Every City in India">
+              We do not serve only a few cities. {settings.name} plans international tours for travellers from anywhere in India — pick your city to see how your trip works.
             </SectionHeading>
           </Reveal>
           <Reveal delay={100} className="mt-9">
-            <CityLinks scope="featured" />
+            <CityLinks compact />
+            <AlsoServed className="mt-6 max-w-3xl" />
             <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center">
               <AnyCityNote className="flex-1" />
               <Link href="/departure-cities/" className="btn btn-outline shrink-0">

@@ -47,7 +47,7 @@ export default async function ToursPage() {
           <h2 className="mt-12 font-display text-[2.2rem] leading-tight text-ink">Tour packages from your city</h2>
           <span className="gold-rule mt-3" />
           <div className="mt-8">
-            <CityLinks scope="featured" />
+            <CityLinks compact />
             <p className="mt-6 text-[0.95rem] text-ink-soft">
               We serve travellers from every city in India —{" "}
               <Link href="/departure-cities/" className="font-bold underline decoration-gold decoration-2 underline-offset-4">see all departure cities</Link>.

@@ -2,17 +2,44 @@ import Link from "next/link";
 import { getContent } from "@/lib/content";
 import { PlaneIcon } from "./icons";
 
-/** Links to departure-city pages. `scope` picks the popular cities, the rest, or every city with a page. */
-export async function CityLinks({ current, scope = "featured" }: { current?: string; scope?: "featured" | "more" | "all" }) {
+/**
+ * Links to every departure-city page. The company serves all of India, so the
+ * default is the full list; `scope` can narrow it where space is tight.
+ * `compact` renders small pills instead of cards.
+ */
+export async function CityLinks({ current, scope = "all", compact = false }: { current?: string; scope?: "featured" | "more" | "all"; compact?: boolean }) {
   const { cities } = await getContent();
   const list = cities.filter((c) => c.hasPage && c.slug !== current && (scope === "all" || (scope === "featured" ? c.featured : !c.featured)));
   if (!list.length) return null;
+
+  if (compact) {
+    return (
+      <ul className="flex flex-wrap gap-2.5">
+        {list.map((c) => (
+          <li key={c.slug}>
+            <Link
+              href={`/${c.slug}/`}
+              title={`International tour packages from ${c.name}`}
+              className="group inline-flex items-center gap-2 rounded-full bg-white py-2 pl-2 pr-4 text-[0.9rem] font-bold text-ink ring-1 ring-ink/10 transition-all hover:-translate-y-0.5 hover:ring-gold hover:shadow-[0_14px_28px_-20px_rgba(28,39,82,0.6)]"
+            >
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gold/25 text-ink-soft transition-colors group-hover:bg-gold">
+                <PlaneIcon className="h-3.5 w-3.5" />
+              </span>
+              {c.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   return (
     <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {list.map((c) => (
         <li key={c.slug}>
           <Link
             href={`/${c.slug}/`}
+            title={`International tour packages from ${c.name}`}
             className="group flex h-full items-center gap-3 rounded-2xl bg-white px-4 py-3.5 ring-1 ring-ink/10 transition-all hover:-translate-y-0.5 hover:shadow-[0_18px_35px_-25px_rgba(28,39,82,0.5)] hover:ring-gold"
           >
             <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold/20 text-ink-soft">
@@ -27,6 +54,18 @@ export async function CityLinks({ current, scope = "featured" }: { current?: str
         </li>
       ))}
     </ul>
+  );
+}
+
+/** One line naming the cities that are served but do not have their own page, ending "and every other city in India". */
+export async function AlsoServed({ className = "" }: { className?: string }) {
+  const { cities } = await getContent();
+  const names = cities.filter((c) => !c.hasPage).map((c) => c.name);
+  return (
+    <p className={`text-[0.95rem] leading-relaxed text-ink-soft ${className}`}>
+      {names.length > 0 && <>We also plan trips for travellers from {names.join(", ")} — </>}
+      {names.length > 0 ? "and" : "We plan trips from"} every other city and town in India. Wherever you live, tell us and we will plan your trip from there.
+    </p>
   );
 }
 

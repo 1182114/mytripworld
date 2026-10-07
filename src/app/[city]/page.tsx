@@ -170,7 +170,7 @@ export default async function CityPage({ params }: PageProps<"/[city]">) {
           <h2 className="font-display text-[2.2rem] leading-tight text-ink">Other departure cities</h2>
           <span className="gold-rule mt-3" />
           <div className="mt-8">
-            <CityLinks current={city.slug} scope="featured" />
+            <CityLinks current={city.slug} compact />
             <p className="mt-6 text-[0.95rem] text-ink-soft">
               We serve travellers from every city in India —{" "}
               <Link href="/departure-cities/" className="font-bold underline decoration-gold decoration-2 underline-offset-4">see all departure cities</Link>.

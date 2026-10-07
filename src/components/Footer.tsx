@@ -54,10 +54,10 @@ export async function Footer() {
           </nav>
 
           <nav aria-label="Departure cities">
-            <p className={heading}>Tours from your city</p>
+            <p className={heading}>Tours from every city</p>
             <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm lg:grid-cols-1 xl:grid-cols-2">
               {cities
-                .filter((c) => c.hasPage && c.featured)
+                .filter((c) => c.hasPage)
                 .map((c) => (
                   <li key={c.slug}>
                     <Link href={`/${c.slug}/`} className={link}>{c.name}</Link>
@@ -65,7 +65,7 @@ export async function Footer() {
                 ))}
             </ul>
             <p className="mt-4 text-sm">
-              <Link href="/departure-cities/" className="font-bold text-gold hover:underline">All cities across India →</Link>
+              <Link href="/departure-cities/" className="font-bold text-gold hover:underline">We serve all of India →</Link>
             </p>
           </nav>
 
