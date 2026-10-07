@@ -6,6 +6,7 @@ import { PackageCard } from "@/components/PackageCard";
 import { PageHero } from "@/components/PageHero";
 import { UspStrip } from "@/components/UspStrip";
 import { getContent } from "@/lib/content";
+import type { Package } from "@/lib/content/types";
 import { imgUrl } from "@/lib/img";
 import { pageMeta } from "@/lib/seo";
 
@@ -18,7 +19,7 @@ export async function generateStaticParams() {
   return destinations.map((d) => ({ slug: d.slug }));
 }
 
-const matches = (name: string, p: { title: string; placesLabel: string }) => `${p.title} ${p.placesLabel}`.toLowerCase().includes(name.toLowerCase());
+const matches = (name: string, p: Package) => [p.title, p.placesLabel, ...p.countries, ...p.stops.map((s) => s.name)].join(" ").toLowerCase().includes(name.toLowerCase());
 
 export async function generateMetadata({ params }: PageProps<"/destinations/[slug]">): Promise<Metadata> {
   const { slug } = await params;

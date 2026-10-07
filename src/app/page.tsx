@@ -216,6 +216,21 @@ export default async function Home() {
                 </Reveal>
               ))}
             </div>
+            {countries.length > 0 && (
+              <Reveal className="mt-10 text-center">
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted">More places our packages cover</p>
+                <ul className="mt-4 flex flex-wrap justify-center gap-2.5">
+                  {countries.map((c) => (
+                    <li key={c}>
+                      <Link href={`/tour-packages/?q=${encodeURIComponent(c)}`} className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-ink ring-1 ring-ink/10 transition-colors hover:bg-gold">
+                        {c}
+                        <span className="text-xs font-semibold text-muted">{matching(c).length}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            )}
           </div>
         </section>
       )}
@@ -226,7 +241,7 @@ export default async function Home() {
           <div className="container-x">
             <Reveal>
               <SectionHeading eyebrow="Where we take you" title="Popular Destinations" center>
-                From South-East Asia&rsquo;s skylines and beaches to the far side of the Pacific.
+                Asia, Europe, the Gulf, Central Asia and the Pacific, by tour or by cruise.
               </SectionHeading>
             </Reveal>
             <div className="mt-12 grid auto-rows-[11rem] grid-cols-2 gap-3 md:auto-rows-[14rem] md:grid-cols-4 md:gap-4">

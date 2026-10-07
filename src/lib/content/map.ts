@@ -296,7 +296,7 @@ export function mapContent(docs: RawDoc[]): Content {
         faqs: faqList(d.faqs),
         featured: d.featured === true,
         hasPage,
-        ...seo(d, `International Tour Packages from ${name}`, `International tour packages from ${name}: Singapore, Thailand, Vietnam, Australia and more. Flights from ${code}, stay, transfers and sightseeing in one price.`),
+        ...seo(d, `International Tour Packages from ${name}`, `International tour packages from ${name}: Asia, Europe, Australia, cruises and more. Flights from ${code}, stay, transfers and sightseeing in one price.`),
       };
     });
 
