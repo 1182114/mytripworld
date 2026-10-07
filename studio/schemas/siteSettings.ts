@@ -30,6 +30,7 @@ export const siteSettingsType = defineType({
       group: 'contact',
       validation: (rule) => rule.required().regex(/^\+\d[\d\s-]{8,}$/, {name: 'phone number', invert: false}).error('Start with + and the country code, e.g. +91 97280-24440'),
     }),
+    defineField({name: 'morePhones', title: 'More phone numbers', description: 'Shown with the main number in the booking box on package pages. One number per entry, e.g. +91 97280-24441', type: 'array', group: 'contact', of: [defineArrayMember({type: 'string'})]}),
     defineField({name: 'phoneNote', title: 'Other numbers (small text)', description: 'For example: Also on 97280-24441 to 24448', type: 'string', group: 'contact'}),
     defineField({
       name: 'whatsapp',

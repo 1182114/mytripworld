@@ -25,6 +25,8 @@ export type Settings = {
   phone: string;
   phoneHref: string;
   phoneNote?: string;
+  /** Main number first, then any extra numbers from the admin panel. */
+  phones: { label: string; href: string }[];
   whatsapp: string;
   email: string;
   complaintsEmail?: string;
@@ -100,12 +102,22 @@ export type Package = {
   nights?: number;
   days?: number;
   duration?: string;
+  departureAirports: string[];
   price?: number;
   priceLabel?: string;
   wasPriceLabel?: string;
   priceTerms?: string;
   badge?: string;
   summary: string;
+  tagline?: string;
+  /** Longer "About this journey" text; falls back to the summary. */
+  overview: string[];
+  ctaHeading?: string;
+  addOns?: string;
+  itineraryHeading?: string;
+  /** Extra fold-away sections, e.g. "Cruise exclusions". */
+  moreInfo: { title: string; items: string[] }[];
+  ctaText?: string;
   includes: string[];
   excludes: string[];
   highlights: { place: string; text: string }[];
@@ -117,7 +129,7 @@ export type Package = {
   seoTitle: string;
   seoDescription: string;
   facts: { icon: string; value: string; label: string }[];
-  stops: { name: string; country?: string; nights?: number; image: Img; summary?: string; experiences: string[] }[];
+  stops: { name: string; country?: string; nights?: number; image?: Img; summary?: string; experiences: string[] }[];
   highlightPoints: string[];
   paymentPolicy: string[];
   visaInfo: string[];

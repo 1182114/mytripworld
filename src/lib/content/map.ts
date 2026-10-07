@@ -83,6 +83,7 @@ export function mapContent(docs: RawDoc[]): Content {
   // ---- settings
   const s = one("siteSettings", "Site settings");
   const phone = need(str(s.phone), "Site settings → Main phone number");
+  const telHref = (n: string) => `tel:${n.replace(/[^+\d]/g, "")}`;
   const social = (s.social ?? {}) as Obj;
   const rating = (s.justdialRating ?? {}) as Obj;
   const settings: Settings = {
@@ -94,8 +95,9 @@ export function mapContent(docs: RawDoc[]): Content {
     logo: need(image(s.logo, "Site settings → Logo"), "Site settings → Logo"),
     footerText: str(s.footerText),
     phone,
-    phoneHref: `tel:${phone.replace(/[^+\d]/g, "")}`,
+    phoneHref: telHref(phone),
     phoneNote: str(s.phoneNote),
+    phones: [phone, ...strings(s.morePhones)].map((n) => ({ label: n, href: telHref(n) })),
     whatsapp: need(str(s.whatsapp), "Site settings → WhatsApp number"),
     email: need(str(s.email), "Site settings → Main email"),
     complaintsEmail: str(s.complaintsEmail),
@@ -192,7 +194,7 @@ export function mapContent(docs: RawDoc[]): Content {
       const kind = d.kind === "cruise" || d.kind === "inbound" ? d.kind : "tour";
       const stops = arr<Obj>(d.stops)
         .map((x) => ({ name: str(x.name) ?? "", country: str(x.country), nights: num(x.nights), image: image(x.image, `Package "${title}" → Destination photo`, str(x.name) ?? ""), summary: str(x.summary), experiences: strings(x.experiences) }))
-        .filter((x): x is typeof x & { image: Img } => Boolean(x.name && x.image));
+        .filter((x) => x.name);
       const countries = num(d.countriesCount) ?? (new Set(stops.map((x) => x.country).filter(Boolean)).size || undefined);
       const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
       const facts = [
@@ -211,13 +213,21 @@ export function mapContent(docs: RawDoc[]): Content {
         placesLabel: places.join(" · "),
         nights,
         days,
-        duration: nights !== undefined ? (days !== undefined ? `${nights} Nights / ${days} Days` : `${nights} ${nights === 1 ? "Night" : "Nights"}`) : undefined,
+        duration: str(d.durationText) ?? (nights !== undefined ? (days !== undefined ? `${nights} Nights / ${days} Days` : `${nights} ${nights === 1 ? "Night" : "Nights"}`) : undefined),
+        departureAirports: strings(d.departureAirports),
         price,
         priceLabel: rupees(price),
         wasPriceLabel: rupees(num(d.wasPrice)),
         priceTerms,
         badge: str(d.badge),
         summary,
+        tagline: str(d.tagline),
+        overview: strings(d.overview).length ? strings(d.overview) : [summary],
+        ctaHeading: str(d.ctaHeading),
+        addOns: str(d.addOns),
+        itineraryHeading: str(d.itineraryHeading),
+        moreInfo: arr<Obj>(d.moreInfo).map((x) => ({ title: str(x.title) ?? "", items: strings(x.items) })).filter((x) => x.title && x.items.length),
+        ctaText: str(d.ctaText),
         includes: strings(d.includes),
         excludes: strings(d.excludes),
         highlights: arr<Obj>(d.highlights).map((x) => ({ place: str(x.place) ?? "", text: str(x.text) ?? "" })).filter((x) => x.place),

@@ -129,6 +129,12 @@ export const BedIcon = ({ className }: P) => (
     <path d="M3 18v-7a2 2 0 0 1 2-2h9a4 4 0 0 1 4 4v5M3 15h18v3M7 9V7h5v2M3 18v1.5M21 18v1.5" />
   </svg>
 );
+export const BagIcon = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
+    <rect x="5" y="8" width="14" height="12" rx="2" />
+    <path d="M9 8V5h6v3M9.5 12v4M14.5 12v4" />
+  </svg>
+);
 export const CameraIcon = ({ className }: P) => (
   <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
     <path d="M4 8h3l1.5-2h7L17 8h3v11H4V8Z" />

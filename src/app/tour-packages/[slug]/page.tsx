@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { CityLinks } from "@/components/CityLinks";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Faq } from "@/components/Faq";
-import { BedIcon, CalendarIcon, CameraIcon, CarIcon, CheckIcon, NamedIcon, PlaneIcon, WhatsAppIcon } from "@/components/icons";
+import { BagIcon, BedIcon, CalendarIcon, CameraIcon, CarIcon, CheckIcon, NamedIcon, PhoneIcon, PlaneIcon, UsersIcon, WhatsAppIcon } from "@/components/icons";
 import { JsonLd } from "@/components/JsonLd";
 import { PackageCard } from "@/components/PackageCard";
 import { PageHero } from "@/components/PageHero";
@@ -35,10 +35,12 @@ export async function generateMetadata({ params }: PageProps<"/tour-packages/[sl
 /** Picks an icon from the wording of an inclusion, so the picture always matches the text. */
 function includeIcon(text: string) {
   const t = text.toLowerCase();
+  if (/baggage|luggage/.test(t)) return BagIcon;
   if (/flight|airfare|air ticket/.test(t)) return PlaneIcon;
-  if (/stay|night|hotel|resort|cabin|room|breakfast|meal/.test(t)) return BedIcon;
-  if (/transfer|pick|drop|transport|cab|coach/.test(t)) return CarIcon;
-  if (/sightseeing|tour|excursion|ticket|entry|cruis/.test(t)) return CameraIcon;
+  if (/stay|\bnights?\b|hotel|resort|cabin|room|breakfast|meal/.test(t)) return BedIcon;
+  if (/guide|driver/.test(t)) return UsersIcon;
+  if (/sightseeing|tour|excursion|ticket|entry|cruis|visit|waterfall|terrace|market|swing/.test(t)) return CameraIcon;
+  if (/transfer|pick|drop|transport|train|cab|coach/.test(t)) return CarIcon;
   return CheckIcon;
 }
 const h2 = "font-display text-[2.2rem] leading-tight text-ink";
@@ -49,6 +51,18 @@ function Heading({ children, first }: { children: string; first?: boolean }) {
       <h2 className={`${first ? "" : "mt-14 "}${h2}`}>{children}</h2>
       <span className="gold-rule mt-3" />
     </>
+  );
+}
+
+function Fold({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <details className="group overflow-hidden rounded-3xl bg-white ring-1 ring-ink/10">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-6 py-4 font-display text-[1.4rem] text-ink transition-colors hover:bg-sand [&::-webkit-details-marker]:hidden">
+        {title}
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold/25 font-sans text-xl font-bold leading-none text-ink-soft transition-transform group-open:rotate-45">+</span>
+      </summary>
+      {children}
+    </details>
   );
 }
 
@@ -94,8 +108,15 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
       offers: { "@type": "Offer", price: String(pkg.price), priceCurrency: "INR", url, availability: "https://schema.org/InStock", seller: { "@id": `${siteUrl}/#organization` } },
     }),
   };
-  const query = whatsappLink(contact, `Hello ${contact.name}, please send me details for "${pkg.title}".`);
   const withExperiences = pkg.stops.filter((s) => s.experiences.length > 0);
+  const book = whatsappLink(contact, `Hello ${contact.name}, I would like to book "${pkg.title}".`);
+  const folds = [
+    { title: "Not included", items: pkg.excludes },
+    { title: "Payment policy", items: pkg.paymentPolicy },
+    { title: "Passport & visa", items: pkg.visaInfo },
+    { title: "Important information", items: pkg.importantInfo },
+    ...pkg.moreInfo,
+  ].filter((f) => f.items.length > 0);
 
   return (
     <>
@@ -112,11 +133,18 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
           { name: pkg.title, href: `/tour-packages/${pkg.slug}/` },
         ]}
       >
+        {pkg.tagline && <p className="mt-2 max-w-2xl text-[0.95rem] leading-relaxed text-muted">{pkg.tagline}</p>}
         <dl className="mt-6 flex flex-wrap items-end gap-x-9 gap-y-4 border-t border-ink/10 pt-5">
           {pkg.duration && (
             <div>
               <dt className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-muted">Duration</dt>
               <dd className="mt-0.5 text-lg font-extrabold text-ink">{pkg.duration}</dd>
+            </div>
+          )}
+          {pkg.departureAirports.length > 0 && (
+            <div className="max-w-[17rem]">
+              <dt className="text-[0.7rem] font-bold uppercase tracking-[0.14em] text-muted">Departing from</dt>
+              <dd className={`mt-0.5 font-extrabold text-ink ${pkg.departureAirports.length > 2 ? "text-sm leading-snug" : "text-lg"}`}>{pkg.departureAirports.join(" · ")}</dd>
             </div>
           )}
           <div>
@@ -128,12 +156,12 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
             {pkg.priceTerms && <dd className="mt-1 text-xs font-semibold text-muted">{pkg.priceTerms}</dd>}
           </div>
           <div className="flex flex-wrap gap-3">
+            <a href={book} target="_blank" rel="noopener" className="btn btn-gold">
+              <WhatsAppIcon className="h-4 w-4" />
+              Book Now
+            </a>
             <a href="#enquire" className="btn btn-ink">
               Enquire Now
-            </a>
-            <a href={query} target="_blank" rel="noopener" className="btn btn-gold">
-              <WhatsAppIcon className="h-4 w-4" />
-              Book on WhatsApp
             </a>
           </div>
         </dl>
@@ -146,7 +174,11 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
             <p className="eyebrow">Package overview</p>
             <h2 className={`mt-2 ${h2}`}>About this journey</h2>
             <span className="gold-rule mt-3" />
-            <p className="mt-5 text-base leading-relaxed text-muted md:text-lg">{pkg.summary}</p>
+            <div className="mt-5 space-y-4 text-base leading-relaxed text-muted md:text-lg">
+              {pkg.overview.map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+            </div>
             <UspStrip className="mt-7" />
           </Reveal>
           {pkg.facts.length > 0 && (
@@ -187,7 +219,7 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
               {pkg.stops.map((s, i) => (
                 <Reveal key={s.name} delay={(i % 4) * 90}>
                   <article className="group relative isolate flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-3xl bg-ink-soft p-6 text-white shadow-[0_30px_60px_-40px_rgba(28,39,82,0.8)]">
-                    <Pic img={s.image} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110" />
+                    {s.image && <Pic img={s.image} sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="absolute inset-0 -z-20 h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110" />}
                     <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent" />
                     <span className="absolute left-5 top-5 flex h-9 w-9 items-center justify-center rounded-full bg-gold text-sm font-extrabold text-ink">{i + 1}</span>
                     {s.country && <p className="text-[0.7rem] font-extrabold uppercase tracking-[0.18em] text-gold">{s.country}</p>}
@@ -265,9 +297,11 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
                 <div className="mt-7 space-y-5">
                   {withExperiences.map((s) => (
                     <article key={s.name} className="card overflow-hidden sm:flex">
-                      <div className="relative aspect-[16/9] shrink-0 overflow-hidden bg-ink-soft sm:aspect-auto sm:w-52">
-                        <Pic img={s.image} sizes="(min-width: 640px) 208px, 100vw" className="h-full w-full object-cover" />
-                      </div>
+                      {s.image && (
+                        <div className="relative aspect-[16/9] shrink-0 overflow-hidden bg-ink-soft sm:aspect-auto sm:w-52">
+                          <Pic img={s.image} sizes="(min-width: 640px) 208px, 100vw" className="h-full w-full object-cover" />
+                        </div>
+                      )}
                       <div className="p-5 md:p-6">
                         {s.country && <p className="text-[0.68rem] font-extrabold uppercase tracking-[0.18em] text-gold-deep">{s.country}</p>}
                         <h3 className="font-display text-[1.7rem] leading-tight text-ink">{s.name}</h3>
@@ -290,7 +324,7 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
 
             {pkg.itinerary.length > 0 ? (
               <Reveal>
-                <Heading>Day-by-day itinerary</Heading>
+                <Heading>{pkg.itineraryHeading ?? "Day-by-day itinerary"}</Heading>
                 <ol className="mt-7 border-l-2 border-gold/50 pl-7">
                   {pkg.itinerary.map((d) => (
                     <li key={d.day} className="relative pb-7 last:pb-0">
@@ -324,36 +358,48 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
               )
             )}
 
-            {/* 7. Exclusions */}
-            {pkg.excludes.length > 0 && (
+            {pkg.addOns && (
               <Reveal>
-                <Heading>Not included</Heading>
-                <BulletList items={pkg.excludes} tone="muted" />
+                <div className="mt-14 rounded-3xl bg-sand p-6 ring-1 ring-ink/5 md:flex md:items-center md:justify-between md:gap-8 md:p-7">
+                  <div>
+                    <h2 className="font-display text-2xl text-ink">Want to add more experiences?</h2>
+                    <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">{pkg.addOns}</p>
+                  </div>
+                  <a href={whatsappLink(contact, `Hello ${contact.name}, I would like to know about extra activities for "${pkg.title}".`)} target="_blank" rel="noopener" className="btn btn-ink mt-5 shrink-0 md:mt-0">
+                    Ask About Activities
+                  </a>
+                </div>
               </Reveal>
             )}
 
-            {/* 8. Payment policy  9. Visa information  10. Important information */}
-            {(
-              [
-                ["Payment policy", pkg.paymentPolicy],
-                ["Visa information", pkg.visaInfo],
-                ["Important information", pkg.importantInfo],
-              ] as const
-            ).map(
-              ([title, items]) =>
-                items.length > 0 && (
-                  <Reveal key={title}>
-                    <Heading>{title}</Heading>
-                    <ul className="mt-6 space-y-3 rounded-3xl bg-sand p-6 text-[0.95rem] leading-relaxed text-ink-soft ring-1 ring-ink/5 md:p-7">
-                      {items.map((item) => (
-                        <li key={item} className="flex items-start gap-3">
-                          <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-deep" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </Reveal>
-                ),
+            {/* 7–10. Exclusions, payment, passport and other details, folded away to keep the page short */}
+            {folds.length > 0 && (
+              <Reveal>
+                <Heading>Good to know</Heading>
+                <div className="mt-6 space-y-3">
+                  {folds.map((f) => (
+                    <Fold key={f.title} title={f.title}>
+                      <ul className="space-y-3 px-6 pb-6 text-[0.92rem] leading-relaxed text-ink-soft">
+                        {f.items.map((item) => (
+                          <li key={item} className="flex items-start gap-3">
+                            <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-deep" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </Fold>
+                  ))}
+                  {pkg.terms.length > 0 && (
+                    <Fold title="Terms & Conditions">
+                      <ol className="list-decimal space-y-3 px-6 pb-6 pl-10 text-[0.9rem] leading-relaxed text-muted marker:font-bold marker:text-ink-soft">
+                        {pkg.terms.map((t) => (
+                          <li key={t}>{t}</li>
+                        ))}
+                      </ol>
+                    </Fold>
+                  )}
+                </div>
+              </Reveal>
             )}
 
             {pkg.gallery.length > 0 && (
@@ -374,23 +420,6 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
                 <div className="mt-6">
                   <Faq items={pkg.faqs} />
                 </div>
-              </Reveal>
-            )}
-
-            {/* Lengthy legal text stays folded away */}
-            {pkg.terms.length > 0 && (
-              <Reveal>
-                <details className="group mt-14 overflow-hidden rounded-3xl bg-white ring-1 ring-ink/10">
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-5 px-6 py-5 font-display text-2xl text-ink transition-colors hover:bg-sand [&::-webkit-details-marker]:hidden">
-                    Terms &amp; Conditions
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold/25 font-sans text-xl font-bold leading-none text-ink-soft transition-transform group-open:rotate-45">+</span>
-                  </summary>
-                  <ol className="list-decimal space-y-3 px-6 pb-6 pl-10 text-[0.9rem] leading-relaxed text-muted marker:font-bold marker:text-ink-soft">
-                    {pkg.terms.map((t) => (
-                      <li key={t}>{t}</li>
-                    ))}
-                  </ol>
-                </details>
               </Reveal>
             )}
           </div>
@@ -418,6 +447,39 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
               </div>
             </>
           )}
+          {/* 12. Closing booking box */}
+          <Reveal>
+            <div className={`${others.length ? "mt-14 " : ""}overflow-hidden rounded-3xl bg-ink-soft p-7 text-white md:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10`} style={{ background: "var(--color-ink-soft)" }}>
+              <div className="max-w-xl">
+                <h2 className="font-display text-[2rem] leading-tight md:text-[2.4rem]">{pkg.ctaHeading ?? "Ready to book this trip?"}</h2>
+                <p className="mt-2 text-[0.95rem] leading-relaxed text-white/75">{pkg.ctaText ?? `Book ${pkg.title} with ${settings.name}.`}</p>
+                <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[0.95rem] font-bold">
+                  {settings.phones.map((p) => (
+                    <li key={p.href}>
+                      <a href={p.href} className="inline-flex items-center gap-2 underline-offset-4 hover:underline">
+                        <PhoneIcon className="h-4 w-4 text-gold" />
+                        {p.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                {settings.workingHours && <p className="mt-2 text-xs text-white/65">Office hours: {settings.workingHours}</p>}
+              </div>
+              <div className="mt-7 flex shrink-0 flex-col gap-3 sm:flex-row lg:mt-0 lg:flex-col">
+                <a href={book} target="_blank" rel="noopener" className="btn btn-gold">
+                  <WhatsAppIcon className="h-4 w-4" />
+                  Book This Tour
+                </a>
+                <a href="#enquire" className="btn btn-ghost">
+                  Send Enquiry
+                </a>
+                <a href={contact.phoneHref} className="btn btn-ghost">
+                  <PhoneIcon className="h-4 w-4" />
+                  Call Now
+                </a>
+              </div>
+            </div>
+          </Reveal>
           <h2 className={`mt-14 ${h2}`}>Travelling from your city</h2>
           <span className="gold-rule mt-3" />
           <div className="mt-8">
