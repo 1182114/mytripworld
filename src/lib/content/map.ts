@@ -266,8 +266,9 @@ export function mapContent(docs: RawDoc[]): Content {
       };
     });
 
+  // Sort order first (to pin favourites), then newest first.
   const testimonials: Testimonial[] = of("testimonial")
-    .sort(byOrder)
+    .sort((a, b) => (num(a.order) ?? 100) - (num(b.order) ?? 100) || (str(b.date) ?? String(b._createdAt ?? "")).localeCompare(str(a.date) ?? String(a._createdAt ?? "")))
     .map((d) => ({ name: str(d.name) ?? "", trip: str(d.trip), text: str(d.text) ?? "", rating: num(d.rating), source: str(d.source), photo: image(d.photo, `Review by ${str(d.name)}`) }))
     .filter((t) => t.name && t.text);
 

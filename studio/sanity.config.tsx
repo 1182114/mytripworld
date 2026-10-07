@@ -56,8 +56,9 @@ function pageUrl(doc: {_type: string; slug?: {current?: string}; key?: string}):
       return slug ? `${siteUrl}/${slug}/` : undefined
     case 'homePage':
     case 'siteSettings':
-    case 'faq':
     case 'testimonial':
+      return `${siteUrl}/reviews/`
+    case 'faq':
     case 'offer':
       return `${siteUrl}/`
     case 'galleryItem':

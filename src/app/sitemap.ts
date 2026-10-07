@@ -26,6 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...cities.filter((c) => c.hasPage).map((c) => page(`/${c.slug}/`, c.featured ? 0.7 : 0.6)),
     page("/about-us/", 0.6),
     page("/gallery/", 0.5),
+    page("/reviews/", 0.6),
     page("/contact/", 0.6),
     ...legal.map((l) => page(`/${l.slug}/`, 0.2, "yearly")),
   ];

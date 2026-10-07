@@ -22,7 +22,7 @@ export const sanityDataset = process.env.SANITY_DATASET || "production";
 export async function loadRawDocs(): Promise<{ docs: RawDoc[]; mode: "sanity" | "seed" }> {
   if (!sanityProject) {
     if (process.env.CONTENT_SOURCE === "seed") {
-      const file = path.join(process.cwd(), "studio", "seed", "content.ndjson");
+      const file = process.env.SEED_FILE || path.join(process.cwd(), "studio", "seed", "content.ndjson");
       const docs = readFileSync(file, "utf8")
         .split("\n")
         .filter(Boolean)

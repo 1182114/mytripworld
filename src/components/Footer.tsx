@@ -35,6 +35,7 @@ export async function Footer() {
                 </li>
               ))}
               <li><Link href="/india-tour-packages/" className={link}>India Tours</Link></li>
+              <li><Link href="/reviews/" className={link}>Reviews</Link></li>
               <li><Link href="/#faq" className={link}>FAQ</Link></li>
             </ul>
           </nav>
