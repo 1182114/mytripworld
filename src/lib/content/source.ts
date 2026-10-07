@@ -20,14 +20,19 @@ export const sanityDataset = process.env.SANITY_DATASET || "production";
  * build fails, so an empty or half-empty site can never be published.
  */
 export async function loadRawDocs(): Promise<{ docs: RawDoc[]; mode: "sanity" | "seed" }> {
+  const readFile = (file: string) =>
+    readFileSync(file, "utf8")
+      .split("\n")
+      .filter(Boolean)
+      .map((line) => JSON.parse(line) as RawDoc);
+
+  // PREVIEW_FILE: build from a local snapshot on purpose (for example to preview an
+  // unpublished draft). Never set this on the live host.
+  if (process.env.PREVIEW_FILE) return { docs: readFile(process.env.PREVIEW_FILE), mode: "seed" };
+
   if (!sanityProject) {
     if (process.env.CONTENT_SOURCE === "seed") {
-      const file = process.env.SEED_FILE || path.join(process.cwd(), "studio", "seed", "content.ndjson");
-      const docs = readFileSync(file, "utf8")
-        .split("\n")
-        .filter(Boolean)
-        .map((line) => JSON.parse(line) as RawDoc);
-      return { docs, mode: "seed" };
+      return { docs: readFile(path.join(process.cwd(), "studio", "seed", "content.ndjson")), mode: "seed" };
     }
     throw new Error(
       "Content source is not configured. Set SANITY_PROJECT_ID (and SANITY_DATASET) so the site can load its content from Sanity, " +

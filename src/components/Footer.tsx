@@ -79,6 +79,7 @@ export async function Footer() {
                   <span>
                     {contact.phone}
                     {settings.phoneNote && <span className="block text-xs text-white/45">{settings.phoneNote}</span>}
+                    {settings.workingHours && <span className="block text-xs text-white/45">{settings.workingHours}</span>}
                   </span>
                 </a>
               </li>

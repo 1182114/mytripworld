@@ -136,15 +136,21 @@ export const CameraIcon = ({ className }: P) => (
   </svg>
 );
 
-/** Icons that can be picked by name in the admin panel. */
-export const namedIcons = { car: CarIcon, home: HomeIcon, plane: PlaneIcon, users: UsersIcon, shield: ShieldIcon, trophy: TrophyIcon, globe: GlobeIcon } as const;
-export function NamedIcon({ name, className }: { name?: string; className?: string }) {
-  const Icon = namedIcons[(name ?? "") as keyof typeof namedIcons] ?? CheckIcon;
-  return <Icon className={className} />;
-}
 export const TagIcon = ({ className }: P) => (
   <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
     <path d="M4 4h7l9 9-7 7-9-9V4Z" />
     <circle cx="8.5" cy="8.5" r="1.3" />
   </svg>
 );
+export const MoonIcon = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" aria-hidden className={className} {...stroke}>
+    <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />
+  </svg>
+);
+
+/** Icons that can be picked by name in the admin panel. */
+export const namedIcons = { car: CarIcon, home: HomeIcon, plane: PlaneIcon, users: UsersIcon, shield: ShieldIcon, trophy: TrophyIcon, globe: GlobeIcon, pin: PinIcon, moon: MoonIcon } as const;
+export function NamedIcon({ name, className }: { name?: string; className?: string }) {
+  const Icon = namedIcons[(name ?? "") as keyof typeof namedIcons] ?? CheckIcon;
+  return <Icon className={className} />;
+}

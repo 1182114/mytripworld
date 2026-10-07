@@ -41,6 +41,7 @@ export const siteSettingsType = defineType({
     }),
     defineField({name: 'email', title: 'Main email', type: 'string', group: 'contact', validation: (rule) => rule.required().email()}),
     defineField({name: 'complaintsEmail', title: 'Complaints email', type: 'string', group: 'contact', validation: (rule) => rule.email()}),
+    defineField({name: 'workingHours', title: 'Working hours', description: 'For example: Monday to Saturday, 9:00 AM – 5:00 PM', type: 'string', group: 'contact'}),
 
     defineField({
       name: 'offices',

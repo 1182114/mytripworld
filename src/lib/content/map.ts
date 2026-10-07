@@ -99,6 +99,7 @@ export function mapContent(docs: RawDoc[]): Content {
     whatsapp: need(str(s.whatsapp), "Site settings → WhatsApp number"),
     email: need(str(s.email), "Site settings → Main email"),
     complaintsEmail: str(s.complaintsEmail),
+    workingHours: str(s.workingHours),
     offices: arr<Obj>(s.offices).map((o) => ({ city: str(o.city) ?? "", street: str(o.street) ?? "", region: str(o.region) ?? "", postalCode: str(o.postalCode), mapUrl: str(o.mapUrl) })),
     social: Object.fromEntries(["facebook", "instagram", "youtube", "googleBusiness", "justdial", "tripadvisor"].map((k) => [k, str(social[k])]).filter(([, v]) => v)),
     justdialRating: num(rating.score) && num(rating.count) ? { score: num(rating.score)!, count: num(rating.count)! } : undefined,
@@ -189,6 +190,18 @@ export function mapContent(docs: RawDoc[]): Content {
       const summary = need(str(d.summary), `Package "${title}" → Short description`);
       const cover = need(image(d.cover, `Package "${title}" → Main photo`, title), `Package "${title}" → Main photo`);
       const kind = d.kind === "cruise" || d.kind === "inbound" ? d.kind : "tour";
+      const stops = arr<Obj>(d.stops)
+        .map((x) => ({ name: str(x.name) ?? "", country: str(x.country), nights: num(x.nights), image: image(x.image, `Package "${title}" → Destination photo`, str(x.name) ?? ""), summary: str(x.summary), experiences: strings(x.experiences) }))
+        .filter((x): x is typeof x & { image: Img } => Boolean(x.name && x.image));
+      const countries = num(d.countriesCount) ?? (new Set(stops.map((x) => x.country).filter(Boolean)).size || undefined);
+      const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
+      const facts = [
+        countries !== undefined && { icon: "globe", value: String(countries), label: plural(countries, "Country", "Countries") },
+        stops.length > 0 && { icon: "pin", value: String(stops.length), label: plural(stops.length, "Destination", "Destinations") },
+        nights !== undefined && { icon: "moon", value: String(nights), label: plural(nights, "Night", "Nights") },
+        num(d.internationalFlights) !== undefined && { icon: "plane", value: String(num(d.internationalFlights)), label: plural(num(d.internationalFlights)!, "International Flight", "International Flights") },
+        num(d.domesticFlights) !== undefined && { icon: "plane", value: String(num(d.domesticFlights)), label: plural(num(d.domesticFlights)!, "Domestic Flight", "Domestic Flights") },
+      ].filter((f): f is { icon: string; value: string; label: string } => Boolean(f));
       return {
         slug,
         kind,
@@ -198,7 +211,7 @@ export function mapContent(docs: RawDoc[]): Content {
         placesLabel: places.join(" · "),
         nights,
         days,
-        duration: nights !== undefined && days !== undefined ? `${nights} Nights / ${days} Days` : undefined,
+        duration: nights !== undefined ? (days !== undefined ? `${nights} Nights / ${days} Days` : `${nights} ${nights === 1 ? "Night" : "Nights"}`) : undefined,
         price,
         priceLabel: rupees(price),
         wasPriceLabel: rupees(num(d.wasPrice)),
@@ -221,6 +234,13 @@ export function mapContent(docs: RawDoc[]): Content {
         cover,
         gallery: images(d.gallery, `Package "${title}" → More photos`),
         ...seo(d, title, summary.slice(0, 160)),
+        facts,
+        stops,
+        highlightPoints: strings(d.highlightPoints),
+        paymentPolicy: strings(d.paymentPolicy),
+        visaInfo: strings(d.visaInfo),
+        importantInfo: strings(d.importantInfo),
+        terms: strings(d.terms),
         featured: d.featured === true,
       };
     });

@@ -28,6 +28,7 @@ export type Settings = {
   whatsapp: string;
   email: string;
   complaintsEmail?: string;
+  workingHours?: string;
   offices: Office[];
   social: Partial<Record<"facebook" | "instagram" | "youtube" | "googleBusiness" | "justdial" | "tripadvisor", string>>;
   justdialRating?: { score: number; count: number };
@@ -115,6 +116,13 @@ export type Package = {
   gallery: Img[];
   seoTitle: string;
   seoDescription: string;
+  facts: { icon: string; value: string; label: string }[];
+  stops: { name: string; country?: string; nights?: number; image: Img; summary?: string; experiences: string[] }[];
+  highlightPoints: string[];
+  paymentPolicy: string[];
+  visaInfo: string[];
+  importantInfo: string[];
+  terms: string[];
   featured: boolean;
 };
 

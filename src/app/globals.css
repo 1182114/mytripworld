@@ -310,11 +310,13 @@ body {
   color: var(--color-gold-deep);
 }
 
-/* Keep the WhatsApp button clear of the mobile enquiry bar on package pages */
-@media (max-width: 1023px) {
-  body:has(.sticky-cta) .wa-fab {
-    display: none;
-  }
+/* Package pages have their own booking bar, so the floating WhatsApp button steps aside */
+body:has(.sticky-cta) .wa-fab {
+  display: none;
+}
+/* Leave room for the bar so it never covers the footer's last line */
+body:has(.sticky-cta) footer {
+  padding-bottom: 4.5rem;
 }
 
 /* Search controls over the hero photo: still glass, but opaque enough to read at a glance. */

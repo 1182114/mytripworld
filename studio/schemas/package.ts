@@ -10,7 +10,9 @@ export const packageType = defineType({
   groups: [
     {name: 'basics', title: 'Basics', default: true},
     {name: 'price', title: 'Price'},
+    {name: 'stops', title: 'Destinations'},
     {name: 'trip', title: 'Itinerary & inclusions'},
+    {name: 'policies', title: 'Payment, visa & terms'},
     {name: 'dates', title: 'Departure dates'},
     {name: 'photos', title: 'Photos'},
     {name: 'more', title: 'FAQ & Google'},
@@ -61,6 +63,9 @@ export const packageType = defineType({
     }),
     defineField({name: 'nights', title: 'Nights', type: 'number', group: 'basics', validation: (rule) => rule.min(0).integer()}),
     defineField({name: 'days', title: 'Days', type: 'number', group: 'basics', validation: (rule) => rule.min(1).integer()}),
+    defineField({name: 'countriesCount', title: 'Number of countries', description: 'Optional. Shown as a fact card, e.g. 3 Countries.', type: 'number', group: 'basics', validation: (rule) => rule.min(1).integer()}),
+    defineField({name: 'internationalFlights', title: 'International flights included', type: 'number', group: 'basics', validation: (rule) => rule.min(0).integer()}),
+    defineField({name: 'domesticFlights', title: 'Domestic flights included', type: 'number', group: 'basics', validation: (rule) => rule.min(0).integer()}),
     defineField({
       name: 'summary',
       title: 'Short description',
@@ -128,6 +133,43 @@ export const packageType = defineType({
     }),
 
     defineField({
+      name: 'stops',
+      title: 'Destination cards',
+      description: 'One card per place on the trip, each with a large photo. (Har jagah ke liye ek card.)',
+      type: 'array',
+      group: 'stops',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'stop',
+          fields: [
+            defineField({name: 'name', title: 'Place', description: 'For example: Boracay', type: 'string', validation: (rule) => rule.required()}),
+            defineField({name: 'country', title: 'Country', type: 'string'}),
+            defineField({name: 'nights', title: 'Nights here', type: 'number', validation: (rule) => rule.min(0).integer()}),
+            defineField({
+              name: 'image',
+              title: 'Photo',
+              type: 'image',
+              options: {hotspot: true},
+              fields: [defineField({name: 'alt', title: 'Describe this photo', type: 'string', validation: (rule) => rule.required().max(140)})],
+              validation: (rule) => rule.required(),
+            }),
+            defineField({name: 'summary', title: 'One or two lines about this place', type: 'text', rows: 2, validation: (rule) => rule.max(220)}),
+            defineField({name: 'experiences', title: 'Experiences here', description: 'What travellers do in this place. Only list what is really part of the package.', type: 'array', of: [defineArrayMember({type: 'string'})]}),
+          ],
+          preview: {select: {title: 'name', subtitle: 'country', media: 'image'}},
+        }),
+      ],
+    }),
+    defineField({
+      name: 'highlightPoints',
+      title: 'Package highlights',
+      description: 'Short bullet points — the best things about this package.',
+      type: 'array',
+      group: 'trip',
+      of: [defineArrayMember({type: 'string'})],
+    }),
+    defineField({
       name: 'includes',
       title: 'What is included',
       type: 'array',
@@ -145,8 +187,8 @@ export const packageType = defineType({
     }),
     defineField({
       name: 'highlights',
-      title: 'Highlights',
-      description: 'The main places and what travellers do there.',
+      title: 'Place-by-place highlights (older style)',
+      description: 'Used on packages that do not have destination cards. New packages should use the Destinations tab instead.',
       type: 'array',
       group: 'trip',
       of: [
@@ -232,6 +274,10 @@ export const packageType = defineType({
       options: {layout: 'grid'},
     }),
 
+    defineField({name: 'paymentPolicy', title: 'Payment policy', description: 'One point per line, e.g. booking amount, when the balance is due.', type: 'array', group: 'policies', of: [defineArrayMember({type: 'string'})]}),
+    defineField({name: 'visaInfo', title: 'Visa information', type: 'array', group: 'policies', of: [defineArrayMember({type: 'string'})]}),
+    defineField({name: 'importantInfo', title: 'Important information', type: 'array', group: 'policies', of: [defineArrayMember({type: 'string'})]}),
+    defineField({name: 'terms', title: 'Terms & Conditions', description: 'Shown inside a closed "Terms & Conditions" box on the page. One paragraph or point per entry.', type: 'array', group: 'policies', of: [defineArrayMember({type: 'text', rows: 3})]}),
     {...faqItems('faqs', 'Questions about this package'), group: 'more'},
     {...seoField, group: 'more'},
   ],

@@ -17,7 +17,7 @@ export default async function ContactPage() {
   const { pages, settings, contact } = await getContent();
   const page = pages.contact;
   const cards = [
-    { icon: PhoneIcon, label: "Call us", value: contact.phone, note: settings.phoneNote, href: contact.phoneHref },
+    { icon: PhoneIcon, label: "Call us", value: contact.phone, note: [settings.phoneNote, settings.workingHours].filter(Boolean).join(" · ") || undefined, href: contact.phoneHref },
     { icon: WhatsAppIcon, label: "WhatsApp", value: "Chat with our team", note: "Fastest way to get a quote", href: whatsappLink(contact) },
     { icon: MailIcon, label: "Email", value: contact.email, note: settings.complaintsEmail ? `Complaints: ${settings.complaintsEmail}` : undefined, href: `mailto:${contact.email}` },
   ];
