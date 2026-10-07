@@ -51,7 +51,7 @@ export default async function Home() {
 
         <div className="container-x flex flex-col pb-8 pt-24 md:pb-10 md:pt-32 lg:min-h-[min(100svh,48rem)]">
           {/* Frosted panel: headline, intro and the two signature benefits */}
-          <div className="glass hero-in max-w-[41rem] p-6 md:p-8">
+          <div className="glass hero-in max-w-[55rem] p-6 md:p-8">
             {home.eyebrow && (
               <p className="eyebrow flex items-center gap-3">
                 <span className="h-0.5 w-8 bg-gold" />
@@ -64,7 +64,7 @@ export default async function Home() {
               {mark && after && <br className="hidden md:block" />}
               {after}
             </h1>
-            <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink md:text-lg">{home.intro}</p>
+            <p className="mt-4 max-w-[44rem] text-[1.0625rem] leading-relaxed text-ink md:text-lg">{home.intro}</p>
 
             {settings.usps.length > 0 && (
               <div className="mt-6 border-t border-ink/10 pt-5">
@@ -86,7 +86,7 @@ export default async function Home() {
             )}
           </div>
 
-          <div className="hero-in-late mt-8 lg:mt-auto lg:pt-10">
+          <div className="hero-in-late mt-8 max-w-[55rem] lg:mt-auto lg:pt-10">
             <HeroSearch destinations={searchDestinations} popular={home.popularSearches} />
           </div>
         </div>

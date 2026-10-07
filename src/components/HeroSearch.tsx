@@ -148,7 +148,7 @@ export function HeroSearch({ destinations, popular }: { destinations: SearchDest
         <Field icon={<PinIcon className="h-5 w-5" />} label="Destination" value={q} placeholder="Where to?" active={panel === "where"} onClick={() => toggle("where")} />
         <Field icon={<CalendarIcon className="h-5 w-5" />} label="Travel Date" value={month} placeholder="Select month" active={panel === "when"} onClick={() => toggle("when")} divider />
         <Field icon={<UsersIcon className="h-5 w-5" />} label="Travellers" value={travellers} placeholder="Add guests" active={panel === "who"} onClick={() => toggle("who")} divider />
-        <button type="submit" className="btn btn-gold mt-1 !rounded-xl !px-8 !py-3.5 !text-base md:mt-0 md:h-full">
+        <button type="submit" className="btn btn-gold mt-1 !rounded-xl !px-6 !py-3.5 !text-base md:mt-0 md:h-full">
           <SearchIcon className="h-5 w-5" />
           Explore Trips
         </button>
@@ -235,7 +235,7 @@ export function HeroSearch({ destinations, popular }: { destinations: SearchDest
         )}
 
         {panel === "who" && (
-          <div className={`${popover} md:left-auto md:right-48 md:w-[18rem]`}>
+          <div className={`${popover} md:left-auto md:right-40 md:w-[18rem]`}>
             <div className="divide-y divide-ink/10">
               <Stepper label="Adults" note="Age 12+" value={adults} min={1} onChange={setAdults} />
               <Stepper label="Children" note="Age 2–11" value={children} min={0} onChange={setChildren} />
