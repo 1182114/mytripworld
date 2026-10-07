@@ -100,6 +100,8 @@ export type Package = {
   kicker?: string;
   places: string[];
   placesLabel: string;
+  /** Countries the trip covers, used for search and SEO. */
+  countries: string[];
   nights?: number;
   days?: number;
   duration?: string;

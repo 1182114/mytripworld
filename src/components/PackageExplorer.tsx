@@ -26,7 +26,7 @@ export function PackageExplorer({ packages, contact, chip }: { packages: Package
       if (kind === "cruise" && p.kind !== "cruise") return false;
       if (kind === "tour" && p.kind === "cruise") return false;
       if (!needle) return true;
-      const haystack = [p.title, p.placesLabel, p.kicker, p.summary, p.kind, ...p.highlights.map((h) => h.place)].join(" ").toLowerCase();
+      const haystack = [p.title, p.placesLabel, p.kicker, p.summary, p.kind, ...p.countries, ...p.stops.map((s) => s.name), ...p.highlights.map((h) => h.place)].join(" ").toLowerCase();
       return haystack.includes(needle);
     });
   }, [q, kind, packages]);

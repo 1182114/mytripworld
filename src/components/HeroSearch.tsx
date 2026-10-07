@@ -168,8 +168,8 @@ export function HeroSearch({ destinations }: { destinations: SearchDestination[]
                 className="w-full bg-transparent text-sm font-semibold text-ink outline-none placeholder:font-medium placeholder:text-ink/40"
               />
             </label>
-            <p className="mb-1 mt-3 px-1 text-xs font-semibold text-muted">Popular destinations</p>
-            <ul className="grid grid-cols-2 gap-1">
+            <p className="mb-1 mt-3 px-1 text-xs font-semibold text-muted">Destinations</p>
+            <ul className="grid max-h-72 grid-cols-2 gap-1 overflow-y-auto">
               {(matches.length ? matches : destinations).map((d) => {
                 const n = d.count;
                 return (

@@ -22,6 +22,9 @@ export async function GET() {
     "## What makes it different",
     ...settings.usps.map((u) => `- ${u.title}: ${u.text}`),
     "",
+    "## Destinations covered",
+    [...new Set(packages.flatMap((p) => p.countries))].join(", "),
+    "",
     "## Tour packages",
     ...packages.map(
       (p) =>

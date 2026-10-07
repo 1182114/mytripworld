@@ -61,6 +61,7 @@ export const packageType = defineType({
       options: {layout: 'tags'},
       validation: (rule) => rule.required().min(1),
     }),
+    defineField({name: 'countries', title: 'Countries covered', description: 'One country per entry, e.g. Japan. Used by the website search and by Google.', type: 'array', group: 'basics', of: [defineArrayMember({type: 'string'})]}),
     defineField({name: 'nights', title: 'Nights', type: 'number', group: 'basics', validation: (rule) => rule.min(0).integer()}),
     defineField({name: 'days', title: 'Days', type: 'number', group: 'basics', validation: (rule) => rule.min(1).integer()}),
     defineField({name: 'durationText', title: 'Duration (in words)', description: 'Optional. Only when Nights / Days does not describe the trip, e.g. 7 Nights Switzerland + 7-Night Cruise.', type: 'string', group: 'basics', validation: (rule) => rule.max(60)}),

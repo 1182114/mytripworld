@@ -214,6 +214,7 @@ export function mapContent(docs: RawDoc[]): Content {
         kicker: str(d.kicker),
         places,
         placesLabel: places.join(" · "),
+        countries: strings(d.countries),
         nights,
         days,
         duration: str(d.durationText) ?? (nights !== undefined ? (days !== undefined ? `${nights} Nights / ${days} Days` : `${nights} ${nights === 1 ? "Night" : "Nights"}`) : undefined),

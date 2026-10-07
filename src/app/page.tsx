@@ -33,14 +33,18 @@ export default async function Home() {
   const tiles = destinations.filter((d) => d.showOnHome);
   const [before, mark, after] = splitHeading(home.heading, home.headingHighlight);
 
-  const count = (term: string) => packages.filter((p) => `${p.title} ${p.placesLabel} ${p.kicker ?? ""} ${p.kind}`.toLowerCase().includes(term.toLowerCase())).length;
+  const matching = (term: string) =>
+    packages.filter((p) => [p.title, p.placesLabel, p.kicker ?? "", p.kind, ...p.countries, ...p.stops.map((s) => s.name)].join(" ").toLowerCase().includes(term.toLowerCase()));
   const cruise = packages.find((p) => p.kind === "cruise");
+  // Every country and place the published packages cover, so the search grows with the packages.
+  const countries = [...new Set(packages.flatMap((p) => p.countries))].filter((c) => !tiles.some((d) => d.name === c));
   const searchDestinations: SearchDestination[] = [
-    ...tiles.map((d) => ({ name: d.name, image: d.image, count: count(d.name) })),
-    ...(cruise ? [{ name: "Cruise", image: cruise.cover, count: count("cruise") }] : []),
+    ...tiles.map((d) => ({ name: d.name, image: d.image, count: matching(d.name).length })),
+    ...countries.map((c) => ({ name: c, image: matching(c)[0]?.cover, count: matching(c).length })),
+    ...(cruise ? [{ name: "Cruise", image: cruise.cover, count: matching("cruise").length }] : []),
   ]
-    .filter((d) => d.count > 0)
-    .slice(0, 6);
+    .filter((d): d is SearchDestination => d.count > 0 && Boolean(d.image))
+    .sort((a, b) => b.count - a.count);
 
   return (
     <>
