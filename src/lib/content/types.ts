@@ -42,6 +42,7 @@ export type Settings = {
   longDescription: string;
   shareImage?: Img;
   areaServed: string[];
+  welcomePopup?: { image: Img; link: string };
 };
 
 /** The contact details client-side components need. */

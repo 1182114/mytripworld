@@ -86,6 +86,8 @@ export function mapContent(docs: RawDoc[]): Content {
   const telHref = (n: string) => `tel:${n.replace(/[^+\d]/g, "")}`;
   const social = (s.social ?? {}) as Obj;
   const rating = (s.justdialRating ?? {}) as Obj;
+  const popup = (s.welcomePopup ?? {}) as Obj;
+  const popupImage = popup.enabled === true ? image(popup.image, "Site settings → Welcome popup photo") : undefined;
   const settings: Settings = {
     name: need(str(s.companyName), "Site settings → Company name"),
     tagline: str(s.tagline),
@@ -113,6 +115,7 @@ export function mapContent(docs: RawDoc[]): Content {
     longDescription: need(str(s.longDescription), "Site settings → Company description"),
     shareImage: image(s.shareImage, "Site settings → Share photo"),
     areaServed: strings(s.areaServed),
+    welcomePopup: popupImage && { image: popupImage, link: str(popup.link) ?? "/#enquire" },
   };
 
   // ---- home

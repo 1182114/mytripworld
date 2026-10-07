@@ -11,6 +11,7 @@ export const siteSettingsType = defineType({
     {name: 'offices', title: 'Offices'},
     {name: 'social', title: 'Social links'},
     {name: 'usps', title: 'Special benefits (USPs)'},
+    {name: 'popup', title: 'Welcome popup'},
     {name: 'seo', title: 'Google'},
   ],
   fields: [
@@ -110,6 +111,23 @@ export const siteSettingsType = defineType({
     }),
     defineField({name: 'uspChip', title: 'Short benefit label on package photos', type: 'string', group: 'usps', validation: (rule) => rule.max(28)}),
 
+    defineField({
+      name: 'welcomePopup',
+      title: 'Welcome popup on the home page',
+      description: 'A poster shown once a week to each visitor, a few seconds after the home page opens.',
+      type: 'object',
+      group: 'popup',
+      fields: [
+        defineField({name: 'enabled', title: 'Show the popup', type: 'boolean', initialValue: false}),
+        defineField({
+          name: 'image',
+          title: 'Poster (portrait works best)',
+          type: 'image',
+          fields: [defineField({name: 'alt', title: 'Describe the poster in words', type: 'string', validation: (rule) => rule.max(200)})],
+        }),
+        defineField({name: 'link', title: 'Where a tap on the poster goes', description: 'Leave empty for the enquiry form.', type: 'string'}),
+      ],
+    }),
     defineField({name: 'seoTitle', title: 'Home page search title', type: 'string', group: 'seo', validation: (rule) => rule.required().max(60)}),
     defineField({name: 'seoDescription', title: 'Home page search description', type: 'text', rows: 3, group: 'seo', validation: (rule) => rule.required().max(160)}),
     defineField({name: 'longDescription', title: 'Company description (for Google and AI assistants)', type: 'text', rows: 4, group: 'seo', validation: (rule) => rule.required().max(320)}),

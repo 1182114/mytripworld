@@ -6,14 +6,16 @@ import { Faq } from "@/components/Faq";
 import { HeroSearch, type SearchDestination } from "@/components/HeroSearch";
 import { ArrowIcon, NamedIcon, TagIcon } from "@/components/icons";
 import { CountUp } from "@/components/CountUp";
-import { PackageCarousel } from "@/components/PackageCarousel";
+import { PackageCard } from "@/components/PackageCard";
 import { Pic } from "@/components/Pic";
 import { Reveal } from "@/components/Reveal";
 import { RichText } from "@/components/RichText";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Testimonials } from "@/components/Testimonials";
 import { UspStrip } from "@/components/UspStrip";
+import { WelcomePopup } from "@/components/WelcomePopup";
 import { getContent } from "@/lib/content";
+import { imgUrl, sources } from "@/lib/img";
 
 const tileSpan = { normal: "", wide: "md:col-span-2", large: "md:col-span-2 md:row-span-2" } as const;
 
@@ -26,8 +28,8 @@ function splitHeading(heading: string, highlight?: string) {
 export default async function Home() {
   const { home, settings, contact, packages, destinations, gallery, faqs, offers } = await getContent();
   const featuredList = packages.filter((p) => p.featured);
-  // Featured packages lead the carousel; the rest follow so every package is one swipe away.
-  const carousel = [...featuredList, ...packages.filter((p) => !p.featured)];
+  // Featured packages lead the grid; the home page shows three rows and links to the rest.
+  const homePackages = [...featuredList, ...packages.filter((p) => !p.featured)].slice(0, 9);
   const tiles = destinations.filter((d) => d.showOnHome);
   const [before, mark, after] = splitHeading(home.heading, home.headingHighlight);
 
@@ -42,6 +44,16 @@ export default async function Home() {
 
   return (
     <>
+      {settings.welcomePopup && (
+        <WelcomePopup
+          src={imgUrl(settings.welcomePopup.image, 800)}
+          srcSet={sources(settings.welcomePopup.image).fallback}
+          alt={settings.welcomePopup.image.alt}
+          width={settings.welcomePopup.image.width}
+          height={settings.welcomePopup.image.height}
+          href={settings.welcomePopup.link}
+        />
+      )}
       {/* Hero */}
       <section className="relative isolate z-10 bg-ink-soft">
         <div className="absolute inset-0 -z-20 overflow-hidden">
@@ -159,9 +171,21 @@ export default async function Home() {
             </div>
           </div>
 
-          <Reveal delay={120} className="mt-8">
-            <PackageCarousel packages={carousel} chip={settings.uspChip} />
-          </Reveal>
+          <div className="mt-8 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+            {homePackages.map((pkg, i) => (
+              <Reveal key={pkg.slug} delay={(i % 3) * 90}>
+                <PackageCard pkg={pkg} chip={settings.uspChip} />
+              </Reveal>
+            ))}
+          </div>
+          {packages.length > homePackages.length && (
+            <div className="mt-10 text-center">
+              <Link href="/tour-packages/" className="btn btn-ink">
+                View all {packages.length} packages
+                <ArrowIcon className="h-4 w-4" />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 

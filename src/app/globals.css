@@ -332,3 +332,19 @@ body:has(.sticky-cta) footer {
     background: rgb(255 255 255 / 0.96);
   }
 }
+
+/* Welcome popup on the home page */
+.welcome-popup[open] {
+  animation: welcome-in 0.35s ease-out;
+}
+@keyframes welcome-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .welcome-popup[open] {
+    animation: none;
+  }
+}
