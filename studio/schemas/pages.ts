@@ -43,7 +43,6 @@ export const homePageType = defineType({
     defineField({name: 'headingHighlight', title: 'Words to underline in yellow', description: 'Must be part of the main heading, e.g. Tour Packages', type: 'string', group: 'hero'}),
     defineField({name: 'intro', title: 'Line under the heading', type: 'text', rows: 3, group: 'hero', validation: (rule) => rule.required().max(260)}),
     {...imageField('heroImage', 'Background photo', 'A wide, bright landscape photo.', true), group: 'hero'},
-    defineField({name: 'popularSearches', title: 'Popular search buttons', type: 'array', of: [defineArrayMember({type: 'string'})], options: {layout: 'tags'}, group: 'hero'}),
 
     {...titledPoints('stats', 'Numbers strip', 'Three short facts. Use only real numbers.'), group: 'sections'},
     defineField({name: 'packagesEyebrow', title: 'Packages section: small line', type: 'string', group: 'sections'}),

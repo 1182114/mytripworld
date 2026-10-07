@@ -120,7 +120,6 @@ export function mapContent(docs: RawDoc[]): Content {
     headingHighlight: str(h.headingHighlight),
     intro: need(str(h.intro), "Home page → Line under the heading"),
     heroImage: need(image(h.heroImage, "Home page → Background photo"), "Home page → Background photo"),
-    popularSearches: strings(h.popularSearches),
     stats: points(h.stats),
     packagesEyebrow: str(h.packagesEyebrow),
     packagesHeading: str(h.packagesHeading) ?? "Tour Packages",

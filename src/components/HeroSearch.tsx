@@ -41,14 +41,14 @@ function Field({
       type="button"
       onClick={onClick}
       aria-expanded={active}
-      className={`flex w-full min-w-0 items-center gap-3.5 rounded-2xl px-4 py-3 text-left transition-colors md:h-full md:px-5 ${
-        active ? "bg-white/80" : "hover:bg-white/60"
-      } ${divider ? "md:relative md:before:absolute md:before:-left-0.5 md:before:top-1/4 md:before:h-1/2 md:before:w-px md:before:bg-ink/15" : ""}`}
+      className={`flex w-full min-w-0 items-center gap-4 rounded-2xl px-4 py-3.5 text-left transition-colors md:h-full md:px-6 ${
+        active ? "bg-ink/[0.07]" : "hover:bg-ink/[0.04]"
+      } ${divider ? "md:relative md:before:absolute md:before:-left-1 md:before:top-1/4 md:before:h-1/2 md:before:w-px md:before:bg-ink/15" : ""}`}
     >
       <span className="shrink-0 text-ink-soft">{icon}</span>
       <span className="min-w-0">
-        <span className="block text-[0.78rem] font-bold tracking-wide text-ink-soft">{label}</span>
-        <span className={`block truncate text-base font-bold leading-snug ${value ? "text-ink" : "text-ink/60"}`}>{value || placeholder}</span>
+        <span className="block text-[0.8rem] font-bold tracking-wide text-muted">{label}</span>
+        <span className={`block truncate text-base font-bold leading-snug ${value ? "text-ink" : "text-ink/55"}`}>{value || placeholder}</span>
       </span>
     </button>
   );
@@ -76,7 +76,7 @@ function Stepper({ label, note, value, min, onChange }: { label: string; note: s
   );
 }
 
-export function HeroSearch({ destinations, popular }: { destinations: SearchDestination[]; popular: string[] }) {
+export function HeroSearch({ destinations }: { destinations: SearchDestination[] }) {
   const router = useRouter();
   const rootRef = useRef<HTMLDivElement>(null);
   const [type, setType] = useState(tourTypes[0].id);
@@ -120,8 +120,8 @@ export function HeroSearch({ destinations, popular }: { destinations: SearchDest
 
   return (
     <div ref={rootRef} className="relative z-20">
-      <div className="glass mb-3 inline-flex max-w-full items-center gap-1 !rounded-full p-1" role="radiogroup" aria-label="Type of trip">
-        {tourTypes.map((t) => {
+      <div className="glass-solid mb-3 inline-flex max-w-full overflow-hidden rounded-full" role="radiogroup" aria-label="Type of trip">
+        {tourTypes.map((t, i) => {
           const active = type === t.id;
           return (
             <button
@@ -130,9 +130,11 @@ export function HeroSearch({ destinations, popular }: { destinations: SearchDest
               role="radio"
               aria-checked={active}
               onClick={() => setType(t.id)}
-              className={`flex items-center gap-2 rounded-full px-2.5 py-1.5 text-[0.78rem] font-bold transition-colors min-[360px]:px-3.5 min-[360px]:text-[0.82rem] sm:px-4 ${active ? "bg-ink-soft text-white" : "text-ink-soft hover:bg-ink/5"}`}
+              className={`flex items-center justify-center gap-2 px-4 py-2.5 text-[0.8rem] font-bold transition-colors min-[380px]:px-5 min-[380px]:text-[0.875rem] sm:min-w-[8.5rem] sm:px-7 ${
+                i > 0 && !active && type !== tourTypes[i - 1].id ? "border-l border-ink/10" : "border-l border-transparent"
+              } ${active ? "bg-ink-soft text-white" : "text-ink-soft hover:bg-ink/5"}`}
             >
-              <t.icon className="hidden h-3.5 w-3.5 min-[360px]:block" />
+              <t.icon className="hidden h-4 w-4 min-[380px]:block" />
               {t.id.replace(" Tour", "")}
             </button>
           );
@@ -143,12 +145,12 @@ export function HeroSearch({ destinations, popular }: { destinations: SearchDest
         onSubmit={onSubmit}
         role="search"
         aria-label="Find a tour package"
-        className="glass relative grid gap-1 !rounded-[1.15rem] p-2 md:h-[4.75rem] md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-stretch md:gap-0"
+        className="glass-solid relative grid gap-1.5 rounded-[1.35rem] p-2.5 md:h-[5.5rem] md:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-stretch md:gap-2 md:p-3"
       >
         <Field icon={<PinIcon className="h-5 w-5" />} label="Destination" value={q} placeholder="Where to?" active={panel === "where"} onClick={() => toggle("where")} />
         <Field icon={<CalendarIcon className="h-5 w-5" />} label="Travel Date" value={month} placeholder="Select month" active={panel === "when"} onClick={() => toggle("when")} divider />
         <Field icon={<UsersIcon className="h-5 w-5" />} label="Travellers" value={travellers} placeholder="Add guests" active={panel === "who"} onClick={() => toggle("who")} divider />
-        <button type="submit" className="btn btn-gold mt-1 !rounded-xl !px-6 !py-3.5 !text-base md:mt-0 md:h-full">
+        <button type="submit" className="btn btn-gold mt-1 !rounded-2xl !px-8 !py-4 !text-base md:ml-2 md:mt-0 md:h-full">
           <SearchIcon className="h-5 w-5" />
           Explore Trips
         </button>
@@ -247,21 +249,6 @@ export function HeroSearch({ destinations, popular }: { destinations: SearchDest
         )}
       </form>
 
-      {popular.length > 0 && (
-      <p className="mt-3.5 hidden flex-wrap items-center gap-2 text-[0.8rem] sm:flex">
-        <span className="font-bold text-ink [text-shadow:0_1px_8px_rgba(255,255,255,0.9)]">Popular:</span>
-        {popular.map((d) => (
-          <button
-            key={d}
-            type="button"
-            onClick={() => router.push(`/tour-packages/?q=${encodeURIComponent(d)}`)}
-            className="rounded-full bg-white/70 px-3 py-1 font-semibold text-ink ring-1 ring-white/60 backdrop-blur transition-colors hover:bg-gold"
-          >
-            {d}
-          </button>
-        ))}
-      </p>
-      )}
     </div>
   );
 }

@@ -86,8 +86,8 @@ export default async function Home() {
             )}
           </div>
 
-          <div className="hero-in-late mt-8 max-w-[55rem] lg:mt-auto lg:pt-10">
-            <HeroSearch destinations={searchDestinations} popular={home.popularSearches} />
+          <div className="hero-in-late mt-8 max-w-[60rem] lg:mt-auto lg:pt-10">
+            <HeroSearch destinations={searchDestinations} />
           </div>
         </div>
       </section>

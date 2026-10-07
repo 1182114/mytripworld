@@ -52,7 +52,6 @@ export type Home = {
   headingHighlight?: string;
   intro: string;
   heroImage: Img;
-  popularSearches: string[];
   stats: Point[];
   packagesEyebrow?: string;
   packagesHeading: string;
