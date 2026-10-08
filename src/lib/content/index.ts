@@ -1,6 +1,7 @@
 import { mapContent } from "./map";
 import { loadRawDocs } from "./source";
 import { applyPackageUpdates } from "./package-updates";
+import { applyGalleryUpdates } from "./gallery-updates";
 import type { City, Content } from "./types";
 
 export type * from "./types";
@@ -9,7 +10,7 @@ let cached: Promise<Content> | undefined;
 
 /** All website content, loaded once per build. Throws (and stops the build) if anything required is missing. */
 export function getContent(): Promise<Content> {
-  cached ??= loadRawDocs().then(({ docs, mode }) => mapContent(applyPackageUpdates(docs, mode === "seed")));
+  cached ??= loadRawDocs().then(({ docs, mode }) => mapContent(applyGalleryUpdates(applyPackageUpdates(docs, mode === "seed"))));
   return cached;
 }
 
