@@ -56,7 +56,7 @@ export async function Footer() {
 
           <nav aria-label="Departure cities">
             <p className={heading}>Tours from every city</p>
-            <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm lg:grid-cols-1 xl:grid-cols-2">
+            <ul className="mt-5 grid grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-x-4 gap-y-2.5 text-sm">
               {cities
                 .filter((c) => c.hasPage)
                 .map((c) => (
