@@ -37,9 +37,11 @@ generated from the admin-panel content at build time. After adding photos to
 
 ## Enquiries
 
-On Vercel the form posts to `/api/enquiry`, which saves the enquiry in the admin
-panel (needs `SANITY_WRITE_TOKEN`) and can email the team through Resend. On a
-static-only host the form hands the enquiry to WhatsApp instead.
+The form posts to `/api/enquiry` and emails `info@mytripworld.net` through Resend.
+Sanity storage is optional and does not block email. The API only reports success
+after Resend accepts the message; inbox delivery still needs a live check.
+See [email setup](docs/enquiry-email-setup.md) for Cloudflare Pages deployment,
+required secrets, Hostinger considerations and verification.
 
 ## Before going live
 

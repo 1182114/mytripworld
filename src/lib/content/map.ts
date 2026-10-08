@@ -1,4 +1,5 @@
 import manifest from "@/lib/gallery-manifest.json";
+import { paymentPolicy, paymentTerms } from "./payment-policy";
 import { sanityDataset, sanityProject, type RawDoc } from "./source";
 import type { City, Content, Destination, Faq, GalleryItem, Home, Img, LegalPage, Offer, Package, PageContent, PageKey, Point, Rich, Settings, Testimonial } from "./types";
 
@@ -248,10 +249,10 @@ export function mapContent(docs: RawDoc[]): Content {
         facts,
         stops,
         highlightPoints: strings(d.highlightPoints),
-        paymentPolicy: strings(d.paymentPolicy),
+        paymentPolicy: paymentPolicy(kind),
         visaInfo: strings(d.visaInfo),
         importantInfo: strings(d.importantInfo),
-        terms: strings(d.terms),
+        terms: paymentTerms(strings(d.terms), kind),
         featured: d.featured === true,
       };
     });

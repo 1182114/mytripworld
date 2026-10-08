@@ -11,7 +11,7 @@ import { CheckIcon, WhatsAppIcon } from "./icons";
 // after a wait, when browsers no longer allow opening a new tab, so the visitor taps a button.
 type State = "idle" | "sending" | "sent" | "whatsapp" | "fallback";
 
-// Where the host runs /api/enquiry, the enquiry is saved to the admin panel. On a
+// Where the host runs /api/enquiry, the enquiry is sent to the team by email. On a
 // static-only host the form hands the same details to WhatsApp instead, so an
 // enquiry is never lost silently.
 const hasApi = Boolean(process.env.ENQUIRY_API);
@@ -61,13 +61,14 @@ export function EnquiryFormClient({ contact, trips, defaultTrip = "", defaultMes
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, page: pathname }),
       });
-      if (res.status === 422) {
+      if (res.status === 422 || res.status === 429) {
         const data = (await res.json().catch(() => null)) as { error?: string } | null;
         setError(data?.error ?? "Please check your name and phone number.");
         setState("idle");
         return;
       }
-      if (!res.ok) throw new Error(String(res.status));
+      const receipt = await res.json().catch(() => null);
+      if (!res.ok || receipt?.ok !== true) throw new Error(String(res.status));
       setState("sent");
     } catch {
       setState("fallback");
