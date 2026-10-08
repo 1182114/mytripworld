@@ -1,0 +1,8 @@
+Oslo: Oslo Opera House at sunset, Nurtenge, CC BY-SA 4.0.
+https://commons.wikimedia.org/wiki/File:Oslo_Opera_House_at_sunset.jpg
+https://creativecommons.org/licenses/by-sa/4.0/
+Stockholm: Sweden, Stockholm, Gamla Stan (Old Town), Dusk 150628-69, Richard Maack, CC BY 4.0.
+https://commons.wikimedia.org/wiki/File:Sweden,_Stockholm,_Gamla_Stan_(Old_Town),_Dusk_150628-69.jpg
+https://creativecommons.org/licenses/by/4.0/
+Images resized to 1600px wide and converted to WebP; CSS crops for display.
+Oslo derivative retains CC BY-SA 4.0.

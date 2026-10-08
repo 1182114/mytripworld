@@ -1,0 +1,13 @@
+Almaty: Big Almaty Lake (Bolshaya Almatinka) in June, Ds02006, public domain.
+https://commons.wikimedia.org/wiki/File:Big_Almaty_Lake_(Bolshaya_Almatinka)_in_June.jpg
+
+Samarkand and package cover: Registan square Samarkand, Ekrem Canli, CC BY-SA 3.0.
+https://commons.wikimedia.org/wiki/File:Registan_square_Samarkand.jpg
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Tashkent: Kukeldash Madrasah in Tashkent 2, Adam Harangozó, CC BY-SA 4.0.
+https://commons.wikimedia.org/wiki/File:Kukeldash_Madrasah_in_Tashkent_2.jpg
+https://creativecommons.org/licenses/by-sa/4.0/
+
+All images resized to 1600px wide and converted to WebP. Display crops are applied by CSS.
+Samarkand and Tashkent derivatives retain their respective original CC BY-SA licenses.

@@ -1,0 +1,14 @@
+Zurich: Zurich after sunset, Kuhnmi, CC BY-SA 4.0.
+https://commons.wikimedia.org/wiki/File:Zurich_after_sunset.jpg
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Lausanne: Panorama depuis l'avenue du Léman Lausanne, Gzzz, CC BY-SA 4.0.
+https://commons.wikimedia.org/wiki/File:Panorama_depuis_l%27avenue_du_L%C3%A9man_Lausanne.jpg
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Engelberg: Engelberg , Switzerland - panoramio (24), Patrick Nouhailler, CC BY-SA 3.0.
+https://commons.wikimedia.org/wiki/File:Engelberg_,_Switzerland_-_panoramio_(24).jpg
+https://creativecommons.org/licenses/by-sa/3.0/
+
+Images resized to 1600px wide and converted to WebP. Display crops applied by CSS.
+Derivatives retain their respective original CC BY-SA licenses.

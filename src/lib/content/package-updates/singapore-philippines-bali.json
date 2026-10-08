@@ -338,7 +338,12 @@
         "summary": "4-star hotel with breakfast",
         "experiences": [
           "Half-day Singapore sightseeing; entry tickets excluded."
-        ]
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "Marina Bay Sands and Gardens by the Bay in Singapore at sunset",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/singapore.jpg"
+        }
       },
       {
         "_key": "s1",
@@ -563,7 +568,12 @@
         "summary": "4-star hotel with breakfast",
         "experiences": [
           "Half-day Singapore sightseeing; entry tickets excluded."
-        ]
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "Marina Bay Sands and Gardens by the Bay in Singapore at sunset",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/singapore.jpg"
+        }
       },
       {
         "_key": "s1",

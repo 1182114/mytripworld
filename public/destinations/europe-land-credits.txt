@@ -1,0 +1,10 @@
+Paris: Eiffel Tower blue skies (Unsplash), Pedro Gandra, CC0 1.0.
+https://commons.wikimedia.org/wiki/File:Eiffel_Tower_blue_skies_(Unsplash).jpg
+Milan: Milan-duomo-front-facade, Skarkkai, CC0 1.0.
+https://commons.wikimedia.org/wiki/File:Milan-duomo-front-facade.jpg
+https://creativecommons.org/publicdomain/zero/1.0/
+Zurich: Zurich after sunset, Kuhnmi, CC BY-SA 4.0.
+https://commons.wikimedia.org/wiki/File:Zurich_after_sunset.jpg
+https://creativecommons.org/licenses/by-sa/4.0/
+Images resized to 1600px wide and converted to WebP; CSS crops for display.
+Zurich derivative retains CC BY-SA 4.0.

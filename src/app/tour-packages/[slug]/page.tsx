@@ -14,6 +14,9 @@ import { Reveal } from "@/components/Reveal";
 import { StickyCta } from "@/components/StickyCta";
 import { UspStrip } from "@/components/UspStrip";
 import { getContent, whatsappLink } from "@/lib/content";
+import { centralAsiaSlug } from "@/lib/content/central-asia-images";
+import { europeCruiseSlug, europeLandSlug } from "@/lib/content/europe-cruise-images";
+import { nordicSlug } from "@/lib/content/nordic-images";
 import { absoluteImg, imgUrl } from "@/lib/img";
 import { pageMeta } from "@/lib/seo";
 import { siteUrl } from "@/lib/site";
@@ -234,6 +237,26 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
                 </Reveal>
               ))}
             </div>
+            {pkg.slug === centralAsiaSlug && (
+              <p className="mt-5 text-xs text-muted">
+                <a className="underline" href="/destinations/central-asia-credits.txt">Photo credits</a>
+              </p>
+            )}
+            {pkg.slug === europeCruiseSlug && (
+              <p className="mt-5 text-xs text-muted">
+                <a className="underline" href="/destinations/europe-cruise-credits.txt">Photo credits</a>
+              </p>
+            )}
+            {pkg.slug === nordicSlug && (
+              <p className="mt-5 text-xs text-muted">
+                <a className="underline" href="/destinations/nordic-credits.txt">Photo credits</a>
+              </p>
+            )}
+            {pkg.slug === europeLandSlug && (
+              <p className="mt-5 text-xs text-muted">
+                <a className="underline" href="/destinations/europe-land-credits.txt">Photo credits</a>
+              </p>
+            )}
           </div>
         </section>
       )}
