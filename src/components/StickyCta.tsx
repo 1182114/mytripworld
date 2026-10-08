@@ -1,4 +1,5 @@
-import { getContent, whatsappLink } from "@/lib/content";
+import { getContent } from "@/lib/content";
+import { BookLink } from "./BookLink";
 import { PhoneIcon, WhatsAppIcon } from "./icons";
 
 // Bottom bar on package pages (phone and desktop) so booking is always one tap away.
@@ -22,10 +23,10 @@ export async function StickyCta({ title, price }: { title: string; price?: strin
         <a href="#enquire" className="btn btn-ink hidden shrink-0 !py-3 sm:inline-flex">
           Enquire Now
         </a>
-        <a href={whatsappLink(contact, `Hello ${contact.name}, I would like to book "${title}".`)} target="_blank" rel="noopener" className="btn btn-gold shrink-0 !px-5 !py-3">
+        <BookLink contact={contact} title={title} className="btn btn-gold shrink-0 !px-5 !py-3">
           <WhatsAppIcon className="h-4 w-4" />
           Book Now
-        </a>
+        </BookLink>
       </div>
     </div>
   );

@@ -77,7 +77,7 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
             )}
           </div>
           <aside className="lg:sticky lg:top-28 lg:self-start">
-            <EnquiryForm defaultTrip="Custom / other destination" />
+            <EnquiryForm defaultTrip="Custom / other destination" defaultMessage={`Destination: ${d.name}`} />
           </aside>
         </div>
       </section>

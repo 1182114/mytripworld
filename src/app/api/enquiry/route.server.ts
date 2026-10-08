@@ -19,12 +19,28 @@ export const runtime = "nodejs";
 type Body = Record<string, unknown>;
 const text = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 
+// Best-effort flood guard: at most 5 enquiries per visitor address in 10 minutes. It lives in
+// memory, so it resets when the server restarts; the host's own firewall is the stronger defence.
+const recent = new Map<string, number[]>();
+function tooMany(ip: string) {
+  const now = Date.now();
+  const hits = (recent.get(ip) ?? []).filter((t) => now - t < 600_000);
+  hits.push(now);
+  recent.set(ip, hits);
+  if (recent.size > 5000) recent.clear();
+  return hits.length > 5;
+}
+
 export async function POST(request: Request) {
-  // A real enquiry is a few hundred bytes; refuse anything oversized before reading it.
-  if (Number(request.headers.get("content-length") ?? 0) > 10_000) return NextResponse.json({ error: "Invalid request" }, { status: 413 });
+  const ip = (request.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
+  if (tooMany(ip)) return NextResponse.json({ error: "Too many requests. Please try again later." }, { status: 429 });
+
   let body: Body;
   try {
-    const parsed: unknown = await request.json();
+    // A real enquiry is a few hundred bytes; measure what was actually sent, not just the header.
+    const raw = await request.text();
+    if (raw.length > 10_000) return NextResponse.json({ error: "Invalid request" }, { status: 413 });
+    const parsed: unknown = JSON.parse(raw);
     if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("not an object");
     body = parsed as Body;
   } catch {
@@ -43,7 +59,7 @@ export async function POST(request: Request) {
     message: text(body.message, 1000),
     page: text(body.page, 200),
   };
-  if (enquiry.name.length < 2 || !/^[+0-9][0-9 \-]{7,}$/.test(enquiry.phone)) {
+  if (enquiry.name.length < 2 || !/^\+?(?:[ \-]?[0-9]){8,15}$/.test(enquiry.phone)) {
     return NextResponse.json({ error: "Please enter your name and a valid phone number." }, { status: 422 });
   }
 

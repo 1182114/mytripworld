@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BookLink } from "@/components/BookLink";
 import { CityLinks } from "@/components/CityLinks";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Faq } from "@/components/Faq";
@@ -109,7 +110,6 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
     }),
   };
   const withExperiences = pkg.stops.filter((s) => s.experiences.length > 0);
-  const book = whatsappLink(contact, `Hello ${contact.name}, I would like to book "${pkg.title}".`);
   const folds = [
     { title: "Not included", items: pkg.excludes },
     { title: "Payment policy", items: pkg.paymentPolicy },
@@ -156,10 +156,10 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
             {pkg.priceTerms && <dd className="mt-1 text-xs font-semibold text-muted">{pkg.priceTerms}</dd>}
           </div>
           <div className="flex flex-wrap gap-3">
-            <a href={book} target="_blank" rel="noopener" className="btn btn-gold">
+            <BookLink contact={contact} title={pkg.title} className="btn btn-gold">
               <WhatsAppIcon className="h-4 w-4" />
               Book Now
-            </a>
+            </BookLink>
             <a href="#enquire" className="btn btn-ink">
               Enquire Now
             </a>
@@ -373,7 +373,7 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
             )}
 
             {/* 7–10. Exclusions, payment, passport and other details, folded away to keep the page short */}
-            {folds.length > 0 && (
+            {(folds.length > 0 || pkg.terms.length > 0) && (
               <Reveal>
                 <Heading>Good to know</Heading>
                 <div className="mt-6 space-y-3">
@@ -466,10 +466,10 @@ export default async function PackagePage({ params }: PageProps<"/tour-packages/
                 {settings.workingHours && <p className="mt-2 text-xs text-white/65">Office hours: {settings.workingHours}</p>}
               </div>
               <div className="mt-7 flex shrink-0 flex-col gap-3 sm:flex-row lg:mt-0 lg:flex-col">
-                <a href={book} target="_blank" rel="noopener" className="btn btn-gold">
+                <BookLink contact={contact} title={pkg.title} className="btn btn-gold">
                   <WhatsAppIcon className="h-4 w-4" />
                   Book This Tour
-                </a>
+                </BookLink>
                 <a href="#enquire" className="btn btn-ghost">
                   Send Enquiry
                 </a>

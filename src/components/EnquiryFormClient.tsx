@@ -15,10 +15,10 @@ type State = "idle" | "sending" | "sent" | "whatsapp" | "fallback";
 // static-only host the form hands the same details to WhatsApp instead, so an
 // enquiry is never lost silently.
 const hasApi = Boolean(process.env.ENQUIRY_API);
-export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contact: Contact; trips: string[]; defaultTrip?: string }) {
+export function EnquiryFormClient({ contact, trips, defaultTrip = "", defaultMessage = "" }: { contact: Contact; trips: string[]; defaultTrip?: string; defaultMessage?: string }) {
   const pathname = usePathname();
   const [state, setState] = useState<State>("idle");
-  const [form, setForm] = useState({ name: "", phone: "", trip: defaultTrip, travellers: "", month: "", message: "", website: "" });
+  const [form, setForm] = useState({ name: "", phone: "", trip: defaultTrip, travellers: "", month: "", message: defaultMessage, website: "" });
   const [error, setError] = useState("");
 
   // Carry over what the visitor already chose in the search (month, travellers, tour type).
@@ -116,7 +116,7 @@ export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contac
         </div>
         <div>
           <label className="field-label" htmlFor="eq-phone">Phone number *</label>
-          <input id="eq-phone" className="field" required type="tel" maxLength={20} pattern="[+0-9][0-9 \-]{7,}" title="Enter a phone number" autoComplete="tel" inputMode="tel" value={form.phone} onChange={set("phone")} placeholder="+91" />
+          <input id="eq-phone" className="field" required type="tel" maxLength={20} pattern="\+?(?:[ \-]?[0-9]){8,15}" title="Enter a phone number with at least 8 digits" autoComplete="tel" inputMode="tel" value={form.phone} onChange={set("phone")} placeholder="+91" />
         </div>
         <div className="sm:col-span-2">
           <label className="field-label" htmlFor="eq-trip">Where would you like to go?</label>

@@ -23,6 +23,14 @@ export function HeaderClient({ contact, logo }: { contact: Contact; logo: Img })
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // The mobile menu only exists below the desktop breakpoint: close it if the window grows past it,
+  // otherwise the page behind would stay locked with no menu on screen.
+  useEffect(() => {
+    const onResize = () => window.innerWidth >= 1024 && setOpen(false);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     // While the menu covers the page, keep keyboard and screen-reader focus out of what is behind it.
