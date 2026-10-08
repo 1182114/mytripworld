@@ -4,10 +4,10 @@ import { ArrowIcon, CalendarIcon, PlaneIcon, StarIcon } from "./icons";
 import { Pic } from "./Pic";
 import { UspChip } from "./UspChip";
 
-export function PackageCard({ pkg, chip }: { pkg: Package; chip?: string }) {
+export function PackageCard({ pkg, chip, query }: { pkg: Package; chip?: string; query?: string }) {
   const stops = pkg.places.length;
   return (
-    <Link href={`/tour-packages/${pkg.slug}/`} className="card card-hover group flex h-full flex-col overflow-hidden">
+    <Link href={`/tour-packages/${pkg.slug}/${query ? `?${query}` : ""}`} className="card card-hover group flex h-full flex-col overflow-hidden">
       <div className="relative aspect-[16/10] overflow-hidden bg-ink-soft">
         <Pic
           img={pkg.cover}

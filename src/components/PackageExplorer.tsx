@@ -17,6 +17,9 @@ export function PackageExplorer({ packages, contact, chip }: { packages: Package
   const params = useSearchParams();
   const month = params.get("month") ?? "";
   const travellers = params.get("travellers") ?? "";
+  const type = params.get("type") ?? "";
+  // Passed on to each package page so its enquiry form starts with the same details.
+  const carry = new URLSearchParams([["month", month], ["travellers", travellers], ["type", type]].filter(([, v]) => v)).toString();
   const [q, setQ] = useState(params.get("q") ?? "");
   const [kind, setKind] = useState<(typeof filters)[number]["id"]>("all");
 
@@ -36,6 +39,7 @@ export function PackageExplorer({ packages, contact, chip }: { packages: Package
     q && `Destination: ${q}`,
     month && `Travel month: ${month}`,
     travellers && `Travellers: ${travellers}`,
+    type && `Tour type: ${type}`,
   ]
     .filter(Boolean)
     .join("\n");
@@ -68,9 +72,9 @@ export function PackageExplorer({ packages, contact, chip }: { packages: Package
         </div>
       </div>
 
-      {(month || travellers) && (
+      {(month || travellers || type) && (
         <p className="mt-5 text-sm text-muted">
-          Planning for{travellers && <strong className="text-ink"> {travellers} traveller(s)</strong>}
+          Planning {type ? <strong className="text-ink">a {type.toLowerCase()} </strong> : null}for{travellers && <strong className="text-ink"> {travellers} traveller(s)</strong>}
           {month && <> in <strong className="text-ink">{month}</strong></>}.{" "}
           <a href={whatsappLink(contact, quoteMessage)} target="_blank" rel="noopener" className="font-bold text-gold-deep underline underline-offset-4">
             Get a price for these dates
@@ -81,7 +85,7 @@ export function PackageExplorer({ packages, contact, chip }: { packages: Package
       {results.length > 0 ? (
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {results.map((pkg) => (
-            <PackageCard key={pkg.slug} pkg={pkg} chip={chip} />
+            <PackageCard key={pkg.slug} pkg={pkg} chip={chip} query={carry} />
           ))}
         </div>
       ) : (

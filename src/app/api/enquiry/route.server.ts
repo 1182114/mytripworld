@@ -20,9 +20,13 @@ type Body = Record<string, unknown>;
 const text = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 
 export async function POST(request: Request) {
+  // A real enquiry is a few hundred bytes; refuse anything oversized before reading it.
+  if (Number(request.headers.get("content-length") ?? 0) > 10_000) return NextResponse.json({ error: "Invalid request" }, { status: 413 });
   let body: Body;
   try {
-    body = (await request.json()) as Body;
+    const parsed: unknown = await request.json();
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("not an object");
+    body = parsed as Body;
   } catch {
     return NextResponse.json({ error: "Invalid request" }, { status: 400 });
   }

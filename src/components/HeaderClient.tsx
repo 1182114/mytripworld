@@ -25,10 +25,14 @@ export function HeaderClient({ contact, logo }: { contact: Contact; logo: Img })
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    // While the menu covers the page, keep keyboard and screen-reader focus out of what is behind it.
+    const behind = document.querySelectorAll<HTMLElement>("main, footer, .wa-fab, .sticky-cta");
+    behind.forEach((el) => (el.inert = open));
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      behind.forEach((el) => (el.inert = false));
       window.removeEventListener("keydown", onKey);
     };
   }, [open]);

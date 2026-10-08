@@ -2,20 +2,33 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { whatsappLink } from "@/lib/content/link";
 import type { Contact } from "@/lib/content/types";
 import { CheckIcon, WhatsAppIcon } from "./icons";
 
-type State = "idle" | "sending" | "sent" | "fallback";
+// "whatsapp": WhatsApp was opened straight from the button press. "fallback": saving failed
+// after a wait, when browsers no longer allow opening a new tab, so the visitor taps a button.
+type State = "idle" | "sending" | "sent" | "whatsapp" | "fallback";
 
-// The enquiry is saved to the admin panel through /api/enquiry. If that endpoint
-// is not reachable (for example on a static-only host), the form hands the same
-// details to WhatsApp instead, so an enquiry is never lost silently.
+// Where the host runs /api/enquiry, the enquiry is saved to the admin panel. On a
+// static-only host the form hands the same details to WhatsApp instead, so an
+// enquiry is never lost silently.
+const hasApi = Boolean(process.env.ENQUIRY_API);
 export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contact: Contact; trips: string[]; defaultTrip?: string }) {
   const pathname = usePathname();
   const [state, setState] = useState<State>("idle");
   const [form, setForm] = useState({ name: "", phone: "", trip: defaultTrip, travellers: "", month: "", message: "", website: "" });
+  const [error, setError] = useState("");
+
+  // Carry over what the visitor already chose in the search (month, travellers, tour type).
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    const travellers = [q.get("travellers"), q.get("type")].filter(Boolean).join(", ").slice(0, 60);
+    const month = (q.get("month") ?? "").slice(0, 40);
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- the address bar is only readable after the page loads
+    if (travellers || month) setForm((f) => ({ ...f, travellers: f.travellers || travellers, month: f.month || month }));
+  }, []);
 
   const set = (key: keyof typeof form) => (e: { target: { value: string } }) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
@@ -34,6 +47,13 @@ export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contac
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setError("");
+    if (!hasApi) {
+      // Opened directly from the button press, so the browser does not block it.
+      window.open(whatsappLink(contact, summary()), "_blank", "noopener");
+      setState("whatsapp");
+      return;
+    }
     setState("sending");
     try {
       const res = await fetch("/api/enquiry", {
@@ -41,18 +61,23 @@ export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contac
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, page: pathname }),
       });
+      if (res.status === 422) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        setError(data?.error ?? "Please check your name and phone number.");
+        setState("idle");
+        return;
+      }
       if (!res.ok) throw new Error(String(res.status));
       setState("sent");
     } catch {
       setState("fallback");
-      window.open(whatsappLink(contact, summary()), "_blank", "noopener");
     }
   };
 
   const mailHref = `mailto:${contact.email}?subject=${encodeURIComponent("Trip enquiry")}&body=${encodeURIComponent(summary())}`;
   const shell = "rounded-[1.75rem] bg-white p-6 shadow-[0_40px_80px_-50px_rgba(11,26,42,0.6)] ring-1 ring-ink/5 md:p-9";
 
-  if (state === "sent" || state === "fallback") {
+  if (state === "sent" || state === "whatsapp" || state === "fallback") {
     return (
       <div className={shell} role="status" aria-live="polite">
         <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gold text-ink">
@@ -62,12 +87,14 @@ export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contac
         <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">
           {state === "sent"
             ? "We have received your enquiry and our team will call or message you shortly."
-            : "We opened WhatsApp with your enquiry written out. Please press Send there so it reaches our team."}
+            : state === "whatsapp"
+              ? "Your enquiry is written out in WhatsApp. Please press Send there so it reaches our team. If WhatsApp did not open, use the button below."
+              : "We could not save your enquiry just now. Please send it on WhatsApp with the button below, or call us."}
         </p>
         <div className="mt-6 flex flex-col gap-3">
           <a href={whatsappLink(contact, summary())} target="_blank" rel="noopener" className="btn btn-gold !whitespace-normal text-center">
             <WhatsAppIcon className="h-4 w-4" />
-            {state === "sent" ? "Also message us on WhatsApp" : "Open WhatsApp again"}
+            {state === "sent" ? "Also message us on WhatsApp" : state === "whatsapp" ? "Open WhatsApp again" : "Send my enquiry on WhatsApp"}
           </a>
           <a href={contact.phoneHref} className="btn btn-outline">
             Call {contact.phone}
@@ -120,6 +147,11 @@ export function EnquiryFormClient({ contact, trips, defaultTrip = "" }: { contac
         </div>
       </div>
 
+      {error && (
+        <p role="alert" className="mt-5 rounded-2xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+          {error}
+        </p>
+      )}
       <div className="mt-7 flex flex-col gap-3">
         <button type="submit" className="btn btn-gold disabled:opacity-60" disabled={state === "sending"}>
           {state === "sending" ? "Sending…" : "Send enquiry"}

@@ -16,6 +16,8 @@ const staticExport = process.env.STATIC_EXPORT ? process.env.STATIC_EXPORT === "
 const nextConfig: NextConfig = {
   output: staticExport ? "export" : undefined,
   pageExtensions: staticExport ? ["tsx", "ts"] : ["server.ts", "tsx", "ts"],
+  // Tells the enquiry form whether /api/enquiry exists in this build.
+  env: { ENQUIRY_API: staticExport ? "" : "1" },
   trailingSlash: true,
   images: { unoptimized: true },
 };
