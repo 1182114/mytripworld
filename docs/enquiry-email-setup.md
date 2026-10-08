@@ -4,18 +4,18 @@ Code is ready; no production secrets have been added and no live email has been 
 
 ## Cloudflare Pages website + Hostinger email
 
-1. Create a Resend account. Verify `send.mytripworld.net` as the sending domain using the exact DNS records Resend provides. Add these where authoritative DNS is managed (Cloudflare if its nameservers are active). Leave the existing Hostinger mailbox MX records for `mytripworld.net` in place.
+1. Create a Resend account. Verify `mytripworld.net` as the sending domain using the exact DNS records Resend provides. Some of those records are created on the `send` subdomain; that is only Resend's return path, and the sender address still ends in `@mytripworld.net`. Add these where authoritative DNS is managed (Cloudflare if its nameservers are active). Leave the existing Hostinger mailbox MX records for `mytripworld.net` in place.
 2. In the Cloudflare **Pages project → Settings → Variables and Secrets**, add:
 
    | Name | Value | Type |
    | --- | --- | --- |
    | `RESEND_API_KEY` | Your Resend sending API key | Secret |
-   | `ENQUIRY_FROM_EMAIL` | `My Trip World <enquiries@send.mytripworld.net>` | Variable |
+   | `ENQUIRY_FROM_EMAIL` | `My Trip World <enquiries@mytripworld.net>` | Variable |
    | `ENQUIRY_NOTIFY_EMAIL` | `info@mytripworld.net` | Variable |
    | `ENQUIRY_API` | `1` | Build variable |
    | `STATIC_EXPORT` | `1` | Build variable |
 
-3. Deploy the repository using Pages Git integration with output directory `out` and build command `npm run build -- --webpack`. Alternatively build with `ENQUIRY_API=1 STATIC_EXPORT=1 npm run build -- --webpack`, then run `npx wrangler pages deploy out --project-name YOUR_EXISTING_PROJECT` from the repository root so Wrangler includes `functions/api/enquiry.ts`. Dashboard drag-and-drop does **not** compile the Functions directory. Rebuild/redeploy after setting the variables. Configure preview variables separately if testing a preview deployment.
+3. Deploy the repository using Pages Git integration with output directory `out` and build command `npm run build -- --webpack`. Alternatively build with `ENQUIRY_API=1 STATIC_EXPORT=1 npm run build -- --webpack`, then run `npx wrangler pages deploy out --project-name YOUR_EXISTING_PROJECT` from the repository root so Wrangler includes `functions/api/enquiry.ts`. Dashboard drag-and-drop does **not** compile the Functions directory. Variables are read when a deployment is created: after adding or changing one, open **Deployments** and use **Retry deployment** on the latest Production deployment (or push a commit), otherwise the live site keeps the old value. Configure preview variables separately if testing a preview deployment.
 4. Open `/contact/`, submit a clearly labelled test enquiry, and check the thank-you message, the Resend delivery event and the inbox/spam folder at `info@mytripworld.net`. Verify name, phone, destination, travellers, travel month, notes and page arrive correctly. A thank-you means provider acceptance; it does not prove inbox delivery.
 
 References: [Pages Functions](https://developers.cloudflare.com/pages/functions/get-started/), [bindings and secrets](https://developers.cloudflare.com/pages/functions/bindings/), [Resend domain verification](https://resend.com/docs/dashboard/domains/introduction), [email API](https://resend.com/docs/api-reference/emails/send-email).

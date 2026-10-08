@@ -23,6 +23,20 @@ function tooMany(ip: string) {
   return hits.length > 5;
 }
 
+// Turns the email provider's rejection into a short, non-secret reason for the logs and the
+// response. It never includes the API key, the recipient or anything the visitor typed.
+function rejection(status: number, name: string | undefined, message: string | undefined) {
+  const m = `${name ?? ""} ${message ?? ""}`.toLowerCase();
+  if (m.includes("not verified") || m.includes("verify a domain") || m.includes("from domain")) return "sender_domain_not_verified";
+  if (m.includes("testing emails") || m.includes("own email address")) return "provider_test_mode";
+  if (status === 401 || m.includes("api key") || m.includes("api_key")) return "api_key_rejected";
+  if (status === 429) return "provider_rate_limited";
+  if (status === 422 || m.includes("invalid `from`") || m.includes("invalid_from")) return "sender_address_invalid";
+  return "provider_error";
+}
+// The domain part of the configured sender, e.g. "mytripworld.net". Not a secret.
+const senderDomain = (from: string) => /@([a-z0-9.-]+)/i.exec(from)?.[1]?.toLowerCase() ?? "unreadable";
+
 export async function handleEnquiry(request: Request, env: EnquiryEnv) {
   const origin = request.headers.get("origin");
   if (origin && origin !== new URL(request.url).origin) {
@@ -100,14 +114,18 @@ export async function handleEnquiry(request: Request, env: EnquiryEnv) {
       signal: AbortSignal.timeout(10_000),
       body: JSON.stringify({ from: ENQUIRY_FROM_EMAIL, to: recipient.split(",").map((e) => e.trim()), subject: `New enquiry: ${enquiry.name}${enquiry.trip ? ` — ${enquiry.trip}` : ""}`.replace(/[\r\n]/g, " "), text: lines.join("\n") }),
     });
-    const receipt = await res.json().catch(() => null) as { id?: string } | null;
+    const receipt = await res.json().catch(() => null) as { id?: string; name?: string; message?: string } | null;
     if (!res.ok || !receipt?.id) {
-      console.error("Enquiry email rejected:", res.status);
-      return Response.json({ error: "Could not send the enquiry." }, { status: 502 });
+      const reason = rejection(res.status, receipt?.name, receipt?.message);
+      // Provider status, error type and message, plus which sender domain this deployment used.
+      console.error("Enquiry email rejected:", JSON.stringify({ providerStatus: res.status, name: receipt?.name, message: receipt?.message, reason, senderDomain: senderDomain(ENQUIRY_FROM_EMAIL) }));
+      // 500 rather than 502: Cloudflare replaces a 502 from a function with its own HTML error page.
+      return Response.json({ error: "Could not send the enquiry.", reason, providerStatus: res.status, senderDomain: senderDomain(ENQUIRY_FROM_EMAIL) }, { status: 500 });
     }
-  } catch {
-    console.error("Enquiry email request failed.");
-    return Response.json({ error: "Could not send the enquiry." }, { status: 502 });
+  } catch (error) {
+    const reason = error instanceof Error && error.name === "TimeoutError" ? "provider_timeout" : "provider_unreachable";
+    console.error("Enquiry email request failed:", reason);
+    return Response.json({ error: "Could not send the enquiry.", reason }, { status: 500 });
   }
 
   // Optional admin copy. Email delivery does not depend on Sanity credentials.
