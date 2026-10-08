@@ -1,5 +1,6 @@
 import manifest from "@/lib/gallery-manifest.json";
 import { paymentPolicy, paymentTerms } from "./payment-policy";
+import { japanStopImage } from "./japan-images";
 import { sanityDataset, sanityProject, type RawDoc } from "./source";
 import type { City, Content, Destination, Faq, GalleryItem, Home, Img, LegalPage, Offer, Package, PageContent, PageKey, Point, Rich, Settings, Testimonial } from "./types";
 
@@ -197,7 +198,7 @@ export function mapContent(docs: RawDoc[]): Content {
       const cover = need(image(d.cover, `Package "${title}" → Main photo`, title), `Package "${title}" → Main photo`);
       const kind = d.kind === "cruise" || d.kind === "inbound" ? d.kind : "tour";
       const stops = arr<Obj>(d.stops)
-        .map((x) => ({ name: str(x.name) ?? "", country: str(x.country), nights: num(x.nights), image: image(x.image, `Package "${title}" → Destination photo`, str(x.name) ?? ""), summary: str(x.summary), experiences: strings(x.experiences) }))
+        .map((x) => ({ name: str(x.name) ?? "", country: str(x.country), nights: num(x.nights), image: image(x.image, `Package "${title}" → Destination photo`, str(x.name) ?? "") ?? japanStopImage(slug, str(x.name) ?? ""), summary: str(x.summary), experiences: strings(x.experiences) }))
         .filter((x) => x.name);
       const countries = num(d.countriesCount) ?? (new Set(stops.map((x) => x.country).filter(Boolean)).size || undefined);
       const plural = (n: number, one: string, many: string) => (n === 1 ? one : many);
