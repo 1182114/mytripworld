@@ -1,0 +1,225 @@
+{
+  "slug": "explore-norway-sweden",
+  "id": "package-explore-norway-sweden",
+  "sources": [
+    "Explore Norway and Sweden.pdf"
+  ],
+  "notes": [
+    "Brochure tax percentages replaced with quote-confirmed applicable taxes.",
+    "Departure dates and short-lived sale validity omitted.",
+    "Payment schedule incomplete/conflicting in source; final schedule requires confirmation."
+  ],
+  "expected": {
+    "title": "Explore Europe: Norway & Sweden",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "+ 5% GST + 5% TCS"
+    },
+    "departures": null,
+    "seo": {
+      "description": "Norway and Sweden tour from India: Oslo and Stockholm with flights, train, 3-star hotels with breakfast and bus passes. ₹1,99,999 per person + tax.",
+      "title": "Norway & Sweden Tour Package — Oslo & Stockholm"
+    },
+    "nights": null,
+    "summary": "Explore Norway and Sweden with a holiday covering Oslo and Stockholm, with flights, the Oslo to Stockholm train, 3-star hotel stays with breakfast, airport transfers and sightseeing bus passes.",
+    "overview": null,
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "35 days before departure: 25% of package cost"
+    ],
+    "excludes": [
+      "Any activity tickets and visa fee",
+      "Any other expenses or tourist tax not mentioned in the inclusions",
+      "Entrance fee, parking and guide charges"
+    ],
+    "faqs": null
+  },
+  "set": {
+    "title": "Norway & Sweden Tour Package — Oslo & Stockholm",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "seo": {
+      "title": "Norway & Sweden Tour Package — Oslo & Stockholm",
+      "description": "Norway, Sweden package from India with flights, hotel stays and transfers. 6 nights; ₹1,99,999 per person. Applicable taxes extra."
+    },
+    "nights": 6,
+    "summary": "Explore Norway, Sweden with flights, hotel stays and the transfers listed below. Offer ₹1,99,999 per person; applicable GST/TCS extra.",
+    "overview": [
+      "This 6-night package covers Norway, Sweden.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "50% advance at booking. The complete balance-payment schedule is confirmed in writing with your quote."
+    ],
+    "excludes": [
+      "Any activity tickets and visa fee",
+      "Any other expenses or tourist tax not mentioned in the inclusions",
+      "Entrance fee, parking and guide charges",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Oslo: 3 nights, 3-Star Hotel with Breakfast; Stockholm: 3 nights, 3-Star Hotel with Breakfast."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  },
+  "fallback": {
+    "_id": "package-explore-norway-sweden",
+    "_type": "package",
+    "countries": [
+      "Norway",
+      "Sweden"
+    ],
+    "countriesCount": 2,
+    "cover": {
+      "_type": "image",
+      "alt": "View from an aircraft window — Explore Europe: Norway & Sweden tour package",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/wingSunset.jpg"
+    },
+    "excludes": [
+      "Any activity tickets and visa fee",
+      "Any other expenses or tourist tax not mentioned in the inclusions",
+      "Entrance fee, parking and guide charges",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "featured": true,
+    "importantInfo": [
+      "Offer price is subject to availability.",
+      "Check-in will be according to hotel rules.",
+      "This booking is non-changeable and non-refundable after visa clearance."
+    ],
+    "includes": [
+      "2 International Flights",
+      "Oslo to Stockholm Train – 2nd Class",
+      "3 Nights Stay Oslo – 3-Star Hotel with Breakfast",
+      "3 Nights Stay Stockholm – 3-Star Hotel with Breakfast",
+      "Home City to India Airport Pick-up & Drop by Shared Transport",
+      "Oslo Airport to Hotel Pick-up & Drop Transport",
+      "Stockholm Airport to Hotel Pick-up & Drop Transport",
+      "Oslo One-Day Hop-On Hop-Off Bus Pass – 24 Hours",
+      "Stockholm Hop-On Hop-Off Bus Sightseeing"
+    ],
+    "internationalFlights": 2,
+    "kicker": "Oslo & Stockholm",
+    "kind": "tour",
+    "order": 60,
+    "paymentPolicy": [
+      "50% advance at booking. The complete balance-payment schedule is confirmed in writing with your quote."
+    ],
+    "places": [
+      "Norway",
+      "Sweden"
+    ],
+    "price": 199999,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "Norway & Sweden Tour Package — Oslo & Stockholm",
+      "description": "Norway, Sweden package from India with flights, hotel stays and transfers. 6 nights; ₹1,99,999 per person. Applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "explore-norway-sweden"
+    },
+    "stops": [
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "Norway",
+        "name": "Oslo",
+        "nights": 3,
+        "summary": "3-Star Hotel with Breakfast"
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Sweden",
+        "name": "Stockholm",
+        "nights": 3,
+        "summary": "3-Star Hotel with Breakfast"
+      }
+    ],
+    "summary": "Explore Norway, Sweden with flights, hotel stays and the transfers listed below. Offer ₹1,99,999 per person; applicable GST/TCS extra.",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "The booking is non-changeable and non-refundable after visa clearance.",
+      "The customer must follow the instructions of the tour manager/representatives and maintain punctuality throughout the tour.",
+      "My Trip World shall not be responsible for services missed due to delays caused by the traveller.",
+      "In case a package is affected by natural calamities, weather conditions or circumstances beyond the company's reasonable control, the company will make reasonable efforts to provide alternatives subject to arrangements with its vendors and travel partners.",
+      "My Trip World does not own or directly control airlines, hotels, restaurants, coaches or other third-party facilities included in the tour and therefore cannot be held responsible for failures attributable to independent suppliers where the company itself is not at fault.",
+      "Travellers are responsible for checking in for flights at the correct time and reporting for all pre-booked components of the holiday.",
+      "No refund or credit may be available for services missed because of the traveller's failure to report on time.",
+      "Travellers must behave responsibly and comply with applicable laws and regulations throughout the journey.",
+      "Any traveller whose behaviour creates a safety concern, causes serious disruption or violates applicable laws may be removed from the tour without refund.",
+      "Travellers will be responsible for damage or loss caused by their own actions.",
+      "Travellers should obtain suitable travel insurance covering relevant travel risks.",
+      "Personal belongings and baggage remain the responsibility of the traveller except where liability arises directly from the company's established negligence.",
+      "Smoking is prohibited in vehicles operated by the company. Smoking-room requests at hotels will remain subject to availability.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking conditions, privacy policy and applicable terms of service."
+    ],
+    "title": "Norway & Sweden Tour Package — Oslo & Stockholm",
+    "visaInfo": [
+      "Passport should be valid for 6 months or more from the date of return."
+    ],
+    "wasPrice": 320000,
+    "departures": [],
+    "nights": 6,
+    "overview": [
+      "This 6-night package covers Norway, Sweden.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Oslo: 3 nights, 3-Star Hotel with Breakfast; Stockholm: 3 nights, 3-Star Hotel with Breakfast."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  }
+}

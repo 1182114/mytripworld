@@ -1,0 +1,111 @@
+{
+  "slug": "cordelia-cruise-goa-lakshadweep-mumbai",
+  "id": "package-cordelia-cruise-goa-lakshadweep-mumbai",
+  "sources": [
+    "WhatsApp Image 2026-10-07 at 15.15.57.jpeg"
+  ],
+  "notes": [],
+  "expected": {
+    "title": "Goa, Lakshadweep & Mumbai with Cordelia Cruise",
+    "priceTerms": null,
+    "departures": null,
+    "overview": null,
+    "faqs": null,
+    "seo": {
+      "description": "Cordelia Cruise holiday sailing Goa to Lakshadweep to Mumbai, with flight, train and stay with breakfast and dinner. Offer price ₹79,999.",
+      "title": "Cordelia Cruise — Goa, Lakshadweep & Mumbai"
+    },
+    "summary": "A Cordelia Cruise holiday sailing Goa to Lakshadweep to Mumbai, with flight, train and stay with breakfast and dinner included."
+  },
+  "set": {
+    "title": "Cordelia Cruise Package — Goa, Lakshadweep & Mumbai",
+    "priceTerms": {
+      "note": "Applicable GST/TCS extra. Final price, price basis and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "overview": [
+      "A Cordelia cruise holiday covering Goa, Lakshadweep and Mumbai, with flight, train and stay with breakfast and dinner listed in the poster.",
+      "The poster lists the inclusions below. Hotel category, cabin category (where relevant), routing, total duration and booking conditions are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2197",
+        "_type": "faqItem",
+        "question": "What is the offer price?",
+        "answer": "The current published offer is ₹79,999. Price basis, applicable GST/TCS and final availability are confirmed in your quote."
+      },
+      {
+        "_key": "f2823",
+        "_type": "faqItem",
+        "question": "Is a full itinerary available?",
+        "answer": "Ask our team for the detailed routing, hotel or cabin allocation and booking conditions. The poster does not supply a full day-by-day itinerary."
+      }
+    ],
+    "seo": {
+      "title": "Cordelia Cruise Package — Goa, Lakshadweep & Mumbai",
+      "description": "A Cordelia cruise holiday covering Goa, Lakshadweep and Mumbai, with flight, train and stay with breakfast and dinner listed in the poster."
+    },
+    "summary": "A Cordelia cruise holiday covering Goa, Lakshadweep and Mumbai, with flight, train and stay with breakfast and dinner listed in the poster."
+  },
+  "fallback": {
+    "_id": "package-cordelia-cruise-goa-lakshadweep-mumbai",
+    "_type": "package",
+    "badge": "Cruise",
+    "countries": [
+      "India"
+    ],
+    "cover": {
+      "_type": "image",
+      "alt": "A cruise ship at anchor — Goa, Lakshadweep & Mumbai with Cordelia Cruise",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/cruiseShip.jpg"
+    },
+    "featured": true,
+    "includes": [
+      "Flight",
+      "Train",
+      "Stay with Breakfast & Dinner"
+    ],
+    "kicker": "Cordelia Cruise",
+    "kind": "cruise",
+    "order": 52,
+    "places": [
+      "Goa",
+      "Lakshadweep",
+      "Mumbai"
+    ],
+    "price": 79999,
+    "seo": {
+      "title": "Cordelia Cruise Package — Goa, Lakshadweep & Mumbai",
+      "description": "A Cordelia cruise holiday covering Goa, Lakshadweep and Mumbai, with flight, train and stay with breakfast and dinner listed in the poster."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "cordelia-cruise-goa-lakshadweep-mumbai"
+    },
+    "summary": "A Cordelia cruise holiday covering Goa, Lakshadweep and Mumbai, with flight, train and stay with breakfast and dinner listed in the poster.",
+    "title": "Cordelia Cruise Package — Goa, Lakshadweep & Mumbai",
+    "wasPrice": 169999,
+    "priceTerms": {
+      "note": "Applicable GST/TCS extra. Final price, price basis and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "overview": [
+      "A Cordelia cruise holiday covering Goa, Lakshadweep and Mumbai, with flight, train and stay with breakfast and dinner listed in the poster.",
+      "The poster lists the inclusions below. Hotel category, cabin category (where relevant), routing, total duration and booking conditions are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2197",
+        "_type": "faqItem",
+        "question": "What is the offer price?",
+        "answer": "The current published offer is ₹79,999. Price basis, applicable GST/TCS and final availability are confirmed in your quote."
+      },
+      {
+        "_key": "f2823",
+        "_type": "faqItem",
+        "question": "Is a full itinerary available?",
+        "answer": "Ask our team for the detailed routing, hotel or cabin allocation and booking conditions. The poster does not supply a full day-by-day itinerary."
+      }
+    ]
+  }
+}

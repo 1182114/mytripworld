@@ -1,0 +1,134 @@
+{
+  "slug": "explore-kazakhstan-uzbekistan",
+  "id": "package-explore-kazakhstan-uzbekistan",
+  "sources": [
+    "WhatsApp Image 2026-10-07 at 15.26.23.jpeg"
+  ],
+  "notes": [],
+  "expected": {
+    "title": "Explore Kazakhstan & Uzbekistan",
+    "priceTerms": null,
+    "departures": null,
+    "overview": null,
+    "faqs": null,
+    "seo": {
+      "description": "Kazakhstan and Uzbekistan tour from India: Almaty, Samarkand and Tashkent with flights, train, hotel, transport and activity. Offer price ₹84,999.",
+      "title": "Kazakhstan & Uzbekistan Tour Package from India"
+    },
+    "internationalFlights": 2
+  },
+  "set": {
+    "title": "Kazakhstan & Uzbekistan Tour Package",
+    "priceTerms": {
+      "note": "Applicable GST/TCS extra. Final price, price basis and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "overview": [
+      "Explore Kazakhstan and Uzbekistan with a holiday covering Almaty, Samarkand and Tashkent, with 2 international flights, train, hotel, transport and activity included.",
+      "The poster lists the inclusions below. Hotel category, cabin category (where relevant), routing, total duration and booking conditions are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2197",
+        "_type": "faqItem",
+        "question": "What is the offer price?",
+        "answer": "The current published offer is ₹84,999. Price basis, applicable GST/TCS and final availability are confirmed in your quote."
+      },
+      {
+        "_key": "f2823",
+        "_type": "faqItem",
+        "question": "Is a full itinerary available?",
+        "answer": "Ask our team for the detailed routing, hotel or cabin allocation and booking conditions. The poster does not supply a full day-by-day itinerary."
+      }
+    ],
+    "seo": {
+      "title": "Kazakhstan & Uzbekistan Tour Package",
+      "description": "Almaty, Samarkand and Tashkent tour with 2 international flights, train, hotel and listed activities. Offer ₹84,999; final price basis and taxes confirmed."
+    },
+    "internationalFlights": 2
+  },
+  "fallback": {
+    "_id": "package-explore-kazakhstan-uzbekistan",
+    "_type": "package",
+    "countries": [
+      "Kazakhstan",
+      "Uzbekistan"
+    ],
+    "countriesCount": 2,
+    "cover": {
+      "_type": "image",
+      "alt": "My Trip World travellers in Almaty, Kazakhstan — Explore Kazakhstan & Uzbekistan tour package",
+      "_sanityAsset": "image@file://{{ROOT}}/public/gallery/traveller-07.jpg"
+    },
+    "featured": true,
+    "includes": [
+      "2 International Flights",
+      "Train",
+      "Hotel",
+      "Transport",
+      "Activity"
+    ],
+    "internationalFlights": 2,
+    "kicker": "Almaty, Samarkand & Tashkent",
+    "kind": "tour",
+    "order": 64,
+    "places": [
+      "Kazakhstan",
+      "Uzbekistan"
+    ],
+    "price": 84999,
+    "seo": {
+      "title": "Kazakhstan & Uzbekistan Tour Package",
+      "description": "Almaty, Samarkand and Tashkent tour with 2 international flights, train, hotel and listed activities. Offer ₹84,999; final price basis and taxes confirmed."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "explore-kazakhstan-uzbekistan"
+    },
+    "stops": [
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "Kazakhstan",
+        "name": "Almaty"
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Uzbekistan",
+        "name": "Samarkand"
+      },
+      {
+        "_key": "s3",
+        "_type": "stop",
+        "country": "Uzbekistan",
+        "name": "Tashkent"
+      }
+    ],
+    "summary": "Explore Kazakhstan and Uzbekistan with a holiday covering Almaty, Samarkand and Tashkent, with 2 international flights, train, hotel, transport and activity included.",
+    "title": "Kazakhstan & Uzbekistan Tour Package",
+    "wasPrice": 150000,
+    "priceTerms": {
+      "note": "Applicable GST/TCS extra. Final price, price basis and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "overview": [
+      "Explore Kazakhstan and Uzbekistan with a holiday covering Almaty, Samarkand and Tashkent, with 2 international flights, train, hotel, transport and activity included.",
+      "The poster lists the inclusions below. Hotel category, cabin category (where relevant), routing, total duration and booking conditions are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2197",
+        "_type": "faqItem",
+        "question": "What is the offer price?",
+        "answer": "The current published offer is ₹84,999. Price basis, applicable GST/TCS and final availability are confirmed in your quote."
+      },
+      {
+        "_key": "f2823",
+        "_type": "faqItem",
+        "question": "Is a full itinerary available?",
+        "answer": "Ask our team for the detailed routing, hotel or cabin allocation and booking conditions. The poster does not supply a full day-by-day itinerary."
+      }
+    ]
+  }
+}

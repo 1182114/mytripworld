@@ -1,0 +1,311 @@
+{
+  "slug": "explore-the-philippines",
+  "id": "package-explore-the-philippines",
+  "sources": [
+    "Explore Philippiens.pdf"
+  ],
+  "notes": [
+    "Brochure tax percentages replaced with quote-confirmed applicable taxes.",
+    "Departure dates and short-lived sale validity omitted."
+  ],
+  "expected": {
+    "title": "Explore the Philippines",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "+ 5% GST + 2% TCS"
+    },
+    "departures": null,
+    "seo": {
+      "description": "Philippines tour from India: 6 nights / 7 days in Manila, Cebu and Boracay with 4-star hotels, flights, transfers and island hopping. ₹99,999 per person + tax.",
+      "title": "Philippines Tour Package — Manila, Cebu & Boracay"
+    },
+    "nights": 6,
+    "summary": "Experience the best of the Philippines with an exciting journey covering Manila, Cebu and Boracay.",
+    "overview": [
+      "Experience the best of the Philippines with an exciting journey covering Manila, Cebu and Boracay.",
+      "From the vibrant nightlife and urban energy of Manila to the tropical charm of Cebu and the pristine beaches of Boracay, this tour combines city experiences, island adventures, entertainment and relaxation.",
+      "Enjoy comfortable 4-star hotel stays, domestic and international flights, airport transfers, island hopping, a sunset party cruise and selected experiences as part of one memorable Philippines holiday."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of the total package cost",
+      "25 days before departure: remaining 50% of the package cost",
+      "Documents required for booking: Passport Scan Copy, PAN Card and 50% Advance Package Payment",
+      "As per applicable government provisions, Tax Collected at Source (TCS) will be charged on the tour package.",
+      "TCS with PAN Card: 2%. Without PAN Card: 10%.",
+      "Eligible TCS may be claimed while filing the customer's Income Tax Return, subject to applicable tax provisions."
+    ],
+    "excludes": [
+      "Visa fees, if applicable",
+      "Tickets for activities not specifically mentioned under inclusions",
+      "Early check-in and late check-out",
+      "Tourism taxes or other local charges not mentioned in the package",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges",
+      "Any service or activity not specifically mentioned under Package Inclusions"
+    ],
+    "faqs": null
+  },
+  "set": {
+    "title": "Philippines Tour Package — Manila, Cebu & Boracay",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "seo": {
+      "title": "Philippines Tour Package — Manila, Cebu & Boracay",
+      "description": "Manila, Cebu, Boracay package from India with flights, hotel stays and transfers. 6 nights; ₹99,999 per person. Applicable taxes extra."
+    },
+    "nights": 6,
+    "summary": "Explore Manila, Cebu, Boracay with flights, hotel stays and the transfers listed below. Offer ₹99,999 per person; applicable GST/TCS extra.",
+    "overview": [
+      "This 6-night package covers Manila, Cebu, Boracay.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of the total package cost",
+      "25 days before departure: remaining 50% of the package cost",
+      "Documents required for booking: Passport Scan Copy, PAN Card and 50% Advance Package Payment"
+    ],
+    "excludes": [
+      "Visa fees, if applicable",
+      "Tickets for activities not specifically mentioned under inclusions",
+      "Early check-in and late check-out",
+      "Tourism taxes or other local charges not mentioned in the package",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges",
+      "Any service or activity not specifically mentioned under Package Inclusions",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Manila: 2 nights, Discover the energy of the Philippines' capital city while enjoying a comfortable 4-star hotel stay with breakfast.; Cebu: 2 nights, Experience Cebu's tropical atmosphere and island lifestyle with a 2-night stay in a 4-star hotel including breakfast.; Boracay: 2 nights, Relax and explore one of the Philippines' most famous island destinations.."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  },
+  "fallback": {
+    "_id": "package-explore-the-philippines",
+    "_type": "package",
+    "countries": [
+      "Philippines"
+    ],
+    "countriesCount": 1,
+    "cover": {
+      "_type": "image",
+      "alt": "Tropical islands and a turquoise lagoon — Explore the Philippines tour package",
+      "_sanityAsset": "image@file://{{ROOT}}/public/hero.jpg"
+    },
+    "ctaHeading": "Ready for Your Philippines Adventure?",
+    "ctaText": "Book your Manila, Cebu & Boracay holiday with My Trip World.",
+    "days": 7,
+    "departureAirports": [
+      "New Delhi",
+      "Amritsar"
+    ],
+    "domesticFlights": 2,
+    "excludes": [
+      "Visa fees, if applicable",
+      "Tickets for activities not specifically mentioned under inclusions",
+      "Early check-in and late check-out",
+      "Tourism taxes or other local charges not mentioned in the package",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges",
+      "Any service or activity not specifically mentioned under Package Inclusions",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "featured": true,
+    "highlightPoints": [
+      "6 nights across Manila, Cebu and Boracay",
+      "4-star hotel stays with breakfast",
+      "2 international flights and 2 domestic flights",
+      "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour",
+      "Boracay Island Hopping Tour with International Lunch",
+      "Boracay Sunset Party Cruise with Live Music & Snacks"
+    ],
+    "importantInfo": [
+      "Offer price is subject to availability and may change at the time of booking.",
+      "Hotel check-in and check-out will be according to the respective hotel's standard policy.",
+      "Early check-in and late check-out are not included and will be subject to availability.",
+      "Travellers are responsible for reporting on time for flights, transfers, tours and other pre-booked activities.",
+      "Customers are advised to carry appropriate travel insurance.",
+      "The package is non-changeable and non-refundable once confirmed, subject to the company's applicable terms and conditions.",
+      "In circumstances such as adverse weather, natural calamities or other situations beyond the company's control, My Trip World will make reasonable efforts to provide the maximum possible assistance or alternatives, subject to arrangements with airlines, hotels and other travel partners."
+    ],
+    "includes": [
+      "2 International Flights",
+      "2 Domestic Flights",
+      "2 Nights in Manila – 4-Star Hotel with Breakfast",
+      "2 Nights in Cebu – 4-Star Hotel with Breakfast",
+      "2 Nights in Boracay – 4-Star Hotel with Breakfast",
+      "Home City to India Airport Pick-up & Drop by Shared Transport",
+      "Manila Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Cebu Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Boracay Airport to Hotel Transfer including Shared Transport + Shared Speedboat + Shared Transport",
+      "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour",
+      "Boracay Island Hopping Tour with International Lunch",
+      "Boracay Sunset Party Cruise with Live Music & Snacks",
+      "Baggage Allowance: 7 kg Cabin Baggage per Person, 20 kg Check-in Baggage per Person"
+    ],
+    "internationalFlights": 2,
+    "kicker": "Philippines",
+    "kind": "tour",
+    "nights": 6,
+    "order": 25,
+    "overview": [
+      "This 6-night package covers Manila, Cebu, Boracay.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of the total package cost",
+      "25 days before departure: remaining 50% of the package cost",
+      "Documents required for booking: Passport Scan Copy, PAN Card and 50% Advance Package Payment"
+    ],
+    "places": [
+      "Manila",
+      "Cebu",
+      "Boracay"
+    ],
+    "price": 99999,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "Philippines Tour Package — Manila, Cebu & Boracay",
+      "description": "Manila, Cebu, Boracay package from India with flights, hotel stays and transfers. 6 nights; ₹99,999 per person. Applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "explore-the-philippines"
+    },
+    "stops": [
+      {
+        "_key": "k1",
+        "_type": "stop",
+        "country": "Philippines",
+        "experiences": [
+          "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "A seaside promenade and city skyline",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/planning.jpg"
+        },
+        "name": "Manila",
+        "nights": 2,
+        "summary": "Discover the energy of the Philippines' capital city while enjoying a comfortable 4-star hotel stay with breakfast."
+      },
+      {
+        "_key": "k2",
+        "_type": "stop",
+        "country": "Philippines",
+        "image": {
+          "_type": "image",
+          "alt": "A bay with boats between green islands",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/planning.jpg"
+        },
+        "name": "Cebu",
+        "nights": 2,
+        "summary": "Experience Cebu's tropical atmosphere and island lifestyle with a 2-night stay in a 4-star hotel including breakfast."
+      },
+      {
+        "_key": "k3",
+        "_type": "stop",
+        "country": "Philippines",
+        "experiences": [
+          "Boracay Island Hopping Tour",
+          "International Lunch",
+          "Boracay Sunset Party Cruise",
+          "Live Music",
+          "Snacks"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "Palm trees over a white-sand beach and turquoise sea",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/planning.jpg"
+        },
+        "name": "Boracay",
+        "nights": 2,
+        "summary": "Relax and explore one of the Philippines' most famous island destinations."
+      }
+    ],
+    "summary": "Explore Manila, Cebu, Boracay with flights, hotel stays and the transfers listed below. Offer ₹99,999 per person; applicable GST/TCS extra.",
+    "tagline": "Discover vibrant cities, tropical islands and unforgettable experiences across the Philippines.",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "A 50% advance payment is required to confirm the booking. The remaining 50% must be paid at least 25 days before departure.",
+      "The customer must follow the instructions of the tour manager/representatives and maintain punctuality throughout the tour.",
+      "My Trip World shall not be responsible for services missed due to delays caused by the traveller.",
+      "In case a package is affected by natural calamities, weather conditions or circumstances beyond the company's reasonable control, the company will make reasonable efforts to provide alternatives subject to arrangements with its vendors and travel partners.",
+      "My Trip World does not own or directly control airlines, hotels, restaurants, coaches or other third-party facilities included in the tour and therefore cannot be held responsible for failures attributable to independent suppliers where the company itself is not at fault.",
+      "Travellers are responsible for checking in for flights at the correct time and reporting for all pre-booked components of the holiday.",
+      "No refund or credit may be available for services missed because of the traveller's failure to report on time.",
+      "Travellers must behave responsibly and comply with applicable laws and regulations throughout the journey.",
+      "Any traveller whose behaviour creates a safety concern, causes serious disruption or violates applicable laws may be removed from the tour without refund.",
+      "Travellers will be responsible for damage or loss caused by their own actions.",
+      "Travellers should obtain suitable travel insurance covering relevant travel risks.",
+      "Personal belongings and baggage remain the responsibility of the traveller except where liability arises directly from the company's established negligence.",
+      "Smoking is prohibited in vehicles operated by the company. Smoking-room requests at hotels will remain subject to availability.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking conditions, privacy policy and applicable terms of service."
+    ],
+    "title": "Philippines Tour Package — Manila, Cebu & Boracay",
+    "visaInfo": [
+      "The passport must have a minimum validity of 6 months from the date of return."
+    ],
+    "departures": [],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Manila: 2 nights, Discover the energy of the Philippines' capital city while enjoying a comfortable 4-star hotel stay with breakfast.; Cebu: 2 nights, Experience Cebu's tropical atmosphere and island lifestyle with a 2-night stay in a 4-star hotel including breakfast.; Boracay: 2 nights, Relax and explore one of the Philippines' most famous island destinations.."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  }
+}

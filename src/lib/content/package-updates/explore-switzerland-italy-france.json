@@ -1,0 +1,265 @@
+{
+  "slug": "explore-switzerland-italy-france",
+  "id": "package-explore-switzerland-italy-france",
+  "sources": [
+    "Explore France , Italy & Switzerland.pdf"
+  ],
+  "notes": [
+    "Brochure tax percentages replaced with quote-confirmed applicable taxes.",
+    "Departure dates and short-lived sale validity omitted."
+  ],
+  "expected": {
+    "title": "Explore Switzerland, Italy & France",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "+ 5% GST + 5% TCS"
+    },
+    "departures": null,
+    "seo": {
+      "description": "Europe tour from India: Paris, Milan and Zurich with flights, train, 3-star hotels with breakfast and city sightseeing. ₹2,49,999 per person + tax.",
+      "title": "Switzerland, Italy & France Tour — Paris, Milan, Zurich"
+    },
+    "nights": null,
+    "summary": "Explore Switzerland, Italy and France with a holiday covering Paris, Milan and Zurich, with flights, an international train, 3-star hotel stays with breakfast, airport transfers and city sightseeing.",
+    "overview": null,
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "After visa clearance: 25% of package cost",
+      "25 days before departure: 25% of package cost"
+    ],
+    "excludes": [
+      "Any activity tickets and visa fees",
+      "Any additional expenses and tourism tax",
+      "Early check-in and late check-out at the hotel",
+      "Entrance fee, parking and guide charges"
+    ],
+    "faqs": null
+  },
+  "set": {
+    "title": "France, Italy & Switzerland Tour Package",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "seo": {
+      "title": "France, Italy & Switzerland Tour Package",
+      "description": "Switzerland, Italy, France package from India with flights, hotel stays and transfers. 7 nights; ₹2,49,999 per person. Applicable taxes extra."
+    },
+    "nights": 7,
+    "summary": "Explore Switzerland, Italy, France with flights, hotel stays and the transfers listed below. Offer ₹2,49,999 per person; applicable GST/TCS extra.",
+    "overview": [
+      "This 7-night package covers Switzerland, Italy, France.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "After visa clearance: 25% of package cost",
+      "25 days before departure: 25% of package cost"
+    ],
+    "excludes": [
+      "Any activity tickets and visa fees",
+      "Any additional expenses and tourism tax",
+      "Early check-in and late check-out at the hotel",
+      "Entrance fee, parking and guide charges",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Paris: 3 nights, 3-Star Hotel with Breakfast; Milan: 2 nights, 3-Star Hotel with Breakfast; Zurich: 2 nights, 3-Star Hotel with Breakfast."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  },
+  "fallback": {
+    "_id": "package-explore-switzerland-italy-france",
+    "_type": "package",
+    "badge": "Super Sale",
+    "countries": [
+      "Switzerland",
+      "Italy",
+      "France"
+    ],
+    "countriesCount": 3,
+    "cover": {
+      "_type": "image",
+      "alt": "View from an aircraft window — Explore Switzerland, Italy & France tour package",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/wingSunset.jpg"
+    },
+    "departureAirports": [
+      "New Delhi",
+      "Mumbai",
+      "Bengaluru"
+    ],
+    "excludes": [
+      "Any activity tickets and visa fees",
+      "Any additional expenses and tourism tax",
+      "Early check-in and late check-out at the hotel",
+      "Entrance fee, parking and guide charges",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "featured": true,
+    "importantInfo": [
+      "Offer price is subject to availability.",
+      "This package is non-changeable and non-refundable after visa clearance."
+    ],
+    "includes": [
+      "3 International Flights",
+      "1 International Train",
+      "3 Nights Stay Paris – 3-Star Hotel with Breakfast",
+      "2 Nights Stay Milan – 3-Star Hotel with Breakfast",
+      "2 Nights Stay Zurich – 3-Star Hotel with Breakfast",
+      "Paris Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Zurich Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Milan Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Milan Sightseeing Hop-On Hop-Off Bus Tour",
+      "One Day Sightseeing Zurich by Shared Transport",
+      "Paris One-Day Big Bus Hop-On Hop-Off Bus Tour",
+      "Home City to India Airport Pick-up & Drop by Shared Transport"
+    ],
+    "internationalFlights": 3,
+    "kicker": "Paris, Milan & Zurich",
+    "kind": "tour",
+    "moreInfo": [
+      {
+        "_key": "m1",
+        "_type": "infoSection",
+        "items": [
+          "The day after booking, the company sends the list of documents required for the visa.",
+          "Within the next 10 working days, a company representative visits your home and collects your visa documents.",
+          "Over the following 10 working days, the visa department checks your documents.",
+          "If your documents are eligible for a Schengen Visa, your visa will be processed; otherwise your advance deposit will be fully refunded to the same account within 7 working days."
+        ],
+        "title": "Booking & visa policy"
+      }
+    ],
+    "order": 62,
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "After visa clearance: 25% of package cost",
+      "25 days before departure: 25% of package cost"
+    ],
+    "places": [
+      "Switzerland",
+      "Italy",
+      "France"
+    ],
+    "price": 249999,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "France, Italy & Switzerland Tour Package",
+      "description": "Switzerland, Italy, France package from India with flights, hotel stays and transfers. 7 nights; ₹2,49,999 per person. Applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "explore-switzerland-italy-france"
+    },
+    "stops": [
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "France",
+        "name": "Paris",
+        "nights": 3,
+        "summary": "3-Star Hotel with Breakfast"
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Italy",
+        "name": "Milan",
+        "nights": 2,
+        "summary": "3-Star Hotel with Breakfast"
+      },
+      {
+        "_key": "s3",
+        "_type": "stop",
+        "country": "Switzerland",
+        "name": "Zurich",
+        "nights": 2,
+        "summary": "3-Star Hotel with Breakfast"
+      }
+    ],
+    "summary": "Explore Switzerland, Italy, France with flights, hotel stays and the transfers listed below. Offer ₹2,49,999 per person; applicable GST/TCS extra.",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "A 50% advance payment is required at the time of booking, 25% after visa clearance and the remaining 25% 25 days before departure.",
+      "This package is non-changeable and non-refundable after visa clearance.",
+      "My Trip World only provides visa service and plays no role in the grant or rejection of a visa. The decision to grant or reject a visa is at the sole discretion of the concerned embassy / high commission.",
+      "The customer must follow the instructions of the tour manager/representatives and maintain punctuality throughout the tour.",
+      "My Trip World shall not be responsible for services missed due to delays caused by the traveller.",
+      "In case a package is affected by natural calamities, weather conditions or circumstances beyond the company's reasonable control, the company will make reasonable efforts to provide alternatives subject to arrangements with its vendors and travel partners.",
+      "My Trip World does not own or directly control airlines, hotels, restaurants, coaches or other third-party facilities included in the tour and therefore cannot be held responsible for failures attributable to independent suppliers where the company itself is not at fault.",
+      "Travellers are responsible for checking in for flights at the correct time and reporting for all pre-booked components of the holiday.",
+      "No refund or credit may be available for services missed because of the traveller's failure to report on time.",
+      "Travellers must behave responsibly and comply with applicable laws and regulations throughout the journey.",
+      "Any traveller whose behaviour creates a safety concern, causes serious disruption or violates applicable laws may be removed from the tour without refund.",
+      "Travellers will be responsible for damage or loss caused by their own actions.",
+      "Travellers should obtain suitable travel insurance covering relevant travel risks.",
+      "Personal belongings and baggage remain the responsibility of the traveller except where liability arises directly from the company's established negligence.",
+      "Smoking is prohibited in vehicles operated by the company. Smoking-room requests at hotels will remain subject to availability.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking conditions, privacy policy and applicable terms of service."
+    ],
+    "title": "France, Italy & Switzerland Tour Package",
+    "visaInfo": [
+      "Passport should be valid for 6 months or more from the date of return."
+    ],
+    "wasPrice": 450000,
+    "departures": [],
+    "nights": 7,
+    "overview": [
+      "This 7-night package covers Switzerland, Italy, France.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Paris: 3 nights, 3-Star Hotel with Breakfast; Milan: 2 nights, 3-Star Hotel with Breakfast; Zurich: 2 nights, 3-Star Hotel with Breakfast."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  }
+}

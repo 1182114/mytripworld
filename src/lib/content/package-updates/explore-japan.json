@@ -1,0 +1,251 @@
+{
+  "slug": "explore-japan",
+  "id": "package-explore-japan",
+  "sources": [
+    "Explore Japan.pdf",
+    "WhatsApp Image 2026-10-07 at 15.17.28.jpeg"
+  ],
+  "notes": [
+    "Brochure tax percentages replaced with quote-confirmed applicable taxes.",
+    "Departure dates and short-lived sale validity omitted.",
+    "Japan poster and PDF consolidated into one package."
+  ],
+  "expected": {
+    "title": "Explore Japan",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "+ 5% GST + 2% TCS"
+    },
+    "departures": null,
+    "seo": {
+      "description": "Japan tour from India: Tokyo, Osaka and Kyoto with flights, 3-star hotels with breakfast, transfers and sightseeing bus passes. ₹1,49,999 per person + tax.",
+      "title": "Japan Tour Package — Tokyo, Osaka & Kyoto"
+    },
+    "nights": null,
+    "summary": "Explore Japan with a holiday covering Tokyo, Osaka and Kyoto, with flights, 3-star hotel stays with breakfast, airport transfers and sightseeing bus passes.",
+    "overview": null,
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "25 days before departure: 50% of package cost",
+      "Required documents for booking: Passport Scan Copy, PAN Card and 50% Package Cost"
+    ],
+    "excludes": [
+      "Any activity tickets and visa fee",
+      "Any additional expenses and tourism tax",
+      "Entrance fee, parking and guide charges"
+    ],
+    "faqs": null
+  },
+  "set": {
+    "title": "Japan Tour Package — Tokyo, Osaka & Kyoto",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "seo": {
+      "title": "Japan Tour Package — Tokyo, Osaka & Kyoto",
+      "description": "Tokyo, Osaka, Kyoto package from India with flights, hotel stays and transfers. 5 nights; ₹1,49,999 per person. Applicable taxes extra."
+    },
+    "nights": 5,
+    "summary": "Explore Tokyo, Osaka, Kyoto with flights, hotel stays and the transfers listed below. Offer ₹1,49,999 per person; applicable GST/TCS extra.",
+    "overview": [
+      "This 5-night package covers Tokyo, Osaka, Kyoto.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "25 days before departure: 50% of package cost",
+      "Required documents for booking: Passport Scan Copy, PAN Card and 50% Package Cost"
+    ],
+    "excludes": [
+      "Any activity tickets and visa fee",
+      "Any additional expenses and tourism tax",
+      "Entrance fee, parking and guide charges",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Tokyo: 2 nights, 3-Star Hotel with Breakfast; Osaka: 2 nights, 3-Star Hotel with Breakfast; Kyoto: 1 nights, 3-Star Hotel with Breakfast."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  },
+  "fallback": {
+    "_id": "package-explore-japan",
+    "_type": "package",
+    "countries": [
+      "Japan"
+    ],
+    "countriesCount": 1,
+    "cover": {
+      "_type": "image",
+      "alt": "View from an aircraft window — Explore Japan tour package",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/wingSunset.jpg"
+    },
+    "departureAirports": [
+      "New Delhi",
+      "Amritsar",
+      "Jaipur",
+      "Mumbai",
+      "Kolkata",
+      "Chennai"
+    ],
+    "domesticFlights": 1,
+    "excludes": [
+      "Any activity tickets and visa fee",
+      "Any additional expenses and tourism tax",
+      "Entrance fee, parking and guide charges",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "featured": true,
+    "importantInfo": [
+      "Offer price is subject to availability.",
+      "Check-in will be according to hotel rules.",
+      "This package is non-changeable and non-refundable."
+    ],
+    "includes": [
+      "2 International Flights",
+      "1 Domestic Flight",
+      "2 Nights Stay Tokyo – 3-Star Hotel with Breakfast",
+      "2 Nights Stay Osaka – 3-Star Hotel with Breakfast",
+      "1 Night Stay Kyoto – 3-Star Hotel with Breakfast",
+      "Home City to India Airport Pick-up & Drop by Shared / Public Transport",
+      "Tokyo Airport to Hotel Pick-up & Drop Transport",
+      "Osaka Airport to Hotel Pick-up & Drop Transport",
+      "Hop-On Hop-Off Tokyo Bus Pass – Skyhop Bus",
+      "Kyoto Hop-On Hop-Off Sightseeing Bus Pass – Skyhop Bus",
+      "Osaka Sky Vista Open-Top Bus Tour – Double Decker Sightseeing"
+    ],
+    "internationalFlights": 2,
+    "kicker": "Japan",
+    "kind": "tour",
+    "order": 28,
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "25 days before departure: 50% of package cost",
+      "Required documents for booking: Passport Scan Copy, PAN Card and 50% Package Cost"
+    ],
+    "places": [
+      "Tokyo",
+      "Osaka",
+      "Kyoto"
+    ],
+    "price": 149999,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "Japan Tour Package — Tokyo, Osaka & Kyoto",
+      "description": "Tokyo, Osaka, Kyoto package from India with flights, hotel stays and transfers. 5 nights; ₹1,49,999 per person. Applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "explore-japan"
+    },
+    "stops": [
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "Japan",
+        "name": "Tokyo",
+        "nights": 2,
+        "summary": "3-Star Hotel with Breakfast"
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Japan",
+        "name": "Osaka",
+        "nights": 2,
+        "summary": "3-Star Hotel with Breakfast"
+      },
+      {
+        "_key": "s3",
+        "_type": "stop",
+        "country": "Japan",
+        "name": "Kyoto",
+        "nights": 1,
+        "summary": "3-Star Hotel with Breakfast"
+      }
+    ],
+    "summary": "Explore Tokyo, Osaka, Kyoto with flights, hotel stays and the transfers listed below. Offer ₹1,49,999 per person; applicable GST/TCS extra.",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "A 50% advance payment is required to confirm the booking. The remaining 50% must be paid at least 25 days before departure.",
+      "The customer must follow the instructions of the tour manager/representatives and maintain punctuality throughout the tour.",
+      "My Trip World shall not be responsible for services missed due to delays caused by the traveller.",
+      "In case a package is affected by natural calamities, weather conditions or circumstances beyond the company's reasonable control, the company will make reasonable efforts to provide alternatives subject to arrangements with its vendors and travel partners.",
+      "My Trip World does not own or directly control airlines, hotels, restaurants, coaches or other third-party facilities included in the tour and therefore cannot be held responsible for failures attributable to independent suppliers where the company itself is not at fault.",
+      "Travellers are responsible for checking in for flights at the correct time and reporting for all pre-booked components of the holiday.",
+      "No refund or credit may be available for services missed because of the traveller's failure to report on time.",
+      "Travellers must behave responsibly and comply with applicable laws and regulations throughout the journey.",
+      "Any traveller whose behaviour creates a safety concern, causes serious disruption or violates applicable laws may be removed from the tour without refund.",
+      "Travellers will be responsible for damage or loss caused by their own actions.",
+      "Travellers should obtain suitable travel insurance covering relevant travel risks.",
+      "Personal belongings and baggage remain the responsibility of the traveller except where liability arises directly from the company's established negligence.",
+      "Smoking is prohibited in vehicles operated by the company. Smoking-room requests at hotels will remain subject to availability.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking conditions, privacy policy and applicable terms of service."
+    ],
+    "title": "Japan Tour Package — Tokyo, Osaka & Kyoto",
+    "visaInfo": [
+      "Passport should be valid for 6 months or more from the date of return.",
+      "In case of rejection of visa, refund will be provided as per the cancellation policy for the package."
+    ],
+    "wasPrice": 250000,
+    "departures": [],
+    "nights": 5,
+    "overview": [
+      "This 5-night package covers Tokyo, Osaka, Kyoto.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Tokyo: 2 nights, 3-Star Hotel with Breakfast; Osaka: 2 nights, 3-Star Hotel with Breakfast; Kyoto: 1 nights, 3-Star Hotel with Breakfast."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  }
+}

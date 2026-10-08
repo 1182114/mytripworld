@@ -239,11 +239,8 @@ export function mapContent(docs: RawDoc[]): Content {
           .map((x) => ({ day: num(x.day) ?? 0, title: str(x.title) ?? "", description: str(x.description), overnight: str(x.overnight), hotel: str(x.hotel) }))
           .filter((x) => x.title)
           .sort((a, b) => a.day - b.day),
-        departures: arr<Obj>(d.departures)
-          .map((x) => ({ date: str(x.date) ?? "", seatsLeft: num(x.seatsLeft), note: str(x.note) }))
-          .filter((x) => x.date && x.date >= today)
-          .sort((a, b) => a.date.localeCompare(b.date))
-          .map((x) => ({ ...x, label: longDate(x.date) })),
+        // Departure dates remain in the CMS, but the owner keeps them off the public site.
+        departures: [],
         faqs: faqList(d.faqs),
         cover,
         gallery: images(d.gallery, `Package "${title}" → More photos`),

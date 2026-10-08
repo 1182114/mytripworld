@@ -1,0 +1,291 @@
+{
+  "slug": "bali-ho-chi-minh-city-escape",
+  "id": "package-bali-ho-chi-minh-city-escape",
+  "sources": [
+    "Explore Bali & Ho Chi Minh City.pdf"
+  ],
+  "notes": [
+    "Brochure tax percentages replaced with quote-confirmed applicable taxes.",
+    "Departure dates and short-lived sale validity omitted."
+  ],
+  "expected": {
+    "title": "Bali & Ho Chi Minh City Escape",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "+ 5% GST + 2% TCS"
+    },
+    "departures": null,
+    "seo": {
+      "description": "Bali and Vietnam tour from India: 5 nights / 6 days in Bali and Ho Chi Minh City with 4-star hotels, flights and Bali tours. ₹79,999 per person + tax.",
+      "title": "Bali & Ho Chi Minh City Tour Package — 5N/6D"
+    },
+    "nights": 5,
+    "summary": "Discover two exciting Asian destinations in one memorable international holiday.",
+    "overview": [
+      "Discover two exciting Asian destinations in one memorable international holiday.",
+      "Experience Bali's tropical landscapes, cultural attractions, waterfalls and iconic rice terraces, followed by a stay in the energetic Vietnamese city of Ho Chi Minh City.",
+      "With international flights, comfortable 4-star accommodation, airport transfers and selected Bali sightseeing included, this package is ideal for travellers looking for a short yet exciting multi-country holiday."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "25 days before departure: remaining 50% of total package cost",
+      "Documents required: Passport Scan Copy, PAN Card and 50% Advance Payment",
+      "As per applicable government provisions, Tax Collected at Source will be charged on the tour package.",
+      "TCS with PAN Card: 2%. Without PAN Card: 10%.",
+      "Eligible TCS may be claimed while filing the customer's Income Tax Return, subject to applicable tax provisions."
+    ],
+    "excludes": [
+      "Activity tickets",
+      "Visa fees",
+      "Entry tickets",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not specifically mentioned",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Any service not specifically mentioned under Package Inclusions"
+    ],
+    "faqs": null
+  },
+  "set": {
+    "title": "Bali & Ho Chi Minh City Tour Package",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "seo": {
+      "title": "Bali & Ho Chi Minh City Tour Package",
+      "description": "Bali, Ho Chi Minh City package from India with flights, hotel stays and transfers. 5 nights; ₹79,999 per person. Applicable taxes extra."
+    },
+    "nights": 5,
+    "summary": "Explore Bali, Ho Chi Minh City with flights, hotel stays and the transfers listed below. Offer ₹79,999 per person; applicable GST/TCS extra.",
+    "overview": [
+      "This 5-night package covers Bali, Ho Chi Minh City.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "25 days before departure: remaining 50% of total package cost",
+      "Documents required: Passport Scan Copy, PAN Card and 50% Advance Payment"
+    ],
+    "excludes": [
+      "Activity tickets",
+      "Visa fees",
+      "Entry tickets",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not specifically mentioned",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Any service not specifically mentioned under Package Inclusions",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Bali: 4 nights, Enjoy four nights in Bali with accommodation in a 4-star hotel including breakfast.; Ho Chi Minh City: 1 nights, Experience the vibrant atmosphere of Ho Chi Minh City with a comfortable one-night stay in a 4-star hotel including breakfast.."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  },
+  "fallback": {
+    "_id": "package-bali-ho-chi-minh-city-escape",
+    "_type": "package",
+    "addOns": "Additional activities in either destination can be added up to one week before the tour departure, subject to availability and additional charges.",
+    "countries": [
+      "Indonesia",
+      "Vietnam"
+    ],
+    "countriesCount": 2,
+    "cover": {
+      "_type": "image",
+      "alt": "A temple on a lake in Bali — Bali & Ho Chi Minh City Escape tour package",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/baliTemple.jpg"
+    },
+    "ctaHeading": "Ready for Your Bali & Vietnam Adventure?",
+    "ctaText": "Book your Bali & Ho Chi Minh City holiday with My Trip World.",
+    "days": 6,
+    "departureAirports": [
+      "New Delhi",
+      "Amritsar",
+      "Jaipur",
+      "Mumbai",
+      "Kolkata",
+      "Chennai"
+    ],
+    "excludes": [
+      "Activity tickets",
+      "Visa fees",
+      "Entry tickets",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not specifically mentioned",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Any service not specifically mentioned under Package Inclusions",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "featured": true,
+    "importantInfo": [
+      "Price is subject to availability.",
+      "Hotel check-in and check-out will be according to the respective hotel's policy.",
+      "Early check-in and late check-out are not included and will be subject to availability.",
+      "Entry and activity tickets for Bali sightseeing are not included unless specifically stated.",
+      "Travellers are responsible for reporting on time for flights, transfers and sightseeing.",
+      "Customers are advised to arrange suitable travel insurance."
+    ],
+    "includes": [
+      "3 International Flights",
+      "4 Nights Bali – 4-Star Hotel with Breakfast",
+      "1 Night Ho Chi Minh City – 4-Star Hotel with Breakfast",
+      "Home City to India Airport Pick-up & Drop by Shared Transport",
+      "Bali Airport to Hotel Pick-up & Drop by Shared Transport",
+      "One-Day Bali Tour by Shared Transport",
+      "Nusa Dua Visit",
+      "Garuda Wisnu Kencana Cultural Park Visit",
+      "Ubud Full-Day Shared Tour",
+      "Tegenungan Waterfall",
+      "Tegalalang Rice Terrace",
+      "Ubud Art Market",
+      "Bali Swing Visit",
+      "English-speaking Professional Driver / Guide",
+      "Baggage Allowance: 7 kg Cabin Baggage per Person, 20 kg Check-in Baggage per Person"
+    ],
+    "internationalFlights": 3,
+    "kicker": "Indonesia & Vietnam",
+    "kind": "tour",
+    "nights": 5,
+    "order": 27,
+    "overview": [
+      "This 5-night package covers Bali, Ho Chi Minh City.",
+      "See the destination-by-destination hotel stays, transport and sightseeing below. Activities and entry tickets are included only where explicitly listed. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "25 days before departure: remaining 50% of total package cost",
+      "Documents required: Passport Scan Copy, PAN Card and 50% Advance Payment"
+    ],
+    "places": [
+      "Bali",
+      "Ho Chi Minh City"
+    ],
+    "price": 79999,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "Bali & Ho Chi Minh City Tour Package",
+      "description": "Bali, Ho Chi Minh City package from India with flights, hotel stays and transfers. 5 nights; ₹79,999 per person. Applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "bali-ho-chi-minh-city-escape"
+    },
+    "stops": [
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "Indonesia",
+        "experiences": [
+          "Nusa Dua & Cultural Experience by Shared Transport. Visit: Nusa Dua, Water Activities Area, Garuda Wisnu Kencana Cultural Park. Entry and activity tickets are not included.",
+          "Ubud Full-Day Tour by Shared Transport. Visit: Tegenungan Waterfall, Bali Swing, Tegalalang Rice Terrace, Ubud Art Market. Includes English-speaking Professional Driver / Guide. Entry tickets are not included."
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "Rice terraces in Bali",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/baliRice.jpg"
+        },
+        "name": "Bali",
+        "nights": 4,
+        "summary": "Enjoy four nights in Bali with accommodation in a 4-star hotel including breakfast."
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Vietnam",
+        "image": {
+          "_type": "image",
+          "alt": "Ho Chi Minh City, Vietnam",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/saigon.jpg"
+        },
+        "name": "Ho Chi Minh City",
+        "nights": 1,
+        "summary": "Experience the vibrant atmosphere of Ho Chi Minh City with a comfortable one-night stay in a 4-star hotel including breakfast."
+      }
+    ],
+    "summary": "Explore Bali, Ho Chi Minh City with flights, hotel stays and the transfers listed below. Offer ₹79,999 per person; applicable GST/TCS extra.",
+    "tagline": "Tropical Bali Meets Vibrant Vietnam",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "A 50% advance payment is required at the time of booking. The remaining 50% must be paid at least 25 days prior to departure.",
+      "The package is non-changeable and non-refundable, subject to applicable cancellation conditions.",
+      "Travellers must follow the instructions of the tour manager or authorised representatives and maintain punctuality.",
+      "Services missed due to delay on the traveller's part will be the traveller's responsibility.",
+      "In case of natural calamities, adverse weather or other circumstances beyond the company's control, My Trip World will make reasonable efforts to provide suitable alternatives subject to arrangements with travel partners and vendors.",
+      "My Trip World does not directly own or control airlines, hotels, restaurants, coaches or other third-party facilities included in the tour.",
+      "Travellers are responsible for checking in for flights on time and reporting for all pre-booked services.",
+      "No refund or credit may be available for services missed because of traveller delay or failure to report.",
+      "Customers are responsible for their baggage, documents and personal belongings.",
+      "Travellers must behave responsibly and comply with applicable laws and regulations during the trip.",
+      "Customers are responsible for damage or loss caused by their own actions.",
+      "Appropriate travel insurance is recommended.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking conditions, privacy policy and applicable terms of service."
+    ],
+    "title": "Bali & Ho Chi Minh City Tour Package",
+    "visaInfo": [
+      "Passport must remain valid for at least 6 months from the date of return."
+    ],
+    "departures": [],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Bali: 4 nights, Enjoy four nights in Bali with accommodation in a 4-star hotel including breakfast.; Ho Chi Minh City: 1 nights, Experience the vibrant atmosphere of Ho Chi Minh City with a comfortable one-night stay in a 4-star hotel including breakfast.."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  }
+}

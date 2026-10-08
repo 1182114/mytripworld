@@ -1,0 +1,676 @@
+{
+  "slug": "singapore-philippines-bali",
+  "id": "package-singapore-philippines-bali",
+  "sources": [
+    "Explore Singapore, Philippiens & Bali.pdf"
+  ],
+  "notes": [],
+  "expected": {},
+  "set": {
+    "countries": [
+      "Singapore",
+      "Philippines",
+      "Indonesia"
+    ],
+    "countriesCount": 3,
+    "cover": {
+      "_type": "image",
+      "alt": "Singapore skyline",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/singapore.jpg"
+    },
+    "ctaHeading": "Plan your Singapore, Philippines & Bali trip",
+    "ctaText": "Ask My Trip World for the Singapore, Manila, Boracay and Bali package quote.",
+    "departureAirports": [
+      "New Delhi",
+      "Amritsar",
+      "Jaipur",
+      "Mumbai",
+      "Kolkata",
+      "Chennai"
+    ],
+    "domesticFlights": 2,
+    "excludes": [
+      "Activity tickets unless specifically mentioned",
+      "Visa fees",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not included in the package",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges unless specifically included",
+      "Any service not specifically mentioned under Package Inclusions",
+      "Applicable GST/TCS extra; final breakdown confirmed in your quote."
+    ],
+    "featured": false,
+    "importantInfo": [
+      "Price is subject to availability.",
+      "Hotel check-in and check-out will be according to hotel policy.",
+      "Early check-in and late check-out are subject to availability and are not included.",
+      "Travellers must report on time for flights, transfers and sightseeing.",
+      "Entry tickets for the specified Bali attractions are not included unless stated otherwise.",
+      "Customers are advised to arrange suitable travel insurance."
+    ],
+    "includes": [
+      "2 nights Singapore — 4-star hotel with breakfast",
+      "3 International Flights",
+      "2 Domestic Flights",
+      "2 Nights Manila – 4-Star Hotel with Breakfast",
+      "3 Nights Boracay – 4-Star Hotel with Breakfast",
+      "4 Nights Bali – 4-Star Hotel with Breakfast",
+      "Home City to India Airport Pick-up & Drop by Shared Transport",
+      "Manila Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Bali Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Boracay Airport Transfer: Shared Transport + Shared Speedboat + Shared Transport",
+      "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour",
+      "Boracay Island Hopping Tour with International Lunch",
+      "Boracay Sunset Party Cruise with Live Music & Snacks",
+      "One-Day Bali Tour by Private Transport",
+      "Full-Day Ubud Private Tour",
+      "English-speaking Professional Driver / Guide for Ubud Tour",
+      "Baggage Allowance: 7 kg Cabin Baggage per Person, 20 kg Check-in Baggage per Person",
+      "Singapore airport–hotel shared transfers and a half-day Singapore sightseeing tour; entry tickets excluded."
+    ],
+    "internationalFlights": 3,
+    "kind": "tour",
+    "nights": 11,
+    "order": 55,
+    "overview": [
+      "Stay 2 nights in Singapore, 2 nights in Manila, 3 nights in Boracay and 4 nights in Bali, in 4-star hotels with breakfast.",
+      "Combine Singapore sightseeing, Manila nightlife, Boracay island hopping and a sunset cruise with private Bali tours. Entry tickets and optional water activities are excluded unless explicitly included.",
+      "The brochure lists 3 international and 2 domestic flights, airport transfers and 7 kg cabin plus 20 kg checked baggage per person. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "50% of the package cost at booking; remaining 50% at least 25 days before travel.",
+      "Booking documents: passport scan and PAN card, with the booking advance."
+    ],
+    "places": [
+      "Singapore",
+      "Manila",
+      "Boracay",
+      "Bali"
+    ],
+    "price": 149999,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "Singapore Philippines Bali Tour Package — 11 Nights",
+      "description": "Singapore, Manila, Boracay and Bali: 11 nights in 4-star hotels with breakfast, flights and listed tours. ₹1,49,999 per person; applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "singapore-philippines-bali"
+    },
+    "stops": [
+      {
+        "_key": "singapore",
+        "_type": "stop",
+        "name": "Singapore",
+        "country": "Singapore",
+        "nights": 2,
+        "summary": "4-star hotel with breakfast",
+        "experiences": [
+          "Half-day Singapore sightseeing; entry tickets excluded."
+        ]
+      },
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "Philippines",
+        "experiences": [
+          "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "A seaside promenade and city skyline",
+          "asset": {
+            "_ref": "image-d341ccf5693ef6f9da4b96fcace9e2d47c79eb89-1800x1350-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Manila",
+        "nights": 2,
+        "summary": "Stay in a comfortable 4-star hotel with breakfast and experience the vibrant nightlife of the Philippines' capital."
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Philippines",
+        "experiences": [
+          "Boracay Island Hopping Tour",
+          "International Lunch",
+          "Boracay Sunset Party Cruise",
+          "Live Music",
+          "Snacks",
+          "Airport transfer includes: Shared Transport + Shared Speedboat + Shared Transport"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "Palm trees over a white-sand beach and turquoise sea",
+          "asset": {
+            "_ref": "image-b4ee809c459b5eeb276a8501c0cd57a02721a04c-1800x2329-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Boracay",
+        "nights": 3,
+        "summary": "Enjoy three nights in one of the Philippines' most popular island destinations."
+      },
+      {
+        "_key": "s3",
+        "_type": "stop",
+        "country": "Indonesia",
+        "experiences": [
+          "Nusa Dua Full-Day Tour by Private Transport. Visit: Nusa Dua, Water Activities Area, Garuda Wisnu Kencana Cultural Park. Activity and entry tickets are not included.",
+          "Ubud Full-Day Private Tour. Visit: Tegenungan Waterfall, Bali Swing, Tegalalang Rice Terrace, Ubud Art Market. Includes Private Transport and English-speaking Professional Driver / Guide. Entry tickets are not included."
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "A temple on a lake in Bali",
+          "asset": {
+            "_ref": "image-485b08575b2857b9a8c1a758978af14033c70fe2-1600x2123-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Bali",
+        "nights": 4,
+        "summary": "Spend four nights exploring the culture, landscapes and tropical attractions of Bali."
+      }
+    ],
+    "summary": "An 11-night Singapore, Philippines and Bali package with flights, 4-star hotel stays and listed sightseeing. ₹1,49,999 per person; applicable taxes extra.",
+    "tagline": "Three countries, four destinations and eleven hotel nights.",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "A 50% advance payment is required at the time of booking and the remaining 50% must be paid at least 25 days before departure.",
+      "The package is non-changeable and non-refundable, subject to applicable cancellation conditions.",
+      "Travellers must follow tour instructions and maintain punctuality.",
+      "Services missed due to delay on the traveller's part will be the traveller's responsibility.",
+      "In the event of natural calamities, weather disruption or circumstances beyond the company's control, My Trip World will make reasonable efforts to provide alternatives subject to arrangements with vendors and travel partners.",
+      "My Trip World does not own or directly control airlines, hotels, restaurants, transport operators or other third-party service providers.",
+      "Travellers are responsible for checking in for flights on time and reporting for all pre-booked services.",
+      "No refund or credit may be available for services missed because of a traveller's delay or failure to report.",
+      "Customers are responsible for their baggage, documents and personal belongings.",
+      "Travellers must comply with applicable laws and behave responsibly throughout the tour.",
+      "Travellers are responsible for any damage or loss caused by their own actions.",
+      "Suitable travel insurance is recommended.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking terms, privacy policy and applicable terms of service."
+    ],
+    "title": "Singapore, Philippines & Bali Tour Package",
+    "visaInfo": [
+      "Passport should remain valid for at least 6 months from the date of return."
+    ],
+    "_type": "package",
+    "departures": [],
+    "faqs": [
+      {
+        "_key": "f2735",
+        "_type": "faqItem",
+        "question": "How many nights are included?",
+        "answer": "11 hotel nights: Singapore 2, Manila 2, Boracay 3 and Bali 4, with breakfast in 4-star hotels."
+      },
+      {
+        "_key": "f4542",
+        "_type": "faqItem",
+        "question": "Is this the same as the Philippines & Bali package?",
+        "answer": "No. This combination also includes two nights in Singapore, shared airport transfers and a half-day Singapore sightseeing tour."
+      },
+      {
+        "_key": "f3509",
+        "_type": "faqItem",
+        "question": "Are activity entry tickets included?",
+        "answer": "The listed sightseeing transport is included. Singapore and Bali entry tickets and optional water activities are excluded; check the full inclusions and exclusions."
+      },
+      {
+        "_key": "f1796",
+        "_type": "faqItem",
+        "question": "Are taxes included?",
+        "answer": "₹1,49,999 is the brochure offer per person. Applicable GST/TCS is extra; final pricing is confirmed in your quote."
+      }
+    ]
+  },
+  "create": {
+    "countries": [
+      "Singapore",
+      "Philippines",
+      "Indonesia"
+    ],
+    "countriesCount": 3,
+    "cover": {
+      "_type": "image",
+      "alt": "Singapore skyline",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/singapore.jpg"
+    },
+    "ctaHeading": "Plan your Singapore, Philippines & Bali trip",
+    "ctaText": "Ask My Trip World for the Singapore, Manila, Boracay and Bali package quote.",
+    "departureAirports": [
+      "New Delhi",
+      "Amritsar",
+      "Jaipur",
+      "Mumbai",
+      "Kolkata",
+      "Chennai"
+    ],
+    "domesticFlights": 2,
+    "excludes": [
+      "Activity tickets unless specifically mentioned",
+      "Visa fees",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not included in the package",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges unless specifically included",
+      "Any service not specifically mentioned under Package Inclusions",
+      "Applicable GST/TCS extra; final breakdown confirmed in your quote."
+    ],
+    "featured": false,
+    "importantInfo": [
+      "Price is subject to availability.",
+      "Hotel check-in and check-out will be according to hotel policy.",
+      "Early check-in and late check-out are subject to availability and are not included.",
+      "Travellers must report on time for flights, transfers and sightseeing.",
+      "Entry tickets for the specified Bali attractions are not included unless stated otherwise.",
+      "Customers are advised to arrange suitable travel insurance."
+    ],
+    "includes": [
+      "2 nights Singapore — 4-star hotel with breakfast",
+      "3 International Flights",
+      "2 Domestic Flights",
+      "2 Nights Manila – 4-Star Hotel with Breakfast",
+      "3 Nights Boracay – 4-Star Hotel with Breakfast",
+      "4 Nights Bali – 4-Star Hotel with Breakfast",
+      "Home City to India Airport Pick-up & Drop by Shared Transport",
+      "Manila Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Bali Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Boracay Airport Transfer: Shared Transport + Shared Speedboat + Shared Transport",
+      "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour",
+      "Boracay Island Hopping Tour with International Lunch",
+      "Boracay Sunset Party Cruise with Live Music & Snacks",
+      "One-Day Bali Tour by Private Transport",
+      "Full-Day Ubud Private Tour",
+      "English-speaking Professional Driver / Guide for Ubud Tour",
+      "Baggage Allowance: 7 kg Cabin Baggage per Person, 20 kg Check-in Baggage per Person",
+      "Singapore airport–hotel shared transfers and a half-day Singapore sightseeing tour; entry tickets excluded."
+    ],
+    "internationalFlights": 3,
+    "kind": "tour",
+    "nights": 11,
+    "order": 55,
+    "overview": [
+      "Stay 2 nights in Singapore, 2 nights in Manila, 3 nights in Boracay and 4 nights in Bali, in 4-star hotels with breakfast.",
+      "Combine Singapore sightseeing, Manila nightlife, Boracay island hopping and a sunset cruise with private Bali tours. Entry tickets and optional water activities are excluded unless explicitly included.",
+      "The brochure lists 3 international and 2 domestic flights, airport transfers and 7 kg cabin plus 20 kg checked baggage per person. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "50% of the package cost at booking; remaining 50% at least 25 days before travel.",
+      "Booking documents: passport scan and PAN card, with the booking advance."
+    ],
+    "places": [
+      "Singapore",
+      "Manila",
+      "Boracay",
+      "Bali"
+    ],
+    "price": 149999,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "Singapore Philippines Bali Tour Package — 11 Nights",
+      "description": "Singapore, Manila, Boracay and Bali: 11 nights in 4-star hotels with breakfast, flights and listed tours. ₹1,49,999 per person; applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "singapore-philippines-bali"
+    },
+    "stops": [
+      {
+        "_key": "singapore",
+        "_type": "stop",
+        "name": "Singapore",
+        "country": "Singapore",
+        "nights": 2,
+        "summary": "4-star hotel with breakfast",
+        "experiences": [
+          "Half-day Singapore sightseeing; entry tickets excluded."
+        ]
+      },
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "Philippines",
+        "experiences": [
+          "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "A seaside promenade and city skyline",
+          "asset": {
+            "_ref": "image-d341ccf5693ef6f9da4b96fcace9e2d47c79eb89-1800x1350-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Manila",
+        "nights": 2,
+        "summary": "Stay in a comfortable 4-star hotel with breakfast and experience the vibrant nightlife of the Philippines' capital."
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Philippines",
+        "experiences": [
+          "Boracay Island Hopping Tour",
+          "International Lunch",
+          "Boracay Sunset Party Cruise",
+          "Live Music",
+          "Snacks",
+          "Airport transfer includes: Shared Transport + Shared Speedboat + Shared Transport"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "Palm trees over a white-sand beach and turquoise sea",
+          "asset": {
+            "_ref": "image-b4ee809c459b5eeb276a8501c0cd57a02721a04c-1800x2329-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Boracay",
+        "nights": 3,
+        "summary": "Enjoy three nights in one of the Philippines' most popular island destinations."
+      },
+      {
+        "_key": "s3",
+        "_type": "stop",
+        "country": "Indonesia",
+        "experiences": [
+          "Nusa Dua Full-Day Tour by Private Transport. Visit: Nusa Dua, Water Activities Area, Garuda Wisnu Kencana Cultural Park. Activity and entry tickets are not included.",
+          "Ubud Full-Day Private Tour. Visit: Tegenungan Waterfall, Bali Swing, Tegalalang Rice Terrace, Ubud Art Market. Includes Private Transport and English-speaking Professional Driver / Guide. Entry tickets are not included."
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "A temple on a lake in Bali",
+          "asset": {
+            "_ref": "image-485b08575b2857b9a8c1a758978af14033c70fe2-1600x2123-jpg",
+            "_type": "reference"
+          }
+        },
+        "name": "Bali",
+        "nights": 4,
+        "summary": "Spend four nights exploring the culture, landscapes and tropical attractions of Bali."
+      }
+    ],
+    "summary": "An 11-night Singapore, Philippines and Bali package with flights, 4-star hotel stays and listed sightseeing. ₹1,49,999 per person; applicable taxes extra.",
+    "tagline": "Three countries, four destinations and eleven hotel nights.",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "A 50% advance payment is required at the time of booking and the remaining 50% must be paid at least 25 days before departure.",
+      "The package is non-changeable and non-refundable, subject to applicable cancellation conditions.",
+      "Travellers must follow tour instructions and maintain punctuality.",
+      "Services missed due to delay on the traveller's part will be the traveller's responsibility.",
+      "In the event of natural calamities, weather disruption or circumstances beyond the company's control, My Trip World will make reasonable efforts to provide alternatives subject to arrangements with vendors and travel partners.",
+      "My Trip World does not own or directly control airlines, hotels, restaurants, transport operators or other third-party service providers.",
+      "Travellers are responsible for checking in for flights on time and reporting for all pre-booked services.",
+      "No refund or credit may be available for services missed because of a traveller's delay or failure to report.",
+      "Customers are responsible for their baggage, documents and personal belongings.",
+      "Travellers must comply with applicable laws and behave responsibly throughout the tour.",
+      "Travellers are responsible for any damage or loss caused by their own actions.",
+      "Suitable travel insurance is recommended.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking terms, privacy policy and applicable terms of service."
+    ],
+    "title": "Singapore, Philippines & Bali Tour Package",
+    "visaInfo": [
+      "Passport should remain valid for at least 6 months from the date of return."
+    ],
+    "_type": "package",
+    "departures": [],
+    "faqs": [
+      {
+        "_key": "f2735",
+        "_type": "faqItem",
+        "question": "How many nights are included?",
+        "answer": "11 hotel nights: Singapore 2, Manila 2, Boracay 3 and Bali 4, with breakfast in 4-star hotels."
+      },
+      {
+        "_key": "f4542",
+        "_type": "faqItem",
+        "question": "Is this the same as the Philippines & Bali package?",
+        "answer": "No. This combination also includes two nights in Singapore, shared airport transfers and a half-day Singapore sightseeing tour."
+      },
+      {
+        "_key": "f3509",
+        "_type": "faqItem",
+        "question": "Are activity entry tickets included?",
+        "answer": "The listed sightseeing transport is included. Singapore and Bali entry tickets and optional water activities are excluded; check the full inclusions and exclusions."
+      },
+      {
+        "_key": "f1796",
+        "_type": "faqItem",
+        "question": "Are taxes included?",
+        "answer": "₹1,49,999 is the brochure offer per person. Applicable GST/TCS is extra; final pricing is confirmed in your quote."
+      }
+    ]
+  },
+  "fallback": {
+    "countries": [
+      "Singapore",
+      "Philippines",
+      "Indonesia"
+    ],
+    "countriesCount": 3,
+    "cover": {
+      "_type": "image",
+      "alt": "Singapore skyline",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/singapore.jpg"
+    },
+    "ctaHeading": "Plan your Singapore, Philippines & Bali trip",
+    "ctaText": "Ask My Trip World for the Singapore, Manila, Boracay and Bali package quote.",
+    "departureAirports": [
+      "New Delhi",
+      "Amritsar",
+      "Jaipur",
+      "Mumbai",
+      "Kolkata",
+      "Chennai"
+    ],
+    "domesticFlights": 2,
+    "excludes": [
+      "Activity tickets unless specifically mentioned",
+      "Visa fees",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not included in the package",
+      "Personal expenses",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges unless specifically included",
+      "Any service not specifically mentioned under Package Inclusions",
+      "Applicable GST/TCS extra; final breakdown confirmed in your quote."
+    ],
+    "featured": false,
+    "importantInfo": [
+      "Price is subject to availability.",
+      "Hotel check-in and check-out will be according to hotel policy.",
+      "Early check-in and late check-out are subject to availability and are not included.",
+      "Travellers must report on time for flights, transfers and sightseeing.",
+      "Entry tickets for the specified Bali attractions are not included unless stated otherwise.",
+      "Customers are advised to arrange suitable travel insurance."
+    ],
+    "includes": [
+      "2 nights Singapore — 4-star hotel with breakfast",
+      "3 International Flights",
+      "2 Domestic Flights",
+      "2 Nights Manila – 4-Star Hotel with Breakfast",
+      "3 Nights Boracay – 4-Star Hotel with Breakfast",
+      "4 Nights Bali – 4-Star Hotel with Breakfast",
+      "Home City to India Airport Pick-up & Drop by Shared Transport",
+      "Manila Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Bali Airport to Hotel Pick-up & Drop by Shared Transport",
+      "Boracay Airport Transfer: Shared Transport + Shared Speedboat + Shared Transport",
+      "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour",
+      "Boracay Island Hopping Tour with International Lunch",
+      "Boracay Sunset Party Cruise with Live Music & Snacks",
+      "One-Day Bali Tour by Private Transport",
+      "Full-Day Ubud Private Tour",
+      "English-speaking Professional Driver / Guide for Ubud Tour",
+      "Baggage Allowance: 7 kg Cabin Baggage per Person, 20 kg Check-in Baggage per Person",
+      "Singapore airport–hotel shared transfers and a half-day Singapore sightseeing tour; entry tickets excluded."
+    ],
+    "internationalFlights": 3,
+    "kind": "tour",
+    "nights": 11,
+    "order": 55,
+    "overview": [
+      "Stay 2 nights in Singapore, 2 nights in Manila, 3 nights in Boracay and 4 nights in Bali, in 4-star hotels with breakfast.",
+      "Combine Singapore sightseeing, Manila nightlife, Boracay island hopping and a sunset cruise with private Bali tours. Entry tickets and optional water activities are excluded unless explicitly included.",
+      "The brochure lists 3 international and 2 domestic flights, airport transfers and 7 kg cabin plus 20 kg checked baggage per person. Final routing, hotels and availability are confirmed in your quote."
+    ],
+    "paymentPolicy": [
+      "50% of the package cost at booking; remaining 50% at least 25 days before travel.",
+      "Booking documents: passport scan and PAN card, with the booking advance."
+    ],
+    "places": [
+      "Singapore",
+      "Manila",
+      "Boracay",
+      "Bali"
+    ],
+    "price": 149999,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "Singapore Philippines Bali Tour Package — 11 Nights",
+      "description": "Singapore, Manila, Boracay and Bali: 11 nights in 4-star hotels with breakfast, flights and listed tours. ₹1,49,999 per person; applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "singapore-philippines-bali"
+    },
+    "stops": [
+      {
+        "_key": "singapore",
+        "_type": "stop",
+        "name": "Singapore",
+        "country": "Singapore",
+        "nights": 2,
+        "summary": "4-star hotel with breakfast",
+        "experiences": [
+          "Half-day Singapore sightseeing; entry tickets excluded."
+        ]
+      },
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "Philippines",
+        "experiences": [
+          "Makati Music Clubs, Rooftops & Go-Go Bars Nightlife Tour"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "A seaside promenade and city skyline",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/planning.jpg"
+        },
+        "name": "Manila",
+        "nights": 2,
+        "summary": "Stay in a comfortable 4-star hotel with breakfast and experience the vibrant nightlife of the Philippines' capital."
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Philippines",
+        "experiences": [
+          "Boracay Island Hopping Tour",
+          "International Lunch",
+          "Boracay Sunset Party Cruise",
+          "Live Music",
+          "Snacks",
+          "Airport transfer includes: Shared Transport + Shared Speedboat + Shared Transport"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "Palm trees over a white-sand beach and turquoise sea",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/planning.jpg"
+        },
+        "name": "Boracay",
+        "nights": 3,
+        "summary": "Enjoy three nights in one of the Philippines' most popular island destinations."
+      },
+      {
+        "_key": "s3",
+        "_type": "stop",
+        "country": "Indonesia",
+        "experiences": [
+          "Nusa Dua Full-Day Tour by Private Transport. Visit: Nusa Dua, Water Activities Area, Garuda Wisnu Kencana Cultural Park. Activity and entry tickets are not included.",
+          "Ubud Full-Day Private Tour. Visit: Tegenungan Waterfall, Bali Swing, Tegalalang Rice Terrace, Ubud Art Market. Includes Private Transport and English-speaking Professional Driver / Guide. Entry tickets are not included."
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "A temple on a lake in Bali",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/baliTemple.jpg"
+        },
+        "name": "Bali",
+        "nights": 4,
+        "summary": "Spend four nights exploring the culture, landscapes and tropical attractions of Bali."
+      }
+    ],
+    "summary": "An 11-night Singapore, Philippines and Bali package with flights, 4-star hotel stays and listed sightseeing. ₹1,49,999 per person; applicable taxes extra.",
+    "tagline": "Three countries, four destinations and eleven hotel nights.",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "A 50% advance payment is required at the time of booking and the remaining 50% must be paid at least 25 days before departure.",
+      "The package is non-changeable and non-refundable, subject to applicable cancellation conditions.",
+      "Travellers must follow tour instructions and maintain punctuality.",
+      "Services missed due to delay on the traveller's part will be the traveller's responsibility.",
+      "In the event of natural calamities, weather disruption or circumstances beyond the company's control, My Trip World will make reasonable efforts to provide alternatives subject to arrangements with vendors and travel partners.",
+      "My Trip World does not own or directly control airlines, hotels, restaurants, transport operators or other third-party service providers.",
+      "Travellers are responsible for checking in for flights on time and reporting for all pre-booked services.",
+      "No refund or credit may be available for services missed because of a traveller's delay or failure to report.",
+      "Customers are responsible for their baggage, documents and personal belongings.",
+      "Travellers must comply with applicable laws and behave responsibly throughout the tour.",
+      "Travellers are responsible for any damage or loss caused by their own actions.",
+      "Suitable travel insurance is recommended.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking terms, privacy policy and applicable terms of service."
+    ],
+    "title": "Singapore, Philippines & Bali Tour Package",
+    "visaInfo": [
+      "Passport should remain valid for at least 6 months from the date of return."
+    ],
+    "_type": "package",
+    "departures": [],
+    "faqs": [
+      {
+        "_key": "f2735",
+        "_type": "faqItem",
+        "question": "How many nights are included?",
+        "answer": "11 hotel nights: Singapore 2, Manila 2, Boracay 3 and Bali 4, with breakfast in 4-star hotels."
+      },
+      {
+        "_key": "f4542",
+        "_type": "faqItem",
+        "question": "Is this the same as the Philippines & Bali package?",
+        "answer": "No. This combination also includes two nights in Singapore, shared airport transfers and a half-day Singapore sightseeing tour."
+      },
+      {
+        "_key": "f3509",
+        "_type": "faqItem",
+        "question": "Are activity entry tickets included?",
+        "answer": "The listed sightseeing transport is included. Singapore and Bali entry tickets and optional water activities are excluded; check the full inclusions and exclusions."
+      },
+      {
+        "_key": "f1796",
+        "_type": "faqItem",
+        "question": "Are taxes included?",
+        "answer": "₹1,49,999 is the brochure offer per person. Applicable GST/TCS is extra; final pricing is confirmed in your quote."
+      }
+    ],
+    "_id": "package-singapore-philippines-bali"
+  }
+}

@@ -1,0 +1,513 @@
+{
+  "slug": "luxury-europe-msc-cruise",
+  "id": "package-luxury-europe-msc-cruise",
+  "sources": [
+    "Explore Europe with MSC Cruise.pdf"
+  ],
+  "notes": [
+    "Brochure tax percentages replaced with quote-confirmed applicable taxes.",
+    "Departure dates and short-lived sale validity omitted."
+  ],
+  "expected": {
+    "title": "Luxury Europe with MSC Cruise",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "+ 5% GST + 2% TCS"
+    },
+    "departures": null,
+    "seo": {
+      "description": "Switzerland and Italy with a 7-night MSC Mediterranean cruise from India: 4-star hotels, flights, Swiss trains, full-board cruise. ₹3,56,000 per person + tax.",
+      "title": "Europe with MSC Cruise — Switzerland, Italy & Mediterranean"
+    },
+    "nights": null,
+    "summary": "Discover the beauty of Switzerland and the Mediterranean with a premium Europe holiday combined with a 7-night MSC Cruise.",
+    "overview": [
+      "Discover the beauty of Switzerland and the Mediterranean with a premium Europe holiday combined with a 7-night MSC Cruise.",
+      "Experience Zurich, Lausanne and Engelberg before continuing to Italy and boarding your MSC Cruise from Civitavecchia, Rome.",
+      "The cruise journey takes you through some of the Mediterranean's most iconic destinations including Valencia, Barcelona, Marseille, Genoa and Livorno before returning to Rome.",
+      "This package combines 4-star hotel stays, scenic Swiss train journeys, international and intra-Europe flights, transfers and a full-board MSC Cruise experience."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "45 days before departure: 25% of total package cost",
+      "25 days before departure: remaining 25% of total package cost"
+    ],
+    "excludes": [
+      "Activity tickets",
+      "Visa fees",
+      "Cruise gratuity payable on board",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not specifically mentioned",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges unless specifically included",
+      "Personal expenses",
+      "Any service not specifically mentioned under inclusions"
+    ],
+    "faqs": null,
+    "durationText": "7 Nights Switzerland + 7-Night MSC Cruise",
+    "itineraryHeading": "MSC Cruise itinerary",
+    "itinerary": [
+      {
+        "_key": "d1",
+        "_type": "itineraryDay",
+        "day": 1,
+        "description": "Departure: 19:00",
+        "title": "Civitavecchia (Rome), Italy"
+      },
+      {
+        "_key": "d2",
+        "_type": "itineraryDay",
+        "day": 2,
+        "title": "At Sea"
+      },
+      {
+        "_key": "d3",
+        "_type": "itineraryDay",
+        "day": 3,
+        "description": "Arrival: 07:00 · Departure: 21:00",
+        "title": "Valencia, Spain"
+      },
+      {
+        "_key": "d4",
+        "_type": "itineraryDay",
+        "day": 4,
+        "description": "Arrival: 09:00 · Departure: 18:00",
+        "title": "Barcelona, Spain"
+      },
+      {
+        "_key": "d5",
+        "_type": "itineraryDay",
+        "day": 5,
+        "description": "Arrival: 08:00 · Departure: 17:00",
+        "title": "Marseille (Provence), France"
+      },
+      {
+        "_key": "d6",
+        "_type": "itineraryDay",
+        "day": 6,
+        "description": "Arrival: 08:00 · Departure: 19:00",
+        "title": "Genoa (Portofino), Italy"
+      },
+      {
+        "_key": "d7",
+        "_type": "itineraryDay",
+        "day": 7,
+        "description": "Arrival: 07:00 · Departure: 20:00",
+        "title": "Livorno (Florence), Italy"
+      },
+      {
+        "_key": "d8",
+        "_type": "itineraryDay",
+        "day": 8,
+        "description": "Arrival: 07:00",
+        "title": "Civitavecchia (Rome), Italy"
+      }
+    ]
+  },
+  "set": {
+    "title": "Switzerland & Mediterranean MSC Cruise Package",
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "seo": {
+      "title": "Switzerland & Mediterranean MSC Cruise Package",
+      "description": "Switzerland, Italy, Spain, France package from India with flights, hotel stays and transfers. 14 nights; ₹3,56,000 per person. Applicable taxes extra."
+    },
+    "nights": 14,
+    "summary": "Explore Switzerland, Italy, Spain, France with flights, hotel stays and the transfers listed below. Offer ₹3,56,000 per person; applicable GST/TCS extra.",
+    "overview": [
+      "Combine seven hotel nights in Switzerland with a seven-night Mediterranean MSC cruise. Switzerland stays comprise Zurich (2 nights), Lausanne (3 nights) and Engelberg (2 nights), in 4-star hotels with breakfast.",
+      "The cruise route is Civitavecchia (Rome), a day at sea, Valencia, Barcelona, Marseille, Genoa, Livorno and back to Civitavecchia. Cruise days below describe the cruise segment only; the Switzerland day-by-day schedule is confirmed with your quote.",
+      "The brochure specifies a standard sea-view cabin on double occupancy, subject to availability, with full-board meals and port tax. Beverages, gratuities, internet, room service and optional shore activities have separate exclusions."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "45 days before departure: 25% of total package cost",
+      "25 days before departure: remaining 25% of total package cost"
+    ],
+    "excludes": [
+      "Activity tickets",
+      "Visa fees",
+      "Cruise gratuity payable on board",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not specifically mentioned",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges unless specifically included",
+      "Personal expenses",
+      "Any service not specifically mentioned under inclusions",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Zurich: 2 nights, 4-Star Hotel with Breakfast; Lausanne: 3 nights, 4-Star Hotel with Breakfast; Engelberg: 2 nights, 4-Star Hotel with Breakfast; MSC Cruise: 7 nights, 7 Nights / 8 Days. Standard Sea View Cabin, Double Occupancy. Cabin allocation subject to availability.."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ],
+    "durationText": "7 Nights Switzerland + 7-Night MSC Cruise",
+    "itineraryHeading": "MSC cruise route — cruise days 1–8",
+    "itinerary": [
+      {
+        "_key": "d1",
+        "_type": "itineraryDay",
+        "day": 1,
+        "description": "Embark in Civitavecchia, the port for Rome. Sailing schedule is confirmed with your quote.",
+        "title": "Civitavecchia (Rome), Italy"
+      },
+      {
+        "_key": "d2",
+        "_type": "itineraryDay",
+        "day": 2,
+        "title": "At Sea",
+        "description": "A day at sea on board MSC Cruise."
+      },
+      {
+        "_key": "d3",
+        "_type": "itineraryDay",
+        "day": 3,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Valencia, Spain"
+      },
+      {
+        "_key": "d4",
+        "_type": "itineraryDay",
+        "day": 4,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Barcelona, Spain"
+      },
+      {
+        "_key": "d5",
+        "_type": "itineraryDay",
+        "day": 5,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Marseille (Provence), France"
+      },
+      {
+        "_key": "d6",
+        "_type": "itineraryDay",
+        "day": 6,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Genoa (Portofino), Italy"
+      },
+      {
+        "_key": "d7",
+        "_type": "itineraryDay",
+        "day": 7,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Livorno (Florence), Italy"
+      },
+      {
+        "_key": "d8",
+        "_type": "itineraryDay",
+        "day": 8,
+        "description": "Disembark in Civitavecchia, the port for Rome.",
+        "title": "Civitavecchia (Rome), Italy"
+      }
+    ]
+  },
+  "fallback": {
+    "_id": "package-luxury-europe-msc-cruise",
+    "_type": "package",
+    "countries": [
+      "Switzerland",
+      "Italy",
+      "Spain",
+      "France"
+    ],
+    "countriesCount": 4,
+    "cover": {
+      "_type": "image",
+      "alt": "Cruise ships in port — Luxury Europe with MSC Cruise package",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/cruisePort.jpg"
+    },
+    "ctaHeading": "Ready for Your Luxury European Cruise Holiday?",
+    "ctaText": "Explore Switzerland, Italy and the Mediterranean with My Trip World.",
+    "departureAirports": [
+      "New Delhi",
+      "Mumbai",
+      "Bengaluru"
+    ],
+    "durationText": "7 Nights Switzerland + 7-Night MSC Cruise",
+    "excludes": [
+      "Activity tickets",
+      "Visa fees",
+      "Cruise gratuity payable on board",
+      "Early check-in",
+      "Late check-out",
+      "Tourism taxes not specifically mentioned",
+      "Entrance fees",
+      "Parking charges",
+      "Guide charges unless specifically included",
+      "Personal expenses",
+      "Any service not specifically mentioned under inclusions",
+      "Applicable GST/TCS and additional statutory charges; the final breakdown is confirmed with your quote."
+    ],
+    "featured": true,
+    "importantInfo": [
+      "Price is subject to availability.",
+      "All hotel check-in and check-out timings will be according to the respective hotel's policy.",
+      "Early check-in and late check-out are subject to availability and are not included.",
+      "Cruise cabin allocation is subject to availability.",
+      "Standard package price is based on a Sea View Cabin on double occupancy.",
+      "Dinner timing on the cruise will be subject to availability.",
+      "Cruise gratuity is payable separately on board.",
+      "Travellers should arrange suitable travel insurance.",
+      "Travellers are responsible for reporting on time for flights, trains, transfers and cruise embarkation."
+    ],
+    "includes": [
+      "India to Zurich / Rome Return International Flight: one-stop journey with maximum 4-hour stopover",
+      "Zurich to Rome Flight",
+      "Zurich to Lausanne: 2nd Class Train",
+      "Lausanne to Engelberg: 2nd Class Train",
+      "Engelberg to Zurich Transfer",
+      "Zurich Airport to Hotel Transfer",
+      "Zurich Hotel to Zurich Station Transfer",
+      "Lausanne Station to Hotel Pick-up & Drop Transfer",
+      "Engelberg Station to Hotel Drop Transfer",
+      "Home City Hisar to Delhi Airport Pick-up & Drop by Shared Transport",
+      "Zurich: 2 Nights – 4-Star Hotel with Breakfast",
+      "Lausanne: 3 Nights – 4-Star Hotel with Breakfast",
+      "Engelberg: 2 Nights – 4-Star Hotel with Breakfast",
+      "MSC Cruise: 7 Nights / 8 Days – Standard Sea View Cabin, Double Occupancy",
+      "Full Board Meals on the cruise",
+      "Port Taxes",
+      "Baggage Allowance: 7 kg Cabin Baggage per Person, 20 kg Check-in Baggage per Person"
+    ],
+    "itinerary": [
+      {
+        "_key": "d1",
+        "_type": "itineraryDay",
+        "day": 1,
+        "description": "Embark in Civitavecchia, the port for Rome. Sailing schedule is confirmed with your quote.",
+        "title": "Civitavecchia (Rome), Italy"
+      },
+      {
+        "_key": "d2",
+        "_type": "itineraryDay",
+        "day": 2,
+        "title": "At Sea",
+        "description": "A day at sea on board MSC Cruise."
+      },
+      {
+        "_key": "d3",
+        "_type": "itineraryDay",
+        "day": 3,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Valencia, Spain"
+      },
+      {
+        "_key": "d4",
+        "_type": "itineraryDay",
+        "day": 4,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Barcelona, Spain"
+      },
+      {
+        "_key": "d5",
+        "_type": "itineraryDay",
+        "day": 5,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Marseille (Provence), France"
+      },
+      {
+        "_key": "d6",
+        "_type": "itineraryDay",
+        "day": 6,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Genoa (Portofino), Italy"
+      },
+      {
+        "_key": "d7",
+        "_type": "itineraryDay",
+        "day": 7,
+        "description": "Port call on the brochure route. Docking times and shore activities are confirmed with your quote.",
+        "title": "Livorno (Florence), Italy"
+      },
+      {
+        "_key": "d8",
+        "_type": "itineraryDay",
+        "day": 8,
+        "description": "Disembark in Civitavecchia, the port for Rome.",
+        "title": "Civitavecchia (Rome), Italy"
+      }
+    ],
+    "itineraryHeading": "MSC cruise route — cruise days 1–8",
+    "kicker": "Switzerland & Italy with MSC Cruises",
+    "kind": "cruise",
+    "moreInfo": [
+      {
+        "_key": "m1",
+        "_type": "infoSection",
+        "items": [
+          "Spa treatments",
+          "Shopping",
+          "Personal expenses",
+          "Cruise gratuity",
+          "Alcoholic beverages unless pre-purchased",
+          "Non-alcoholic beverages unless pre-purchased",
+          "Room service",
+          "Internet",
+          "Casino spending"
+        ],
+        "title": "Cruise exclusions"
+      }
+    ],
+    "order": 55,
+    "overview": [
+      "Combine seven hotel nights in Switzerland with a seven-night Mediterranean MSC cruise. Switzerland stays comprise Zurich (2 nights), Lausanne (3 nights) and Engelberg (2 nights), in 4-star hotels with breakfast.",
+      "The cruise route is Civitavecchia (Rome), a day at sea, Valencia, Barcelona, Marseille, Genoa, Livorno and back to Civitavecchia. Cruise days below describe the cruise segment only; the Switzerland day-by-day schedule is confirmed with your quote.",
+      "The brochure specifies a standard sea-view cabin on double occupancy, subject to availability, with full-board meals and port tax. Beverages, gratuities, internet, room service and optional shore activities have separate exclusions."
+    ],
+    "paymentPolicy": [
+      "At the time of booking: 50% of total package cost",
+      "45 days before departure: 25% of total package cost",
+      "25 days before departure: remaining 25% of total package cost"
+    ],
+    "places": [
+      "Switzerland",
+      "Italy",
+      "Spain",
+      "France"
+    ],
+    "price": 356000,
+    "priceTerms": {
+      "basis": "per person",
+      "note": "Applicable GST/TCS extra. Final price and tax breakdown are confirmed in your quote."
+    },
+    "seo": {
+      "title": "Switzerland & Mediterranean MSC Cruise Package",
+      "description": "Switzerland, Italy, Spain, France package from India with flights, hotel stays and transfers. 14 nights; ₹3,56,000 per person. Applicable taxes extra."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "luxury-europe-msc-cruise"
+    },
+    "stops": [
+      {
+        "_key": "s1",
+        "_type": "stop",
+        "country": "Switzerland",
+        "name": "Zurich",
+        "nights": 2,
+        "summary": "4-Star Hotel with Breakfast"
+      },
+      {
+        "_key": "s2",
+        "_type": "stop",
+        "country": "Switzerland",
+        "name": "Lausanne",
+        "nights": 3,
+        "summary": "4-Star Hotel with Breakfast"
+      },
+      {
+        "_key": "s3",
+        "_type": "stop",
+        "country": "Switzerland",
+        "name": "Engelberg",
+        "nights": 2,
+        "summary": "4-Star Hotel with Breakfast"
+      },
+      {
+        "_key": "s4",
+        "_type": "stop",
+        "country": "Mediterranean",
+        "experiences": [
+          "Full Board Meals: Breakfast, Lunch, Dinner and Tea-time Snacks. Drinking water is available at vending machines during buffet opening hours.",
+          "Morning & Evening Entertainment, as listed in the MSC Daily Newsletter",
+          "Access to Swimming Pools, Jacuzzis, Gym, Walking Areas and Sports Pitch",
+          "Access to Bars & Lounges",
+          "Access to Casino",
+          "Kids Club",
+          "Port Taxes",
+          "Dinner time choice subject to availability",
+          "Cruise route: Rome → Valencia → Barcelona → Marseille → Genoa → Livorno → Rome"
+        ],
+        "image": {
+          "_type": "image",
+          "alt": "A cruise ship at anchor",
+          "_sanityAsset": "image@file://{{ROOT}}/public/photos/cruiseShip.jpg"
+        },
+        "name": "MSC Cruise",
+        "nights": 7,
+        "summary": "7 Nights / 8 Days. Standard Sea View Cabin, Double Occupancy. Cabin allocation subject to availability."
+      }
+    ],
+    "summary": "Explore Switzerland, Italy, Spain, France with flights, hotel stays and the transfers listed below. Offer ₹3,56,000 per person; applicable GST/TCS extra.",
+    "tagline": "A Unique & Luxury European Cruise Experience",
+    "terms": [
+      "All bookings are subject to availability and confirmation.",
+      "A 50% advance payment is required at the time of booking.",
+      "A further 25% must be paid 45 days before departure and the remaining 25% must be paid 25 days before departure.",
+      "The booking becomes non-changeable and non-refundable after visa clearance, as per the package conditions.",
+      "Travellers must follow the instructions of the tour manager, cruise staff and authorised representatives and maintain punctuality.",
+      "Services missed due to delay on the traveller's part will be the traveller's responsibility.",
+      "In case of natural calamities, adverse weather or circumstances beyond the company's control, My Trip World will make reasonable efforts to provide suitable alternatives subject to arrangements with vendors and travel partners.",
+      "My Trip World does not own or directly control airlines, hotels, restaurants, transport operators, cruise operators or other third-party facilities included in the package.",
+      "Travellers are responsible for checking in for flights, trains and the cruise at the correct time.",
+      "No refund or credit may be available for services missed due to traveller delay or failure to report.",
+      "Travellers are responsible for their baggage, documents and personal belongings.",
+      "Customers must comply with applicable laws and behave responsibly throughout the trip.",
+      "Customers will be responsible for damage or loss caused by their own actions.",
+      "Suitable travel insurance is strongly recommended.",
+      "Government taxes and statutory charges will be payable as applicable.",
+      "Booking the package constitutes acceptance of My Trip World's booking terms, privacy policy and applicable terms of service."
+    ],
+    "title": "Switzerland & Mediterranean MSC Cruise Package",
+    "visaInfo": [
+      "Passport must remain valid for at least 6 months from the date of return."
+    ],
+    "departures": [],
+    "nights": 14,
+    "faqs": [
+      {
+        "_key": "f2851",
+        "_type": "faqItem",
+        "question": "What hotel stays are included?",
+        "answer": "Zurich: 2 nights, 4-Star Hotel with Breakfast; Lausanne: 3 nights, 4-Star Hotel with Breakfast; Engelberg: 2 nights, 4-Star Hotel with Breakfast; MSC Cruise: 7 nights, 7 Nights / 8 Days. Standard Sea View Cabin, Double Occupancy. Cabin allocation subject to availability.."
+      },
+      {
+        "_key": "f3950",
+        "_type": "faqItem",
+        "question": "Are taxes included in the displayed price?",
+        "answer": "The displayed offer is per person. Applicable GST/TCS is extra; the final price and tax breakdown are confirmed in your quote."
+      },
+      {
+        "_key": "f4128",
+        "_type": "faqItem",
+        "question": "Is there a fixed departure date on this page?",
+        "answer": "Travel dates and availability are confirmed with your enquiry. Contact our team with your preferred travel month."
+      },
+      {
+        "_key": "f4172",
+        "_type": "faqItem",
+        "question": "Are activity tickets and visa fees included?",
+        "answer": "Only inclusions explicitly listed on this page are covered. Check the exclusions and confirm visa assistance, entry tickets and any optional activities with your quote."
+      }
+    ]
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "slug": "costa-cruise-uae-oman-qatar",
+  "id": "package-costa-cruise-uae-oman-qatar",
+  "sources": [
+    "WhatsApp Image 2026-10-07 at 15.23.33.jpeg",
+    "WhatsApp Image 2026-10-07 at 15.30.45.jpeg"
+  ],
+  "notes": [
+    "User confirmed ₹1,19,999; poster ₹99,999 not used.",
+    "Second Costa poster is a duplicate package variant."
+  ],
+  "expected": {
+    "title": "Unique Cruise Experience: UAE, Oman & Qatar",
+    "priceTerms": null,
+    "departures": null,
+    "overview": null,
+    "faqs": null,
+    "seo": {
+      "description": "Costa cruise from India covering UAE, Oman and Qatar: 2 international flights, 7-night cruise with stay and all meals. Promotional offer price ₹1,19,999.",
+      "title": "Costa Cruise — UAE, Oman & Qatar from India"
+    },
+    "nights": null,
+    "durationText": "7-Night Cruise",
+    "price": 119999,
+    "internationalFlights": 2
+  },
+  "set": {
+    "title": "Costa Cruise Package — UAE, Oman & Qatar",
+    "priceTerms": {
+      "note": "Applicable GST/TCS extra. Final price, price basis and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "overview": [
+      "A Costa cruise covering three countries in one trip: UAE, Oman and Qatar, with 2 international flights, a 7-night cruise with stay and all meals, and 4 transport included.",
+      "The poster lists the inclusions below. Hotel category, cabin category (where relevant), routing, total duration and booking conditions are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2197",
+        "_type": "faqItem",
+        "question": "What is the offer price?",
+        "answer": "The current published offer is ₹119,999. Price basis, applicable GST/TCS and final availability are confirmed in your quote."
+      },
+      {
+        "_key": "f2823",
+        "_type": "faqItem",
+        "question": "Is a full itinerary available?",
+        "answer": "Ask our team for the detailed routing, hotel or cabin allocation and booking conditions. The poster does not supply a full day-by-day itinerary."
+      }
+    ],
+    "seo": {
+      "title": "Costa Cruise Package — UAE, Oman & Qatar",
+      "description": "UAE, Oman and Qatar Costa cruise with 2 international flights, a 7-night cruise, all meals and 4 transfers. Offer ₹1,19,999; final pricing confirmed."
+    },
+    "nights": 7,
+    "durationText": "7-Night Costa Cruise",
+    "price": 119999,
+    "internationalFlights": 2
+  },
+  "fallback": {
+    "_id": "package-costa-cruise-uae-oman-qatar",
+    "_type": "package",
+    "badge": "Cruise",
+    "countries": [
+      "UAE",
+      "Oman",
+      "Qatar"
+    ],
+    "countriesCount": 3,
+    "cover": {
+      "_type": "image",
+      "alt": "Dubai skyline — Unique Cruise Experience: UAE, Oman & Qatar with Costa Cruise",
+      "_sanityAsset": "image@file://{{ROOT}}/public/photos/dubai.jpg"
+    },
+    "durationText": "7-Night Costa Cruise",
+    "featured": true,
+    "includes": [
+      "2 International Flights",
+      "7-Night Cruise with Stay + All Meals",
+      "4 Transport"
+    ],
+    "internationalFlights": 2,
+    "kicker": "Costa Cruise · One Trip, 3 Countries",
+    "kind": "cruise",
+    "order": 53,
+    "places": [
+      "UAE",
+      "Oman",
+      "Qatar"
+    ],
+    "price": 119999,
+    "seo": {
+      "title": "Costa Cruise Package — UAE, Oman & Qatar",
+      "description": "UAE, Oman and Qatar Costa cruise with 2 international flights, a 7-night cruise, all meals and 4 transfers. Offer ₹1,19,999; final pricing confirmed."
+    },
+    "slug": {
+      "_type": "slug",
+      "current": "costa-cruise-uae-oman-qatar"
+    },
+    "summary": "A Costa cruise covering three countries in one trip: UAE, Oman and Qatar, with 2 international flights, a 7-night cruise with stay and all meals, and 4 transport included.",
+    "title": "Costa Cruise Package — UAE, Oman & Qatar",
+    "wasPrice": 180000,
+    "priceTerms": {
+      "note": "Applicable GST/TCS extra. Final price, price basis and tax breakdown are confirmed in your quote."
+    },
+    "departures": [],
+    "overview": [
+      "A Costa cruise covering three countries in one trip: UAE, Oman and Qatar, with 2 international flights, a 7-night cruise with stay and all meals, and 4 transport included.",
+      "The poster lists the inclusions below. Hotel category, cabin category (where relevant), routing, total duration and booking conditions are confirmed in your quote."
+    ],
+    "faqs": [
+      {
+        "_key": "f2197",
+        "_type": "faqItem",
+        "question": "What is the offer price?",
+        "answer": "The current published offer is ₹119,999. Price basis, applicable GST/TCS and final availability are confirmed in your quote."
+      },
+      {
+        "_key": "f2823",
+        "_type": "faqItem",
+        "question": "Is a full itinerary available?",
+        "answer": "Ask our team for the detailed routing, hotel or cabin allocation and booking conditions. The poster does not supply a full day-by-day itinerary."
+      }
+    ],
+    "nights": 7
+  }
+}
