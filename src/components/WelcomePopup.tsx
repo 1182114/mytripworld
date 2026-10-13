@@ -7,8 +7,13 @@ const quietDays = 7;
 
 type Props = { src: string; srcSet?: string; alt: string; width?: number; height?: number; href: string };
 
-// Home page welcome poster. It appears after a short delay or some scrolling (never on
-// first paint), at most once a week per visitor, and is rendered in the browser only.
+// Home page welcome poster. It appears once the visitor has been on the page a few seconds
+// AND has started using it (a scroll, tap or key press), or has scrolled well down. It is shown
+// at most once a week per visitor and is rendered in the browser only.
+//
+// Waiting for that first interaction matters for page speed: browsers stop measuring "largest
+// contentful paint" at the first interaction, so the poster is never counted as the page's
+// main content. Opened on a timer alone, it was measured as a 7-second page load.
 export function WelcomePopup({ src, srcSet, alt, width, height, href }: Props) {
   const [open, setOpen] = useState(false);
   const dialog = useRef<HTMLDialogElement>(null);
@@ -31,12 +36,25 @@ export function WelcomePopup({ src, srcSet, alt, width, height, href }: Props) {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       if (max > 0 && window.scrollY / max > 0.4) show();
     };
-    const timer = window.setTimeout(show, 6000);
+    let waited = false;
+    let used = false;
+    const maybeShow = () => waited && used && show();
+    const onUse = () => {
+      used = true;
+      maybeShow();
+    };
+    const useEvents = ["scroll", "pointerdown", "keydown", "touchstart"] as const;
+    const timer = window.setTimeout(() => {
+      waited = true;
+      maybeShow();
+    }, 6000);
     const stop = () => {
       window.clearTimeout(timer);
       window.removeEventListener("scroll", onScroll);
+      useEvents.forEach((name) => window.removeEventListener(name, onUse));
     };
     window.addEventListener("scroll", onScroll, { passive: true });
+    useEvents.forEach((name) => window.addEventListener(name, onUse, { passive: true }));
     return stop;
   }, []);
 
