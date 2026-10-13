@@ -103,22 +103,18 @@ body {
 }
 }
 
-/* Scroll reveal: hidden state only applies once JS has marked the page ready. */
-.js-ready .reveal {
+/* Scroll reveal. Only blocks that start below the screen are hidden (by Reveal.tsx), so what
+   is visible on load is never hidden and re-shown. Opacity and transform only: both are
+   handled off the main thread, unlike a blur filter. */
+.reveal.reveal-pending {
   opacity: 0;
   transform: translateY(32px) scale(0.985);
-  filter: blur(6px);
+}
+.reveal.is-visible {
   transition:
     opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
-    filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
   transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
-}
-.js-ready .reveal.is-visible {
-  opacity: 1;
-  transform: none;
-  filter: none;
 }
 
 /* Hero entrance: the panel and its lines rise in one after another on page load. */
@@ -176,10 +172,11 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js-ready .reveal {
+  .reveal.reveal-pending {
     opacity: 1;
     transform: none;
-    filter: none;
+  }
+  .reveal.is-visible {
     transition: none;
   }
   .hero-in,
@@ -196,22 +193,6 @@ body {
   }
 }
 
-@keyframes slow-zoom {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.08);
-  }
-}
-.hero-zoom {
-  animation: slow-zoom 18s ease-out forwards;
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-zoom {
-    animation: none;
-  }
-}
 
 @layer components {
 .field {

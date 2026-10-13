@@ -46,7 +46,9 @@ export function Carousel({
   useEffect(() => {
     const el = track.current;
     if (!el) return;
-    update();
+    // Measured on the next frame, when the browser has already laid the page out, so this
+    // read does not force an extra layout pass during page load.
+    const first = requestAnimationFrame(update);
     el.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
 
@@ -66,6 +68,7 @@ export function Carousel({
         }, interval);
 
     return () => {
+      cancelAnimationFrame(first);
       el.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
       io.disconnect();

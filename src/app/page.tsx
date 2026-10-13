@@ -61,7 +61,7 @@ export default async function Home() {
       {/* Hero */}
       <section className="relative isolate z-10 bg-ink-soft">
         <div className="absolute inset-0 -z-20 overflow-hidden">
-          <Pic img={home.heroImage} priority sizes="100vw" className="hero-zoom h-full w-full object-cover object-[62%_center] lg:object-center" />
+          <Pic img={home.heroImage} priority sizes="100vw" className="h-full w-full object-cover object-[62%_center] lg:object-center" />
         </div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/35 via-transparent to-ink/35" />
 

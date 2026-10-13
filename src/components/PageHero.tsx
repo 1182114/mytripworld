@@ -26,7 +26,7 @@ export function PageHero({
     <section className={`relative isolate overflow-hidden ${image ? "bg-ink-soft" : "bg-sand-deep"}`}>
       {image && (
         <>
-          <Pic img={image} alt={alt} priority className="hero-zoom absolute inset-0 -z-20 h-full w-full object-cover" />
+          <Pic img={image} alt={alt} priority className="absolute inset-0 -z-20 h-full w-full object-cover" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/35 via-transparent to-white/10" />
         </>
       )}

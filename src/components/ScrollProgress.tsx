@@ -13,7 +13,7 @@ export function ScrollProgress() {
       if (bar.current) bar.current.style.transform = `scaleX(${max > 0 ? Math.min(1, window.scrollY / max) : 0})`;
     };
     const onScroll = () => (frame ||= requestAnimationFrame(update));
-    update();
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
