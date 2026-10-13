@@ -1,7 +1,9 @@
 import type { Img } from "./content/types";
 import { siteUrl } from "./site";
 
-const cdnWidths = [480, 800, 1200, 1600, 2000];
+// 640 and 720 are there for phones: a card about 370px wide on a typical phone screen needs
+// roughly 650-700px, and without them the browser had to take the 800px file.
+const cdnWidths = [480, 640, 720, 800, 1200, 1600, 2000];
 
 /** A single URL for the image at roughly the given width (used for share images and schema). */
 export function imgUrl(img: Img, width = 1200) {
