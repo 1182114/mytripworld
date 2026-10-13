@@ -103,6 +103,8 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} antialiased`}>
       <body className="flex min-h-screen flex-col">
+        {/* Photos come from the image CDN: open that connection while the page is still loading. */}
+        <link rel="preconnect" href="https://cdn.sanity.io" />
         <a href="#main" className="skip-link">
           Skip to content
         </a>

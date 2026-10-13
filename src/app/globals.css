@@ -128,20 +128,8 @@ body {
     transform: none;
   }
 }
-.hero-in {
-  animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-.hero-in > * {
-  animation: rise-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
-}
-.hero-in > *:nth-child(1) { animation-delay: 0.15s; }
-.hero-in > *:nth-child(2) { animation-delay: 0.25s; }
-.hero-in > *:nth-child(3) { animation-delay: 0.35s; }
-.hero-in > *:nth-child(4) { animation-delay: 0.45s; }
-.hero-in > *:nth-child(n + 5) { animation-delay: 0.55s; }
-.hero-in-late {
-  animation: rise-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.55s both;
-}
+/* The hero panel used to rise in line by line. It is the first thing on screen, so any
+   entrance animation only delays when the visitor (and Google) sees the page: shown at once. */
 
 /* A soft light sweep across primary buttons on hover */
 .btn-gold,
