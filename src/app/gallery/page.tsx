@@ -3,6 +3,7 @@ import { CtaBand } from "@/components/CtaBand";
 import { PageHero } from "@/components/PageHero";
 import { Pic } from "@/components/Pic";
 import { Reveal } from "@/components/Reveal";
+import { VideoSection } from "@/components/VideoSection";
 import { getContent } from "@/lib/content";
 import { imgUrl } from "@/lib/img";
 import { pageMeta } from "@/lib/seo";
@@ -15,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function GalleryPage() {
-  const { pages, gallery } = await getContent();
+  const { pages, gallery, videos } = await getContent();
   const page = pages.gallery;
   return (
     <>
@@ -32,6 +33,7 @@ export default async function GalleryPage() {
           ))}
         </div>
       </section>
+      <VideoSection videos={videos} eyebrow="Videos" heading="Travel videos" />
       <CtaBand />
     </>
   );

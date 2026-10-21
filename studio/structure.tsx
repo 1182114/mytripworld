@@ -8,6 +8,7 @@ import {HelpCircleIcon} from '@sanity/icons/HelpCircle'
 import {HomeIcon} from '@sanity/icons/Home'
 import {ImagesIcon} from '@sanity/icons/Images'
 import {PinIcon} from '@sanity/icons/Pin'
+import {PlayIcon} from '@sanity/icons/Play'
 import {RocketIcon} from '@sanity/icons/Rocket'
 import {TagIcon} from '@sanity/icons/Tag'
 import type {StructureResolver} from 'sanity/structure'
@@ -68,6 +69,7 @@ export const structure: StructureResolver = (S) =>
       S.listItem().title('Departure cities').icon(PinIcon).child(S.documentTypeList('city').title('Departure cities').defaultOrdering([{field: 'order', direction: 'asc'}])),
       S.divider(),
       S.listItem().title('Customer reviews').icon(CommentIcon).child(S.documentTypeList('testimonial').title('Customer reviews').defaultOrdering([{field: 'order', direction: 'asc'}])),
+      S.listItem().title('Videos').icon(PlayIcon).child(S.documentTypeList('video').title('Videos').defaultOrdering([{field: 'order', direction: 'asc'}])),
       S.listItem().title('Gallery').icon(ImagesIcon).child(S.documentTypeList('galleryItem').title('Gallery photos').defaultOrdering([{field: 'order', direction: 'asc'}])),
       S.listItem().title('FAQs').icon(HelpCircleIcon).child(S.documentTypeList('faq').title('FAQs').defaultOrdering([{field: 'order', direction: 'asc'}])),
       S.divider(),

@@ -43,7 +43,7 @@ export async function loadRawDocs(): Promise<{ docs: RawDoc[]; mode: "sanity" | 
   // Read with Node's own HTTPS client rather than fetch(): Next.js keeps fetch()
   // responses in its build cache (.next/cache), so a rebuild after "Publish"
   // could otherwise ship older content.
-  const query = `*[_type in ["siteSettings","homePage","pageContent","legalPage","package","destination","city","testimonial","galleryItem","faq","offer"]]`;
+  const query = `*[_type in ["siteSettings","homePage","pageContent","legalPage","package","destination","city","testimonial","galleryItem","video","faq","offer"]]`;
   const url = `https://${sanityProject}.api.sanity.io/v2025-02-19/data/query/${sanityDataset}?perspective=published&query=${encodeURIComponent(query)}`;
   let docs: RawDoc[];
   try {

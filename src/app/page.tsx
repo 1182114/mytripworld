@@ -13,6 +13,7 @@ import { RichText } from "@/components/RichText";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Testimonials } from "@/components/Testimonials";
 import { UspStrip } from "@/components/UspStrip";
+import { VideoSection } from "@/components/VideoSection";
 import { WelcomePopup } from "@/components/WelcomePopup";
 import { getContent } from "@/lib/content";
 import { imgUrl, sources } from "@/lib/img";
@@ -26,7 +27,7 @@ function splitHeading(heading: string, highlight?: string) {
 }
 
 export default async function Home() {
-  const { home, settings, contact, packages, destinations, gallery, faqs, offers } = await getContent();
+  const { home, settings, contact, packages, destinations, gallery, videos, faqs, offers } = await getContent();
   const featuredList = packages.filter((p) => p.featured);
   // Featured packages lead the grid; the home page shows three rows and links to the rest.
   const homePackages = [...featuredList, ...packages.filter((p) => !p.featured)].slice(0, 9);
@@ -326,6 +327,8 @@ export default async function Home() {
           </div>
         </section>
       )}
+
+      <VideoSection videos={videos.filter((v) => v.showOnHome).slice(0, 6)} />
 
       <Testimonials />
 

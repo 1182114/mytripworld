@@ -75,6 +75,29 @@ export const testimonialType = defineType({
   preview: {select: {title: 'name', subtitle: 'trip', media: 'photo'}},
 })
 
+// A YouTube video shown on the website. Only the link is needed; the video plays on the page.
+export const videoType = defineType({
+  name: 'video',
+  title: 'Video',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'url',
+      title: 'YouTube link',
+      description: 'Paste the link from YouTube, e.g. https://youtu.be/abc123 or a youtube.com/watch or /shorts link.',
+      type: 'url',
+      validation: (rule) =>
+        rule.required().custom((v) => (typeof v === 'string' && /(youtu\.be\/|youtube\.com\/(watch\?|shorts\/|embed\/|live\/))/.test(v) ? true : 'Please paste a YouTube link.')),
+    }),
+    defineField({name: 'title', title: 'Title shown on the website', type: 'string', validation: (rule) => rule.required().max(90)}),
+    defineField({name: 'place', title: 'Destination (optional)', description: 'For example: Switzerland', type: 'string'}),
+    defineField({name: 'showOnHome', title: 'Show on the home page', type: 'boolean', initialValue: true}),
+    orderField,
+  ],
+  orderings: [{title: 'Sort order', name: 'order', by: [{field: 'order', direction: 'asc'}]}],
+  preview: {select: {title: 'title', subtitle: 'place'}},
+})
+
 export const galleryItemType = defineType({
   name: 'galleryItem',
   title: 'Gallery photo',

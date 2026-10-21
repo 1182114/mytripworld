@@ -62,6 +62,7 @@ function pageUrl(doc: {_type: string; slug?: {current?: string}; key?: string}):
     case 'offer':
       return `${siteUrl}/`
     case 'galleryItem':
+    case 'video':
       return `${siteUrl}/gallery/`
     case 'pageContent':
       return {

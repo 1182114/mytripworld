@@ -5,7 +5,7 @@ import { centralAsiaCover, centralAsiaStopImage } from "./central-asia-images";
 import { europeCruiseStopImage } from "./europe-cruise-images";
 import { nordicStopImage } from "./nordic-images";
 import { sanityDataset, sanityProject, type RawDoc } from "./source";
-import type { City, Content, Destination, Faq, GalleryItem, Home, Img, LegalPage, Offer, Package, PageContent, PageKey, Point, Rich, Settings, Testimonial } from "./types";
+import type { City, Content, Destination, Faq, GalleryItem, Home, Img, LegalPage, Offer, Package, PageContent, PageKey, Point, Rich, Settings, Testimonial, Video } from "./types";
 
 type Obj = Record<string, unknown>;
 const str = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
@@ -313,6 +313,13 @@ export function mapContent(docs: RawDoc[]): Content {
     .map((d) => ({ image: image(d.image, `Gallery photo ${d._id}`), place: str(d.place) ?? "" }))
     .filter((g): g is GalleryItem => Boolean(g.image));
 
+  // YouTube links in any common form (youtu.be, watch?v=, shorts, embed, live) -> the 11-character video id.
+  const youtubeId = (url?: string) => /(?:youtu\.be\/|[?&]v=|\/(?:shorts|embed|live)\/)([A-Za-z0-9_-]{11})/.exec(url ?? "")?.[1];
+  const videos: Video[] = of("video")
+    .sort(byOrder)
+    .map((d) => ({ id: youtubeId(str(d.url)) ?? "", title: str(d.title) ?? "", place: str(d.place), showOnHome: d.showOnHome !== false }))
+    .filter((v) => v.id && v.title);
+
   const faqs: Faq[] = of("faq")
     .sort(byOrder)
     .map((d) => ({ q: str(d.question), a: str(d.answer) }))
@@ -340,6 +347,7 @@ export function mapContent(docs: RawDoc[]): Content {
     cities,
     testimonials,
     gallery,
+    videos,
     faqs,
     offers,
   };
