@@ -37,7 +37,7 @@ export function ReviewCard({ review, fill = false }: { review: Testimonial; fill
         <QuoteIcon className="h-5 w-7 text-gold" />
       </div>
 
-      <blockquote className={`mt-4 text-[0.95rem] leading-relaxed text-ink-soft ${long && !open ? "line-clamp-5" : ""}`}>{review.text}</blockquote>
+      <blockquote className={`mt-4 whitespace-pre-line text-[0.95rem] leading-relaxed text-ink-soft ${long && !open ? "line-clamp-5" : ""}`}>{review.text}</blockquote>
       {long && (
         <button type="button" onClick={() => setOpen((v) => !v)} aria-expanded={open} className="mt-2 self-start text-[0.82rem] font-bold text-ink-soft underline decoration-gold decoration-2 underline-offset-4">
           {open ? "Show less" : "Read more"}

@@ -64,7 +64,7 @@ export const testimonialType = defineType({
   fields: [
     defineField({name: 'name', title: 'Customer name', type: 'string', validation: (rule) => rule.required()}),
     defineField({name: 'trip', title: 'Which trip', description: 'For example: Malaysia tour', type: 'string'}),
-    defineField({name: 'text', title: 'What they said', description: 'Use the customer’s real words. Never write a review yourself. (Sirf asli review daalein.)', type: 'text', rows: 5, validation: (rule) => rule.required().min(20).max(700)}),
+    defineField({name: 'text', title: 'What they said', description: 'Use the customer’s real words. Never write a review yourself. (Sirf asli review daalein.)', type: 'text', rows: 5, validation: (rule) => rule.required().min(20).max(4000)}),
     defineField({name: 'rating', title: 'Stars', type: 'number', options: {list: [5, 4, 3, 2, 1]}, validation: (rule) => rule.min(1).max(5).integer()}),
     defineField({name: 'source', title: 'Where the review came from', type: 'string', options: {list: [{title: 'Told us directly', value: 'direct'}, {title: 'Google', value: 'google'}, {title: 'Facebook', value: 'facebook'}, {title: 'Justdial', value: 'justdial'}, {title: 'WhatsApp message', value: 'whatsapp'}]}, initialValue: 'direct', validation: (rule) => rule.required()}),
     defineField({name: 'date', title: 'Date of the review', type: 'date'}),
