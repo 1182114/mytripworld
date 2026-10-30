@@ -273,6 +273,9 @@ export function mapContent(docs: RawDoc[]): Content {
         showOnHome: d.showOnHome !== false,
         tileSize: d.tileSize === "wide" || d.tileSize === "large" ? d.tileSize : "normal",
         intro: strings(d.intro),
+        guide: arr<Obj>(d.guide)
+          .map((g) => ({ heading: str(g.heading) ?? "", text: (str(g.text) ?? "").split(/\n+/).map((t) => t.trim()).filter(Boolean) }))
+          .filter((g) => g.heading && g.text.length),
         ...seo(d, `${name} Tour Packages from India`, `${name} tour packages from India by ${settings.name}, with flights, stay, transfers and sightseeing.`),
       };
     });

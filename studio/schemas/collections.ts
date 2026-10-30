@@ -18,6 +18,23 @@ export const destinationType = defineType({
       type: 'array',
       of: [defineArrayMember({type: 'text', rows: 4})],
     }),
+    defineField({
+      name: 'guide',
+      title: 'Travel guide',
+      description: 'Short sections such as "Best time to visit" or "Passport and visa". Write only what is true; the starting price is added automatically from the packages.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'guideSection',
+          fields: [
+            defineField({name: 'heading', title: 'Heading', type: 'string', validation: (rule) => rule.required().max(80)}),
+            defineField({name: 'text', title: 'Text', description: 'One paragraph per line.', type: 'text', rows: 5, validation: (rule) => rule.required()}),
+          ],
+          preview: {select: {title: 'heading', subtitle: 'text'}},
+        }),
+      ],
+    }),
     seoField,
     orderField,
   ],

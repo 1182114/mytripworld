@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps<"/destinations/[slu
   const { destinations, packages, settings } = await getContent();
   const d = destinations.find((x) => x.slug === slug);
   if (!d) return {};
-  const hasContent = d.intro.length > 0 || packages.some((p) => matches(d.name, p));
+  const hasContent = d.intro.length > 0 || d.guide.length > 0 || packages.some((p) => matches(d.name, p));
   return {
     ...pageMeta({ title: d.seoTitle, description: d.seoDescription, path: `/destinations/${d.slug}/`, image: imgUrl(d.image), siteName: settings.name }),
     robots: hasContent ? undefined : { index: false, follow: true },
@@ -39,6 +39,8 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
   const d = destinations.find((x) => x.slug === slug);
   if (!d) notFound();
   const matching = packages.filter((p) => matches(d.name, p));
+  // The lowest real offer price among the packages that include this destination.
+  const cheapest = matching.filter((p) => p.price !== undefined).sort((a, b) => a.price! - b.price!)[0];
 
   return (
     <>
@@ -74,6 +76,32 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
                 {d.name} trips are tailor-made. Send us your dates and we will plan it for you, or browse all{" "}
                 <Link href="/tour-packages/" className="font-bold underline decoration-gold decoration-2 underline-offset-4">tour packages</Link>.
               </p>
+            )}
+            {(d.guide.length > 0 || cheapest) && (
+              <>
+                <h2 className="mt-14 font-display text-[2.2rem] leading-tight text-ink">Planning your {d.name} trip</h2>
+                <span className="gold-rule mt-3" />
+                <div className="mt-8 space-y-8">
+                  {cheapest && (
+                    <section>
+                      <h3 className="font-display text-2xl text-ink">Budget</h3>
+                      <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">
+                        Our packages that include {d.name} start from <strong className="text-ink">{cheapest.priceLabel}</strong> per person
+                        {cheapest.priceTerms ? ` (${cheapest.priceTerms})` : ""}, with{" "}
+                        <Link href={`/tour-packages/${cheapest.slug}/`} className="font-bold underline decoration-gold decoration-2 underline-offset-4">{cheapest.title}</Link>. Each package page lists exactly what is included.
+                      </p>
+                    </section>
+                  )}
+                  {d.guide.map((g) => (
+                    <section key={g.heading}>
+                      <h3 className="font-display text-2xl text-ink">{g.heading}</h3>
+                      {g.text.map((t) => (
+                        <p key={t} className="mt-2 text-[0.95rem] leading-relaxed text-ink-soft">{t}</p>
+                      ))}
+                    </section>
+                  ))}
+                </div>
+              </>
             )}
           </div>
           <aside className="lg:sticky lg:top-28 lg:self-start">

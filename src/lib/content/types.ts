@@ -141,7 +141,7 @@ export type Package = {
   featured: boolean;
 };
 
-export type Destination = { slug: string; name: string; image: Img; showOnHome: boolean; tileSize: "normal" | "wide" | "large"; intro: string[]; seoTitle: string; seoDescription: string };
+export type Destination = { slug: string; name: string; image: Img; showOnHome: boolean; tileSize: "normal" | "wide" | "large"; intro: string[]; guide: { heading: string; text: string[] }[]; seoTitle: string; seoDescription: string };
 export type City = { slug: string; name: string; short: string; state?: string; airport: string; code: string; area: string; intro: string[]; notes: string[]; officeAnswer: string; faqs: Faq[]; featured: boolean; hasPage: boolean; seoTitle: string; seoDescription: string };
 export type Testimonial = { name: string; trip?: string; text: string; rating?: number; source?: string; photo?: Img };
 export type GalleryItem = { image: Img; place: string };
