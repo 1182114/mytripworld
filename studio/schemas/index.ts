@@ -1,4 +1,4 @@
-import {cityType, destinationType, enquiryType, faqType, galleryItemType, offerType, testimonialType, videoType} from './collections'
+import {cityType, destinationType, enquiryType, faqType, galleryItemType, offerType, postType, testimonialType, videoType} from './collections'
 import {packageType} from './package'
 import {homePageType, legalPageType, pageContentType} from './pages'
 import {siteSettingsType} from './siteSettings'
@@ -10,6 +10,7 @@ export const schemaTypes = [
   testimonialType,
   galleryItemType,
   videoType,
+  postType,
   offerType,
   faqType,
   homePageType,

@@ -52,6 +52,8 @@ function pageUrl(doc: {_type: string; slug?: {current?: string}; key?: string}):
       return slug ? `${siteUrl}/${slug}/` : undefined
     case 'destination':
       return slug ? `${siteUrl}/destinations/${slug}/` : undefined
+    case 'post':
+      return slug ? `${siteUrl}/blog/${slug}/` : undefined
     case 'legalPage':
       return slug ? `${siteUrl}/${slug}/` : undefined
     case 'homePage':

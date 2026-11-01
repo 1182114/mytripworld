@@ -92,6 +92,41 @@ export const testimonialType = defineType({
   preview: {select: {title: 'name', subtitle: 'trip', media: 'photo'}},
 })
 
+// A travel article on /blog/. Written as short sections so it stays easy to edit.
+export const postType = defineType({
+  name: 'post',
+  title: 'Blog article',
+  type: 'document',
+  fields: [
+    defineField({name: 'title', title: 'Title', type: 'string', validation: (rule) => rule.required().max(90)}),
+    slugField('title', 'The page link. Do not change it after the article is live.'),
+    defineField({name: 'excerpt', title: 'Short summary', description: 'One or two lines shown on the blog page.', type: 'text', rows: 2, validation: (rule) => rule.required().max(220)}),
+    imageField('cover', 'Main photo', undefined, true),
+    defineField({name: 'date', title: 'Published on', type: 'date', validation: (rule) => rule.required()}),
+    defineField({
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'postSection',
+          fields: [
+            defineField({name: 'heading', title: 'Heading', type: 'string', validation: (rule) => rule.required().max(90)}),
+            defineField({name: 'text', title: 'Text', description: 'One paragraph per line. Start a line with "- " for a bullet point.', type: 'text', rows: 8, validation: (rule) => rule.required()}),
+          ],
+          preview: {select: {title: 'heading', subtitle: 'text'}},
+        }),
+      ],
+      validation: (rule) => rule.required().min(1),
+    }),
+    defineField({name: 'packages', title: 'Related packages', description: 'Shown as cards at the end, with their current prices.', type: 'array', of: [defineArrayMember({type: 'reference', to: [{type: 'package'}]})]}),
+    seoField,
+  ],
+  orderings: [{title: 'Newest first', name: 'date', by: [{field: 'date', direction: 'desc'}]}],
+  preview: {select: {title: 'title', subtitle: 'date', media: 'cover'}},
+})
+
 // A YouTube video shown on the website. Only the link is needed; the video plays on the page.
 export const videoType = defineType({
   name: 'video',

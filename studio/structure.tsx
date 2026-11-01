@@ -69,6 +69,7 @@ export const structure: StructureResolver = (S) =>
       S.listItem().title('Departure cities').icon(PinIcon).child(S.documentTypeList('city').title('Departure cities').defaultOrdering([{field: 'order', direction: 'asc'}])),
       S.divider(),
       S.listItem().title('Customer reviews').icon(CommentIcon).child(S.documentTypeList('testimonial').title('Customer reviews').defaultOrdering([{field: 'order', direction: 'asc'}])),
+      S.listItem().title('Blog').icon(BookIcon).child(S.documentTypeList('post').title('Blog articles').defaultOrdering([{field: 'date', direction: 'desc'}])),
       S.listItem().title('Videos').icon(PlayIcon).child(S.documentTypeList('video').title('Videos').defaultOrdering([{field: 'order', direction: 'asc'}])),
       S.listItem().title('Gallery').icon(ImagesIcon).child(S.documentTypeList('galleryItem').title('Gallery photos').defaultOrdering([{field: 'order', direction: 'asc'}])),
       S.listItem().title('FAQs').icon(HelpCircleIcon).child(S.documentTypeList('faq').title('FAQs').defaultOrdering([{field: 'order', direction: 'asc'}])),

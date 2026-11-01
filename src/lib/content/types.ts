@@ -145,6 +145,7 @@ export type Destination = { slug: string; name: string; image: Img; showOnHome: 
 export type City = { slug: string; name: string; short: string; state?: string; airport: string; code: string; area: string; intro: string[]; notes: string[]; officeAnswer: string; faqs: Faq[]; featured: boolean; hasPage: boolean; seoTitle: string; seoDescription: string };
 export type Testimonial = { name: string; trip?: string; text: string; rating?: number; source?: string; photo?: Img };
 export type GalleryItem = { image: Img; place: string };
+export type Post = { slug: string; title: string; excerpt: string; cover: Img; date: string; dateLabel: string; sections: { heading: string; blocks: { bullets?: string[]; text?: string }[] }[]; packages: string[]; seoTitle: string; seoDescription: string };
 export type Video = { id: string; title: string; place?: string; showOnHome: boolean };
 export type Offer = { title: string; text: string; validTill: string; validLabel: string; packageSlug?: string; packageTitle?: string };
 
@@ -160,6 +161,7 @@ export type Content = {
   testimonials: Testimonial[];
   gallery: GalleryItem[];
   videos: Video[];
+  posts: Post[];
   faqs: Faq[];
   offers: Offer[];
 };

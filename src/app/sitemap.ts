@@ -5,7 +5,7 @@ import { siteUrl } from "@/lib/site";
 export const dynamic = "force-static";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const { packages, cities, destinations, legal } = await getContent();
+  const { packages, cities, destinations, legal, posts } = await getContent();
   const lastModified = new Date();
   const page = (path: string, priority: number, changeFrequency: "weekly" | "monthly" | "yearly" = "monthly") => ({
     url: `${siteUrl}${path}`,
@@ -22,6 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...destinations
       .filter((d) => d.intro.length || packages.some((p) => `${p.title} ${p.placesLabel}`.toLowerCase().includes(d.name.toLowerCase())))
       .map((d) => page(`/destinations/${d.slug}/`, 0.7)),
+    ...(posts.length ? [page("/blog/", 0.7, "weekly"), ...posts.map((p) => page(`/blog/${p.slug}/`, 0.7))] : []),
     page("/departure-cities/", 0.7),
     ...cities.filter((c) => c.hasPage).map((c) => page(`/${c.slug}/`, c.featured ? 0.7 : 0.6)),
     page("/about-us/", 0.6),

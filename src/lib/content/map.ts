@@ -5,7 +5,7 @@ import { centralAsiaCover, centralAsiaStopImage } from "./central-asia-images";
 import { europeCruiseStopImage } from "./europe-cruise-images";
 import { nordicStopImage } from "./nordic-images";
 import { sanityDataset, sanityProject, type RawDoc } from "./source";
-import type { City, Content, Destination, Faq, GalleryItem, Home, Img, LegalPage, Offer, Package, PageContent, PageKey, Point, Rich, Settings, Testimonial, Video } from "./types";
+import type { City, Content, Destination, Faq, GalleryItem, Home, Img, LegalPage, Offer, Package, PageContent, PageKey, Point, Rich, Post, Settings, Testimonial, Video } from "./types";
 
 type Obj = Record<string, unknown>;
 const str = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
@@ -323,6 +323,40 @@ export function mapContent(docs: RawDoc[]): Content {
     .map((d) => ({ id: youtubeId(str(d.url)) ?? "", title: str(d.title) ?? "", place: str(d.place), showOnHome: d.showOnHome !== false }))
     .filter((v) => v.id && v.title);
 
+  // Article text: one paragraph per line; neighbouring "- " lines become one bullet list.
+  const blocks = (text: string) => {
+    const out: { bullets?: string[]; text?: string }[] = [];
+    for (const raw of text.split(/\n+/)) {
+      const line = raw.trim();
+      if (!line) continue;
+      if (line.startsWith("- ")) {
+        const last = out[out.length - 1];
+        if (last?.bullets) last.bullets.push(line.slice(2));
+        else out.push({ bullets: [line.slice(2)] });
+      } else out.push({ text: line });
+    }
+    return out;
+  };
+  const packageSlug = (id?: string) => str((docs.find((x) => x._id === id)?.slug as Obj | undefined)?.current);
+  const posts: Post[] = of("post")
+    .map((d) => {
+      const title = need(str(d.title), `Blog article ${d._id} → Title`);
+      const date = need(str(d.date), `Blog article "${title}" → Published on`);
+      const excerpt = need(str(d.excerpt), `Blog article "${title}" → Short summary`);
+      return {
+        slug: need(str((d.slug as Obj | undefined)?.current), `Blog article "${title}" → Web address`),
+        title,
+        excerpt,
+        cover: need(image(d.cover, `Blog article "${title}" → Main photo`, title), `Blog article "${title}" → Main photo`),
+        date,
+        dateLabel: longDate(date),
+        sections: arr<Obj>(d.sections).map((x) => ({ heading: str(x.heading) ?? "", blocks: blocks(str(x.text) ?? "") })).filter((x) => x.heading && x.blocks.length),
+        packages: arr<Obj>(d.packages).map((r) => packageSlug(str(r._ref))).filter((x): x is string => Boolean(x)),
+        ...seo(d, title, excerpt.slice(0, 160)),
+      };
+    })
+    .sort((a, b) => b.date.localeCompare(a.date));
+
   const faqs: Faq[] = of("faq")
     .sort(byOrder)
     .map((d) => ({ q: str(d.question), a: str(d.answer) }))
@@ -351,6 +385,7 @@ export function mapContent(docs: RawDoc[]): Content {
     testimonials,
     gallery,
     videos,
+    posts,
     faqs,
     offers,
   };

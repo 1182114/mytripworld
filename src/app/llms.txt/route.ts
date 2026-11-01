@@ -6,7 +6,7 @@ export const dynamic = "force-static";
 // Plain-text company summary for AI assistants and answer engines.
 // Built from the admin-panel content, so it never drifts out of date.
 export async function GET() {
-  const { settings, contact, packages, cities, faqs } = await getContent();
+  const { settings, contact, packages, cities, faqs, posts } = await getContent();
   const lines = [
     `# ${settings.name}`,
     "",
@@ -33,6 +33,7 @@ export async function GET() {
     "",
     `Prices are offer prices published by ${settings.name} and are confirmed in each quote.`,
     "",
+    ...(posts.length ? ["## Travel guides", ...posts.map((p) => `- [${p.title}](${siteUrl}/blog/${p.slug}/): ${p.excerpt}`), ""] : []),
     "## Departure cities",
     `${settings.name} serves travellers from every city in India. Cities with their own page:`,
     ...cities.filter((c) => c.hasPage).map((c) => `- [${c.name}](${siteUrl}/${c.slug}/) — ${c.airport} (${c.code})`),
