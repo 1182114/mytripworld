@@ -20,7 +20,7 @@ export function WelcomePopup({ src, srcSet, alt, width, height, href }: Props) {
 
   useEffect(() => {
     try {
-      const seen = Number(localStorage.getItem(storageKey));
+      const seen = Number(localStorage.getItem(`${storageKey}:${src}`));
       if (seen && Date.now() - seen < quietDays * 86_400_000) return;
     } catch {
       // Storage blocked (private mode): still show it once for this visit.
@@ -56,18 +56,20 @@ export function WelcomePopup({ src, srcSet, alt, width, height, href }: Props) {
     window.addEventListener("scroll", onScroll, { passive: true });
     useEvents.forEach((name) => window.addEventListener(name, onUse, { passive: true }));
     return stop;
-  }, []);
+  }, [src]);
 
   useEffect(() => {
     if (!open) return;
     dialog.current?.showModal();
     try {
-      localStorage.setItem(storageKey, String(Date.now()));
+      // Remembered per poster, so a new campaign poster is seen even by recent visitors.
+      localStorage.setItem(`${storageKey}:${src}`, String(Date.now()));
     } catch {}
-  }, [open]);
+  }, [open, src]);
 
   if (!open) return null;
   const close = () => dialog.current?.close();
+  const wide = Boolean(width && height && width > height);
 
   return (
     <dialog
@@ -79,13 +81,13 @@ export function WelcomePopup({ src, srcSet, alt, width, height, href }: Props) {
     >
       <a href={href} onClick={close} className="block overflow-hidden rounded-3xl">
         {/* eslint-disable-next-line @next/next/no-img-element -- static export: the image CDN does the resizing */}
-        <img src={src} srcSet={srcSet} sizes="(min-width: 640px) 440px, 90vw" alt={alt} width={width} height={height} decoding="async" className="block h-auto max-h-[80vh] w-auto max-w-[min(90vw,440px)]" />
+        <img src={src} srcSet={srcSet} sizes={wide ? "(min-width: 720px) 640px, 90vw" : "(min-width: 640px) 440px, 90vw"} alt={alt} width={width} height={height} decoding="async" className={`block h-auto max-h-[80vh] w-auto ${wide ? "max-w-[min(90vw,640px)]" : "max-w-[min(90vw,440px)]"}`} />
       </a>
       <button
         type="button"
         onClick={close}
         aria-label="Close"
-        className="absolute -right-2 -top-2 flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl leading-none text-ink shadow-lg ring-1 ring-ink/10 transition-colors hover:bg-gold"
+        className="absolute right-1 top-1 flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl leading-none text-ink shadow-lg ring-1 ring-ink/10 transition-colors hover:bg-gold"
       >
         ×
       </button>
